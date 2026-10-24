@@ -84,8 +84,9 @@ change production resources. No support message was sent automatically.
 
 ## Validation and scan gate
 
-- Eight Python tests passed, including healthy-service prerequisite, bounded
-  count/concurrency, actual-exit-country filtering and unknown-risk rejection.
+- Eight Python tests passed, including healthy-service prerequisite,
+  actual-exit-country filtering and unknown-risk rejection. The configured
+  scan limits remain at most ten candidates and concurrency two.
 - Five JavaScript tests passed; diagnostic script syntax checks passed.
 - Local unit tests are not proof of deployed runtime health.
 - Health remains 500, so no manual workflow/scan was dispatched.
