@@ -1,5 +1,13 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
+Latest real scan: see `NODE_SCAN_RESULT_20261025.md`. A bounded Actions-only Node
+SSTP backend passed actual HTTP health checks and scanned ten candidates: six
+authenticated repeated exits, two explicitly residential allocations, but all
+six scored 100/100 and were flagged as public proxies. Zero qualified residential
+exits and no subscription published. The scan's metadata parser failure was
+fixed and its saved exits reviewed without another tunnel scan. Cloudflare
+deployments and the user's current network remain untouched.
+
 Latest discriminating test: see `PROBE_RESULT_20261025.md`. One new isolated
 gate-checker-probe was created with a constant response, no imports or bindings.
 Its first health request also returned 500/1101. No detector deployment or scan

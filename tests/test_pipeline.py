@@ -7,6 +7,44 @@ from unittest.mock import patch, Mock
 import vpngate as gate
 
 class PipelineTests(unittest.TestCase):
+    def test_anonymous_ipapi_shape_preserves_unknown_risk_and_type(self):
+        data = gate.normalize_ipapi({'ip':'1.1.1.1', 'asn':'AS17676 SoftBank Mobile Corp.', 'company':'SOFTBANK Corp.', 'country':'Japan'}, '1.1.1.1')
+        self.assertEqual(data['asn'], 17676)
+        self.assertEqual(data['country_code'], 'JP')
+        self.assertIsNone(data['type'])
+        self.assertEqual(gate.risk_status(data), 'unknown')
+        self.assertEqual(gate.classify_network(data['is_datacenter'], data['type'], data['org']), 'unknown')
+
+    def test_proxycheck_missing_or_positive_risk_cannot_pass(self):
+        data = {k:False for k in ('proxy','vpn','tor','compromised','scraper','anonymous','hosting')}
+        self.assertEqual(gate.proxycheck_risk(data), 'unknown')
+        self.assertEqual(gate.proxycheck_risk({**data,'risk':None}), 'unknown')
+        self.assertEqual(gate.proxycheck_risk({**data,'risk':0}), 'no_flags_reported')
+        self.assertEqual(gate.proxycheck_risk({**data,'risk':0,'proxy':True}), 'flagged')
+        self.assertEqual(gate.proxycheck_risk({**data,'risk':40}), 'flagged')
+        incomplete = {**data, 'risk':0}
+        del incomplete['tor']
+        self.assertEqual(gate.proxycheck_risk(incomplete), 'unknown')
+
+    def test_residential_allocation_is_not_automatically_low_risk(self):
+        ip = '1.1.1.1'
+        flags = {k:False for k in ('proxy','vpn','tor','compromised','scraper','anonymous','hosting')}
+        payloads = [
+            {'ip':ip, 'country_code':'KR', 'connection':{'asn':9318,'isp':'SK Broadband'}},
+            {'ip':ip, 'country':'South Korea', 'asn':'AS9318 SK Broadband', 'company':'SK Broadband'},
+            {'status':'ok', ip:{'network':{'asn':'AS9318','type':'Residential'}, 'location':{'country_code':'KR'}, 'detections':{**flags,'proxy':True,'risk':100}}}]
+        responses = [Mock(status_code=200) for _ in payloads]
+        for response, payload in zip(responses, payloads):
+            response.json.return_value = payload
+        result = {'exit':{'ip':ip,'country_code':'KR','asn':{'asn':9318}}}
+        with patch.object(gate.requests, 'get', side_effect=responses):
+            gate.crosscheck(result)
+        self.assertTrue(result['exit_crosschecked'])
+        self.assertEqual(result['residential'], 'residential')
+        self.assertEqual(result['risk_status'], 'flagged')
+        self.assertEqual(result['risk_score'], 100)
+        self.assertFalse(gate.eligible_exit(result))
+
     def test_node_backend_rejects_uncertified_or_single_source_observation(self):
         node = {'host': 'vpn123.opengw.net', 'port': 443}
         payload = {'success': True, 'exit': {'ip': '1.1.1.1'},

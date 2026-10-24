@@ -20,6 +20,8 @@ DIAGNOSTICS = Path(os.environ.get('DIAGNOSTICS_DIR', ROOT / 'diagnostics'))
 SOURCE = 'https://www.vpngate.net/api/iphone/'
 HOST_RE = re.compile(r'^(?:vpn\d+|vpnv\d+|public-vpn-[a-z0-9-]+)\.opengw\.net$', re.I)
 CONSUMER_ISPS = ('COMCAST', 'XFINITY', 'CHARTER', 'SPECTRUM', 'COX COMMUNICATIONS', 'AT&T', 'VERIZON', 'FRONTIER', 'CENTURYLINK', 'NTT EAST', 'NTT WEST', 'SOFTBANK', 'KDDI')
+METADATA_BLOCKED = set()
+COUNTRY_NAMES = {'United States': 'US', 'United States of America': 'US', 'Japan': 'JP', 'South Korea': 'KR', 'Republic of Korea': 'KR', 'Korea, Republic of': 'KR', 'Singapore': 'SG'}
 
 def target_countries(value=None):
     value = os.environ.get('TARGET_COUNTRIES', 'US,JP,KR,SG') if value is None else value
@@ -63,9 +65,31 @@ def public_ip(value):
 
 def asn_number(value):
     try:
-        return int(str(value).upper().removeprefix('AS'))
+        match = re.fullmatch(r'(?:AS)?(\d+)(?:\s+.+)?', str(value).upper())
+        return int(match[1]) if match else None
     except (ValueError, TypeError):
         return None
+
+def mapping(value):
+    return value if isinstance(value, dict) else {}
+
+def normalize_ipapi(data, ip):
+    asn, company, location = mapping(data.get('asn')), mapping(data.get('company')), mapping(data.get('location'))
+    country_name = data.get('country') if isinstance(data.get('country'), str) else ''
+    return {'ip': ip, 'country_code': location.get('country_code') or COUNTRY_NAMES.get(country_name),
+            'asn': asn_number(asn.get('asn') if asn else data.get('asn')), 'org': asn.get('org') or (data.get('company') if isinstance(data.get('company'), str) else company.get('name')),
+            'type': asn.get('type'), 'company_type': company.get('type'),
+            **{k: data.get(k) for k in ('is_datacenter', 'is_proxy', 'is_vpn', 'is_tor', 'is_abuser')},
+            'abuser_score': company.get('abuser_score'), 'anonymous_response': isinstance(data.get('asn'), str)}
+
+def proxycheck_risk(data):
+    flags = [data.get(k) for k in ('proxy', 'vpn', 'tor', 'compromised', 'scraper', 'anonymous', 'hosting')]
+    score = data.get('risk')
+    if any(v is True for v in flags) or (type(score) in (int, float) and 25 < score <= 100):
+        return 'flagged'
+    if not all(type(v) is bool for v in flags) or type(score) not in (int, float) or not 0 <= score <= 25:
+        return 'unknown'
+    return 'no_flags_reported'
 
 def classify_network(is_datacenter=None, asn_type=None, org=''):
     # Residential means consumer ISP candidate, never household or cleanliness.
@@ -139,32 +163,64 @@ def check_one(node, checker, token):
 def crosscheck(result):
     ip = result['exit']['ip']
     evidence, errors = {}, []
-    for name, url in [('ipwhois', f'https://ipwho.is/{ip}'), ('ipapi', f'https://api.ipapi.is/?q={ip}')]:
+    for name, url in [('ipwhois', f'https://ipwho.is/{ip}'), ('ipapi', f'https://api.ipapi.is/?q={ip}'), ('proxycheck', f'https://proxycheck.io/v3/{ip}')]:
+        if name in METADATA_BLOCKED:
+            errors.append(f'{name}: provider access/quota blocked; no retry')
+            continue
         try:
             response = requests.get(url, timeout=20, allow_redirects=False)
+            if response.status_code in (401, 403, 429):
+                METADATA_BLOCKED.add(name)
             response.raise_for_status()
             data = response.json()
+            if not isinstance(data, dict):
+                raise ValueError('Metadata response is not an object')
+            if name == 'proxycheck':
+                value = mapping(data.get(ip))
+                if data.get('status') != 'ok' or not value:
+                    if data.get('status') in ('warning', 'denied', 'error'):
+                        METADATA_BLOCKED.add(name)
+                    raise ValueError('Proxycheck query incomplete')
+                network, location, detections = mapping(value.get('network')), mapping(value.get('location')), mapping(value.get('detections'))
+                evidence[name] = {'ip': ip, 'country_code': location.get('country_code'), 'asn': asn_number(network.get('asn')),
+                                  'provider': network.get('provider'), 'org': network.get('organisation'), 'type': network.get('type'),
+                                  **{k: detections.get(k) for k in ('proxy', 'vpn', 'tor', 'compromised', 'scraper', 'anonymous', 'hosting', 'risk', 'confidence', 'last_seen')},
+                                  'attack_history': value.get('attack_history'), 'last_updated': value.get('last_updated')}
+                continue
             if data.get('ip') != ip or data.get('success') is False or data.get('error'):
                 raise ValueError('Metadata query unsuccessful')
             if name == 'ipwhois':
-                evidence[name] = {'ip': ip, 'country_code': data.get('country_code'), 'asn': asn_number((data.get('connection') or {}).get('asn')), 'isp': (data.get('connection') or {}).get('isp')}
+                connection = mapping(data.get('connection'))
+                evidence[name] = {'ip': ip, 'country_code': data.get('country_code'), 'asn': asn_number(connection.get('asn')), 'isp': connection.get('isp')}
             else:
-                asn = data.get('asn') or {}
-                evidence[name] = {'ip': ip, 'country_code': (data.get('location') or {}).get('country_code'), 'asn': asn_number(asn.get('asn')), 'org': asn.get('org'), 'type': asn.get('type'), 'is_datacenter': data.get('is_datacenter'), 'is_proxy': data.get('is_proxy'), 'is_vpn': data.get('is_vpn'), 'is_tor': data.get('is_tor'), 'is_abuser': data.get('is_abuser'), 'abuser_score': (data.get('company') or {}).get('abuser_score')}
+                evidence[name] = normalize_ipapi(data, ip)
         except (requests.RequestException, ValueError) as exc:
             errors.append(f'{name}: {type(exc).__name__}')
     result['metadata'], result['metadata_errors'] = evidence, errors
     observed_asn = asn_number((result['exit'].get('asn') or {}).get('asn'))
     country = result['exit'].get('country_code')
-    result['exit_crosschecked'] = (len(evidence) == 2 and bool(country) and observed_asn is not None and all(e['country_code'] == country and e['asn'] == observed_asn for e in evidence.values()))
+    result['exit_crosschecked'] = (len(evidence) >= 2 and bool(country) and observed_asn is not None and all(e['country_code'] == country and e['asn'] == observed_asn for e in evidence.values()))
     result['verified_us_exit'] = result['exit_crosschecked'] and country == 'US'
     ipapi = evidence.get('ipapi', {})
-    result['residential'] = classify_network(ipapi.get('is_datacenter'), ipapi.get('type'), ipapi.get('org', ''))
+    # An ISP ASN may also serve offices and hosting. It is insufficient evidence
+    # for residential allocation; preserve positive hosting evidence only here.
+    legacy_type = classify_network(ipapi.get('is_datacenter'), ipapi.get('type'), ipapi.get('org', ''))
+    result['residential'] = 'datacenter' if legacy_type == 'datacenter' else 'unknown'
+    proxycheck = evidence.get('proxycheck', {})
+    if proxycheck.get('hosting') is True or proxycheck.get('type') == 'Hosting':
+        result['residential'] = 'datacenter'
+    elif proxycheck.get('type') == 'Residential' and proxycheck.get('hosting') is False and ipapi.get('is_datacenter') is not True:
+        result['residential'] = 'residential'
+        result['residential_evidence'] = 'proxycheck.io explicit Residential allocation; hosting=false'
     result['country_code'] = country
     result['target_country_allowed'] = country in target_countries()
     result['verified_target_exit'] = result['exit_crosschecked'] and result['target_country_allowed']
-    result['risk_status'] = risk_status(ipapi)
-    result['risk_score'] = None  # Provider abuser_score is not a fraud score.
+    risks = [risk_status(ipapi), proxycheck_risk(proxycheck)]
+    result['risk_status'] = 'flagged' if 'flagged' in risks else 'no_flags_reported' if 'no_flags_reported' in risks else 'unknown'
+    score = proxycheck.get('risk')
+    result['risk_score'] = score if type(score) in (int, float) and 0 <= score <= 100 else None
+    result['risk_score_source'] = 'proxycheck.io' if result['risk_score'] is not None else None
+    result['metadata_checked_at'] = utcnow()
     return result
 
 def build_nodes_text(results, edge):
