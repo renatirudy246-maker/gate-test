@@ -1,5 +1,11 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
+Latest follow-up: reversible minimal/constant/classic Worker controls and full
+restoration were performed on gate-checker-test only. All health requests still
+returned 500/1101; no scan was allowed. Full details and version IDs are in
+`CHECKER_DIAGNOSIS_20261025.md`. Final active version is
+`30706388-c405-4f3d-8bb1-142065a7b563`; full test source and bindings restored.
+
 ## Follow-up diagnosis and target-country update
 
 Baseline checked: `a3ec2a84b8bf4c62cd168f16166162a8003cfd54`; worktree initially clean.

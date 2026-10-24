@@ -1,0 +1,9 @@
+{
+  "name": "gate-checker-test",
+  "main": "diagnostic-minimal.js",
+  "account_id": "e5a0857508f37d031d9137c3ecec80e3",
+  "compatibility_date": "2026-05-01",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": false }
+}
