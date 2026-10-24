@@ -33,6 +33,8 @@ jobs:
           CHECK_TOKEN: ${{ secrets.CHECK_TOKEN }}
           TARGET_COUNTRIES: US,JP,KR,SG
           EDGE_HOSTS: ${{ vars.EDGE_HOSTS }}
+          SCAN_BATCH: second
+          EXCLUDE_REPORTS: reports/node-scan-40136541061.json
       - name: Preserve diagnostics even on failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

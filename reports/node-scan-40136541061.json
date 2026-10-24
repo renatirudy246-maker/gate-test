@@ -653,5 +653,78 @@
   "qualified": 0,
   "qualified_residential": 0,
   "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40136541061",
-  "classification_notice": "Residential allocation is third-party evidence, not proof of a household device; flagged exits are not publishable"
+  "classification_notice": "Residential allocation is third-party evidence, not proof of a household device; flagged exits are not publishable",
+  "tested_nodes": [
+    {
+      "host": "vpn622613092.opengw.net",
+      "port": 1496,
+      "entry_ip": "124.100.138.216",
+      "source_country_code": "JP",
+      "success": false
+    },
+    {
+      "host": "vpn258563631.opengw.net",
+      "port": 1423,
+      "entry_ip": "153.232.73.191",
+      "source_country_code": "JP",
+      "success": false
+    },
+    {
+      "host": "vpn814090086.opengw.net",
+      "port": 1402,
+      "entry_ip": "221.71.146.229",
+      "source_country_code": "JP",
+      "success": true
+    },
+    {
+      "host": "public-vpn-134.opengw.net",
+      "port": 443,
+      "entry_ip": "219.100.37.104",
+      "source_country_code": "JP",
+      "success": true
+    },
+    {
+      "host": "vpn643142339.opengw.net",
+      "port": 995,
+      "entry_ip": "220.72.113.101",
+      "source_country_code": "KR",
+      "success": false
+    },
+    {
+      "host": "vpn517964018.opengw.net",
+      "port": 1323,
+      "entry_ip": "1.240.128.118",
+      "source_country_code": "KR",
+      "success": true
+    },
+    {
+      "host": "vpn699620341.opengw.net",
+      "port": 995,
+      "entry_ip": "61.254.51.18",
+      "source_country_code": "KR",
+      "success": false
+    },
+    {
+      "host": "vpn564106646.opengw.net",
+      "port": 1980,
+      "entry_ip": "123.143.79.15",
+      "source_country_code": "KR",
+      "success": true
+    },
+    {
+      "host": "vpn890613352.opengw.net",
+      "port": 995,
+      "entry_ip": "1.253.137.231",
+      "source_country_code": "KR",
+      "success": true
+    },
+    {
+      "host": "vpn368704878.opengw.net",
+      "port": 1511,
+      "entry_ip": "182.220.175.195",
+      "source_country_code": "KR",
+      "success": true
+    }
+  ],
+  "tested_nodes_provenance": "All 10 attempted candidates from the original run artifact, verified against source_run_sha256"
 }

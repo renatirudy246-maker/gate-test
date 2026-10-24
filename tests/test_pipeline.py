@@ -63,7 +63,7 @@ class PipelineTests(unittest.TestCase):
     def test_publication_requires_actual_target_country_and_risk_evidence(self):
         with patch.dict(os.environ, {'TARGET_COUNTRIES':'US,JP,KR,SG'}):
             node = {'exit_crosschecked':True,'country_code':'JP','source_country_code':'US','risk_status':'no_flags_reported','residential':'unknown'}
-            self.assertTrue(gate.eligible_exit(node))
+            self.assertFalse(gate.eligible_exit(node))
             self.assertFalse(gate.eligible_exit({**node,'country_code':'DE'}))
             self.assertFalse(gate.eligible_exit({**node,'country_code':None}))
             self.assertFalse(gate.eligible_exit({**node,'risk_status':'unknown'}))
@@ -91,7 +91,7 @@ class PipelineTests(unittest.TestCase):
     def test_all_checks_failed_leaves_only_diagnostics(self):
         with tempfile.TemporaryDirectory() as temp:
             public, diag = Path(temp) / 'public', Path(temp) / 'diagnostics'
-            node = {'host': 'vpn123456.opengw.net', 'port': 443}
+            node = {'host': 'vpn123456.opengw.net', 'port': 443, 'source_country_code': 'JP'}
             response = Mock(text='source')
             response.status_code = 200
             response.json.return_value = {'service':'gate-checker-test','configured':True}

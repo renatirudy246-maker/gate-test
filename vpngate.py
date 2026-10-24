@@ -9,6 +9,7 @@ import os
 import re
 import sys
 from concurrent.futures import ThreadPoolExecutor
+from collections import Counter, deque
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -22,6 +23,8 @@ HOST_RE = re.compile(r'^(?:vpn\d+|vpnv\d+|public-vpn-[a-z0-9-]+)\.opengw\.net$',
 CONSUMER_ISPS = ('COMCAST', 'XFINITY', 'CHARTER', 'SPECTRUM', 'COX COMMUNICATIONS', 'AT&T', 'VERIZON', 'FRONTIER', 'CENTURYLINK', 'NTT EAST', 'NTT WEST', 'SOFTBANK', 'KDDI')
 METADATA_BLOCKED = set()
 COUNTRY_NAMES = {'United States': 'US', 'United States of America': 'US', 'Japan': 'JP', 'South Korea': 'KR', 'Republic of Korea': 'KR', 'Korea, Republic of': 'KR', 'Singapore': 'SG'}
+PROXYCHECK_FLAGS = ('proxy', 'vpn', 'tor', 'compromised', 'scraper', 'anonymous', 'hosting')
+RESIDENTIAL_EVIDENCE = 'proxycheck.io explicit Residential allocation; hosting=false'
 
 def target_countries(value=None):
     value = os.environ.get('TARGET_COUNTRIES', 'US,JP,KR,SG') if value is None else value
@@ -39,8 +42,20 @@ def risk_status(metadata):
     return 'no_flags_reported'  # Not a guarantee of low fraud risk or clean IP.
 
 def eligible_exit(result):
-    return (result.get('exit_crosschecked') is True and
+    proxycheck = mapping(mapping(result.get('metadata')).get('proxycheck'))
+    score = proxycheck.get('risk')
+    return (result.get('exit_crosschecked') is True and exit_identity_crosschecked(result) and
+            result.get('country_code') == mapping(result.get('exit')).get('country_code') and
             result.get('country_code') in target_countries() and
+            result.get('residential') == 'residential' and
+            result.get('residential_evidence') == RESIDENTIAL_EVIDENCE and
+            proxycheck.get('type') == 'Residential' and
+            all(proxycheck.get(flag) is False for flag in PROXYCHECK_FLAGS) and
+            type(score) in (int, float) and 0 <= score <= 25 and
+            result.get('risk_score_source') == 'proxycheck.io' and
+            type(result.get('risk_score')) in (int, float) and result['risk_score'] == score and
+            mapping(mapping(result.get('metadata')).get('ipapi')).get('is_datacenter') is not True and
+            risk_status(mapping(mapping(result.get('metadata')).get('ipapi'))) != 'flagged' and
             result.get('risk_status') == 'no_flags_reported')
 
 def verify_checker_health(checker):
@@ -73,6 +88,15 @@ def asn_number(value):
 def mapping(value):
     return value if isinstance(value, dict) else {}
 
+def exit_identity_crosschecked(result):
+    observed = mapping(result.get('exit'))
+    ip, country = public_ip(observed.get('ip')), observed.get('country_code')
+    asn = asn_number(mapping(observed.get('asn')).get('asn'))
+    evidence = [mapping(value) for name, value in mapping(result.get('metadata')).items()
+                if name in ('ipwhois', 'ipapi', 'proxycheck')]
+    return bool(ip and country and asn and len(evidence) >= 2 and
+                all(e.get('ip') == ip and e.get('country_code') == country and e.get('asn') == asn for e in evidence))
+
 def normalize_ipapi(data, ip):
     asn, company, location = mapping(data.get('asn')), mapping(data.get('company')), mapping(data.get('location'))
     country_name = data.get('country') if isinstance(data.get('country'), str) else ''
@@ -83,7 +107,7 @@ def normalize_ipapi(data, ip):
             'abuser_score': company.get('abuser_score'), 'anonymous_response': isinstance(data.get('asn'), str)}
 
 def proxycheck_risk(data):
-    flags = [data.get(k) for k in ('proxy', 'vpn', 'tor', 'compromised', 'scraper', 'anonymous', 'hosting')]
+    flags = [data.get(k) for k in PROXYCHECK_FLAGS]
     score = data.get('risk')
     if any(v is True for v in flags) or (type(score) in (int, float) and 25 < score <= 100):
         return 'flagged'
@@ -127,6 +151,52 @@ def parse_candidates(text):
         candidates.append({'host': host, 'port': port, 'entry_ip': ip, 'source_country_code': row.get('CountryShort', '').upper()})
     # Only prioritize by advertised country; assign exit country from observation.
     return sorted(candidates, key=lambda n: n['source_country_code'] not in target_countries())
+
+def node_key(node):
+    if not isinstance(node, dict):
+        raise ValueError('Historical/candidate node must be an object')
+    host, port = node.get('host'), node.get('port')
+    if not isinstance(host, str) or not HOST_RE.fullmatch(host) or type(port) is not int or not 1 <= port <= 65535:
+        raise ValueError('Invalid historical/candidate host and port')
+    return host.lower(), port
+
+def load_excluded_nodes(paths):
+    excluded = set()
+    for path in paths:
+        document = json.loads(Path(path).read_text(encoding='utf8'))
+        rows = document.get('tested_nodes', document.get('results'))
+        expected = document.get('checked', document.get('original_checked'))
+        if not isinstance(rows, list) or type(expected) is not int or expected < 1:
+            raise ValueError('Previous scan manifest missing or incomplete')
+        keys = {node_key(row) for row in rows}
+        if len(keys) != expected or len(rows) != expected:
+            raise ValueError('Previous scan manifest omits tested nodes; refusing duplicate scan')
+        excluded.update(keys)
+    return excluded
+
+def select_candidates(nodes, limit, excluded):
+    allowed = target_countries()
+    order = [c for c in ('US', 'JP', 'KR', 'SG') if c in allowed] + sorted(allowed - {'US', 'JP', 'KR', 'SG'})
+    buckets = {country: deque() for country in order}
+    seen = set(excluded)
+    for node in nodes:
+        key = node_key(node)
+        if key in seen:
+            continue
+        seen.add(key)
+        if node.get('source_country_code') in buckets:
+            buckets[node['source_country_code']].append(node)
+    available = {country: len(bucket) for country, bucket in buckets.items()}
+    selected = []
+    while len(selected) < limit:
+        progress = False
+        for bucket in buckets.values():
+            if bucket and len(selected) < limit:
+                selected.append(bucket.popleft())
+                progress = True
+        if not progress:
+            break
+    return selected, available
 
 def check_one(node, checker, token):
     result = {**node, 'checked_at': utcnow(), 'success': False}
@@ -197,9 +267,8 @@ def crosscheck(result):
         except (requests.RequestException, ValueError) as exc:
             errors.append(f'{name}: {type(exc).__name__}')
     result['metadata'], result['metadata_errors'] = evidence, errors
-    observed_asn = asn_number((result['exit'].get('asn') or {}).get('asn'))
     country = result['exit'].get('country_code')
-    result['exit_crosschecked'] = (len(evidence) >= 2 and bool(country) and observed_asn is not None and all(e['country_code'] == country and e['asn'] == observed_asn for e in evidence.values()))
+    result['exit_crosschecked'] = exit_identity_crosschecked(result)
     result['verified_us_exit'] = result['exit_crosschecked'] and country == 'US'
     ipapi = evidence.get('ipapi', {})
     # An ISP ASN may also serve offices and hosting. It is insufficient evidence
@@ -211,7 +280,7 @@ def crosscheck(result):
         result['residential'] = 'datacenter'
     elif proxycheck.get('type') == 'Residential' and proxycheck.get('hosting') is False and ipapi.get('is_datacenter') is not True:
         result['residential'] = 'residential'
-        result['residential_evidence'] = 'proxycheck.io explicit Residential allocation; hosting=false'
+        result['residential_evidence'] = RESIDENTIAL_EVIDENCE
     result['country_code'] = country
     result['target_country_allowed'] = country in target_countries()
     result['verified_target_exit'] = result['exit_crosschecked'] and result['target_country_allowed']
@@ -230,7 +299,8 @@ def build_nodes_text(results, edge):
     return ''.join(f"{edge}#{r['country_code']}-{labels[r['residential']]}-{i:02d}$sstp://vpn:vpn@{r['host']}:{r['port']}\n" for i, r in enumerate(results, 1))
 
 def main():
-    report = {'started_at': utcnow(), 'status': 'failed', 'results': [], 'published': False}
+    report = {'started_at': utcnow(), 'status': 'failed', 'results': [], 'published': False,
+              'checked': 0, 'success': 0, 'crosschecked': 0, 'qualified': 0, 'qualified_residential': 0}
     try:
         report['target_countries'] = sorted(target_countries())
         checker, token = os.environ.get('CHECK_WORKER', ''), os.environ.get('CHECK_TOKEN', '')
@@ -247,23 +317,35 @@ def main():
         if not 1 <= limit <= 10 or not 1 <= concurrency <= 2:
             raise ValueError('Manual test budget exceeded')
         verify_checker_health(checker)
+        exclusion_paths = [ROOT / path.strip() for path in os.environ.get('EXCLUDE_REPORTS', '').split(',') if path.strip()]
+        excluded = load_excluded_nodes(exclusion_paths)
         response = requests.get(SOURCE, timeout=30, allow_redirects=False)
         response.raise_for_status()
         all_candidates = parse_candidates(response.text)
-        candidates = all_candidates[:limit]
-        report.update(source=SOURCE, source_candidates=len(all_candidates), checked=len(candidates), concurrency=concurrency)
+        candidates, available = select_candidates(all_candidates, limit, excluded)
+        report.update(source=SOURCE, source_candidates=len(all_candidates), checked=len(candidates), concurrency=concurrency,
+                      batch=os.environ.get('SCAN_BATCH'), exclusion_reports=[str(path.relative_to(ROOT)) for path in exclusion_paths],
+                      excluded_prior_nodes=len(excluded), eligible_unseen_by_advertised_country=available,
+                      selected_advertised_countries=dict(Counter(node['source_country_code'] for node in candidates)),
+                      selected_candidates=candidates)
         if not candidates:
-            raise ValueError('No valid official SSTP candidates')
+            raise ValueError('No unseen official candidates in advertised target countries')
         with ThreadPoolExecutor(max_workers=concurrency) as pool:
             report['results'] = list(pool.map(lambda n: check_one(n, checker, token), candidates))
         successful = [r for r in report['results'] if r['success']]
+        report['success'] = len(successful)
         if not successful:
             raise ValueError('All SSTP checks failed; no result will be published')
         for result in successful:
             crosscheck(result)
         verified = [r for r in successful if eligible_exit(r)]
+        report.update(crosschecked=sum(r['exit_crosschecked'] for r in successful), qualified=len(verified),
+                      qualified_residential=len(verified), residential_candidates=sum(r['exit_crosschecked'] and r['residential']=='residential' for r in successful),
+                      observed_exit_countries=dict(Counter(r['exit'].get('country_code') or 'unknown' for r in successful)),
+                      verified_exit_countries=dict(Counter(r['country_code'] for r in successful if r['exit_crosschecked'])),
+                      classifications=dict(Counter(r['residential'] for r in successful)))
         if not verified:
-            raise ValueError('No crosschecked target-country exits with complete unflagged risk indicators; publication blocked')
+            raise ValueError('No crosschecked residential exits with explicit allocation evidence, complete false risk flags and Proxycheck score 0-25; publication blocked')
         text = build_nodes_text(verified, os.environ.get('EDGE_HOSTS', ''))
         if not text.strip():
             raise ValueError('Empty nodes output')
