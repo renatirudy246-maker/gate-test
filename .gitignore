@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+.dev.vars*
+.env*
+public/
+diagnostics/
+__pycache__/
+*.pyc
+dist/
+local-status.json

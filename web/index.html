@@ -1,0 +1,3 @@
+<!doctype html><meta charset="utf-8"><title>gate-test</title>
+<h1>VPN Gate 独立测试</h1><p>仅展示本轮成功验证的出口。住宅 ISP 不等于家庭设备或纯净 IP。失败流程不发布。</p>
+<pre id="data">正在加载</pre><script>fetch('data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(d=>document.getElementById('data').textContent=JSON.stringify(d,null,2)).catch(()=>document.getElementById('data').textContent='没有已发布的成功检测结果');</script>

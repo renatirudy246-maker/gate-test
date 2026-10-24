@@ -1,0 +1,16 @@
+{
+  "pages_build_output_dir": "dist/pages",
+  "kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "9bd2a387ba5647acba9a3d27c5327444"
+    }
+  ],
+  "name": "edgetunnel-test",
+  "compatibility_date": "2026-10-24",
+  "vars": {
+    "NODES_URL": "https://renatirudy246-maker.github.io/gate-test/nodes.txt",
+    "OFF_LOG": "1",
+    "DEBUG": "false"
+  }
+}
