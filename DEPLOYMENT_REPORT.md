@@ -1,5 +1,12 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
+Latest discriminating test: see `PROBE_RESULT_20261025.md`. One new isolated
+gate-checker-probe was created with a constant response, no imports or bindings.
+Its first health request also returned 500/1101. No detector deployment or scan
+followed. Technical support was not submitted: official Free support excludes
+general technical cases, and the browser support-page attempt timed out. A
+complete private draft is retained locally; no production resource was changed.
+
 Latest read-only follow-up: see `CHECKER_RESEARCH_20261025.md`. Active version
 unchanged; historical telemetry API returned 403, Analytics showed only one
 earlier success, and no runtime stack was obtained. No repair deployment or scan

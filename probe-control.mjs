@@ -6,11 +6,12 @@ const account = 'e5a0857508f37d031d9137c3ecec80e3';
 const worker = 'gate-checker-probe';
 const root = `https://api.cloudflare.com/client/v4/accounts/${account}`;
 const dispatcher = new EnvHttpProxyAgent();
-const mode = process.argv[2];
+const mode = ['preflight', 'health', 'snapshot'].includes(process.argv[2]) ? process.argv[2] : 'invalid';
 const report = { time: new Date().toISOString(), worker, mode };
 async function save() {
   await mkdir('diagnostics/probe', { recursive: true });
-  await writeFile(`diagnostics/probe/${mode}.json`, JSON.stringify(report, null, 2));
+  // Never overwrite the original absence/ownership checkpoint on a repeat.
+  await writeFile(`diagnostics/probe/${mode}.json`, JSON.stringify(report, null, 2), mode === 'preflight' ? { flag: 'wx' } : {}).catch(e => { if (mode !== 'preflight' || e.code !== 'EEXIST') throw e; });
   console.log(JSON.stringify(report, null, 2));
 }
 try {
