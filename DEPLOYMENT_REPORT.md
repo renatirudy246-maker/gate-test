@@ -1,6 +1,11 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
-Latest follow-up: reversible minimal/constant/classic Worker controls and full
+Latest read-only follow-up: see `CHECKER_RESEARCH_20261025.md`. Active version
+unchanged; historical telemetry API returned 403, Analytics showed only one
+earlier success, and no runtime stack was obtained. No repair deployment or scan
+was performed. Test Pages remains 200/configured=true; test Worker remains 500.
+
+Previous follow-up: reversible minimal/constant/classic Worker controls and full
 restoration were performed on gate-checker-test only. All health requests still
 returned 500/1101; no scan was allowed. Full details and version IDs are in
 `CHECKER_DIAGNOSIS_20261025.md`. Final active version is
