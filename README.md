@@ -5,6 +5,15 @@ KV `EDGETUNNEL_TEST_KV`, and this repository's GitHub Pages/Actions resources.
 No production resources or local proxy settings are managed here.
 
 - Manual dispatch only; **no cron**. Maximum 10 candidates, concurrency 2.
+- `TARGET_COUNTRIES` is configurable via a repository variable, default
+  `US,JP,KR,SG`. Only the authenticated observed exit country, crosschecked
+  against both metadata providers, controls eligibility. Advertised entry
+  country only prioritizes candidates and cannot qualify an exit.
+- Both workflow and standalone scanner block before scanning unless checker
+  health is HTTP 200 with service identity and `configured=true`.
+- Publication also requires complete boolean proxy/VPN/Tor/abuser indicators
+  with none flagged. Missing risk data remains unknown and cannot qualify.
+  `no_flags_reported` is not a numerical low-risk or cleanliness guarantee.
 - HTTPS official VPN Gate CSV supplies candidates. TCP OpenVPN ports are not
   assumed to support SSTP: actual SSTP/PPP and tunneled TCP must succeed.
 - Checker requires a Bearer Secret and accepts only public VPN Gate hostnames

@@ -32,6 +32,7 @@ jobs:
           CHECK_TOKEN: ${{ secrets.CHECK_TOKEN }}
           MAX_CHECK_NODES: '10'
           CHECK_CONCURRENCY: '2'
+          TARGET_COUNTRIES: ${{ vars.TARGET_COUNTRIES || 'US,JP,KR,SG' }}
           EDGE_HOSTS: ${{ vars.EDGE_HOSTS }}
           NODES_URL: https://renatirudy246-maker.github.io/gate-test/nodes.txt
       - name: Preserve diagnostics even on failure

@@ -1,5 +1,45 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
+## Follow-up diagnosis and target-country update
+
+Baseline checked: `a3ec2a84b8bf4c62cd168f16166162a8003cfd54`; worktree initially clean.
+No checker code/config changes or redeployment were made in this follow-up,
+because no real exception stack was obtained. The health endpoint still
+returned HTTP 500 during the live diagnostic session.
+
+Existing CLI authorization successfully created a test-only tail session
+(HTTP 200). With the existing process proxy unchanged, an undici WebSocket
+connection opened; a health request returned HTTP 500, but no event or
+exception arrived within 35 seconds. No actual stack or cause can be reported.
+A ws transport variant encountered ECONNRESET. This is a log-delivery/connection
+blocker, not demonstrated missing authorization. Session IDs, auth tokens,
+WebSocket URLs, request headers and raw events are not saved in diagnostics.
+The diagnostic script now captures only exception fields and connection state,
+uses a bounded credential-read timeout, and closes its own tail session.
+Latest sanitized local result: `diagnostics/checker-runtime.json`.
+
+A focused browser attempt to open only the test Worker console timed out;
+browser control was stopped without retrying the failed navigation.
+A reliable Cloudflare console live-log/exception view is the remaining path
+to obtain a stack. No additional account permission was requested: the tail
+creation endpoint already authorized the existing credential.
+
+Target countries are now configurable through `TARGET_COUNTRIES`, default
+`US,JP,KR,SG`. Actual signed observed exit country must match both independent
+metadata providers. Source country can prioritize candidates but never qualify
+an exit. Publishing additionally requires complete boolean proxy/VPN/Tor/abuser
+indicators with no positive flag; absent fields stay unknown and block publishing.
+This is a conservative indicator gate, not proof of numerical low risk.
+Residential ISP, datacenter, unknown, and numerical risk score remain separate.
+
+The scanner itself now checks health before any candidate source fetch, in
+addition to workflow preflight. Eight Python tests and five JavaScript tests
+passed, including failed-health prevention, actual-country filtering and missing
+risk evidence rejection. JavaScript syntax and diff whitespace checks passed.
+No new workflow was dispatched, no candidate was scanned, and no result was
+published. Qualified exits verified so far: 0; country/type/latency/risk results
+remain unmeasured. Do not confuse zero scanned with absence of public candidates.
+
 Outcome: independent resources created, but the first manual workflow FAILED
 at the service preflight. This is not a working node/subscription deployment.
 

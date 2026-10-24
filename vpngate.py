@@ -21,6 +21,34 @@ SOURCE = 'https://www.vpngate.net/api/iphone/'
 HOST_RE = re.compile(r'^(?:vpn\d+|vpnv\d+|public-vpn-[a-z0-9-]+)\.opengw\.net$', re.I)
 CONSUMER_ISPS = ('COMCAST', 'XFINITY', 'CHARTER', 'SPECTRUM', 'COX COMMUNICATIONS', 'AT&T', 'VERIZON', 'FRONTIER', 'CENTURYLINK', 'NTT EAST', 'NTT WEST', 'SOFTBANK', 'KDDI')
 
+def target_countries(value=None):
+    value = os.environ.get('TARGET_COUNTRIES', 'US,JP,KR,SG') if value is None else value
+    codes = {code.strip().upper() for code in value.split(',') if code.strip()}
+    if not codes or any(not re.fullmatch(r'[A-Z]{2}', code) for code in codes):
+        raise ValueError('TARGET_COUNTRIES must contain comma-separated two-letter country codes')
+    return codes
+
+def risk_status(metadata):
+    flags = [metadata.get(k) for k in ('is_proxy', 'is_vpn', 'is_tor', 'is_abuser')]
+    if any(value is True for value in flags):
+        return 'flagged'
+    if not all(type(value) is bool for value in flags):
+        return 'unknown'
+    return 'no_flags_reported'  # Not a guarantee of low fraud risk or clean IP.
+
+def eligible_exit(result):
+    return (result.get('exit_crosschecked') is True and
+            result.get('country_code') in target_countries() and
+            result.get('risk_status') == 'no_flags_reported')
+
+def verify_checker_health(checker):
+    response = requests.get(checker.removesuffix('/check') + '/health', timeout=20, allow_redirects=False)
+    if response.status_code != 200:
+        raise ValueError(f'Checker health HTTP {response.status_code}; scanning blocked')
+    body = response.json()
+    if body.get('service') != 'gate-checker-test' or body.get('configured') is not True:
+        raise ValueError('Checker health/configuration invalid; scanning blocked')
+
 def utcnow():
     return datetime.now(timezone.utc).isoformat()
 
@@ -72,7 +100,7 @@ def parse_candidates(text):
         seen.add((host, port))
         candidates.append({'host': host, 'port': port, 'entry_ip': ip, 'source_country_code': row.get('CountryShort', '').upper()})
     # Only prioritize by advertised country; assign exit country from observation.
-    return sorted(candidates, key=lambda n: n['source_country_code'] != 'US')
+    return sorted(candidates, key=lambda n: n['source_country_code'] not in target_countries())
 
 def check_one(node, checker, token):
     result = {**node, 'checked_at': utcnow(), 'success': False}
@@ -119,6 +147,9 @@ def crosscheck(result):
     ipapi = evidence.get('ipapi', {})
     result['residential'] = classify_network(ipapi.get('is_datacenter'), ipapi.get('type'), ipapi.get('org', ''))
     result['country_code'] = country
+    result['target_country_allowed'] = country in target_countries()
+    result['verified_target_exit'] = result['exit_crosschecked'] and result['target_country_allowed']
+    result['risk_status'] = risk_status(ipapi)
     result['risk_score'] = None  # Provider abuser_score is not a fraud score.
     return result
 
@@ -131,6 +162,7 @@ def build_nodes_text(results, edge):
 def main():
     report = {'started_at': utcnow(), 'status': 'failed', 'results': [], 'published': False}
     try:
+        report['target_countries'] = sorted(target_countries())
         checker, token = os.environ.get('CHECK_WORKER', ''), os.environ.get('CHECK_TOKEN', '')
         parsed = urlsplit(checker)
         if parsed.scheme != 'https' or not parsed.hostname or not parsed.hostname.endswith('.workers.dev') or parsed.path != '/check' or parsed.query or parsed.username or not token:
@@ -140,6 +172,7 @@ def main():
         limit, concurrency = int(os.environ.get('MAX_CHECK_NODES', '10')), int(os.environ.get('CHECK_CONCURRENCY', '2'))
         if not 1 <= limit <= 10 or not 1 <= concurrency <= 2:
             raise ValueError('Manual test budget exceeded')
+        verify_checker_health(checker)
         response = requests.get(SOURCE, timeout=30, allow_redirects=False)
         response.raise_for_status()
         all_candidates = parse_candidates(response.text)
@@ -154,13 +187,13 @@ def main():
             raise ValueError('All SSTP checks failed; no result will be published')
         for result in successful:
             crosscheck(result)
-        verified = [r for r in successful if r['exit_crosschecked']]
+        verified = [r for r in successful if eligible_exit(r)]
         if not verified:
-            raise ValueError('No independently crosschecked exits; publication blocked')
+            raise ValueError('No crosschecked target-country exits with complete unflagged risk indicators; publication blocked')
         text = build_nodes_text(verified, os.environ.get('EDGE_HOSTS', ''))
         if not text.strip():
             raise ValueError('Empty nodes output')
-        report.update(status='success', checked_at=utcnow(), success=len(successful), crosschecked=len(verified), verified_us=sum(r['verified_us_exit'] for r in verified))
+        report.update(status='success', checked_at=utcnow(), success=len(successful), crosschecked=sum(r['exit_crosschecked'] for r in successful), qualified=len(verified), qualified_residential=sum(r['residential']=='residential' for r in verified), verified_us=sum(r['verified_us_exit'] for r in verified))
         PUBLIC.mkdir(parents=True, exist_ok=True)
         (PUBLIC / 'nodes.txt').write_text(text, encoding='utf-8')
         (PUBLIC / 'data.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
