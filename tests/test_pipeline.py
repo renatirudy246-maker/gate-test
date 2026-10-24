@@ -7,6 +7,16 @@ from unittest.mock import patch, Mock
 import vpngate as gate
 
 class PipelineTests(unittest.TestCase):
+    def test_node_backend_rejects_uncertified_or_single_source_observation(self):
+        node = {'host': 'vpn123.opengw.net', 'port': 443}
+        payload = {'success': True, 'exit': {'ip': '1.1.1.1'},
+                   'evidence': 'SSTP tunnel to two certificate-validated independent HTTPS exit services',
+                   'observations': [{'observer': 'ipwhois', 'ip': '1.1.1.1', 'certificate_verified': True}]}
+        response = Mock(status_code=200)
+        response.json.return_value = payload
+        with patch.dict(os.environ, {'CHECK_BACKEND': 'node-local'}), patch.object(gate.requests, 'get', return_value=response):
+            self.assertFalse(gate.check_one(node, 'http://127.0.0.1:1234/check', 'unit-test-only')['success'])
+
     def test_target_country_configuration(self):
         self.assertEqual(gate.target_countries(' us, jp,KR,sg '), {'US','JP','KR','SG'})
         for value in ['', 'USA', 'JP,123']:

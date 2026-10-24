@@ -1392,7 +1392,7 @@ function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort)
 	};
 }
 
-async function sstpConnect(proxy, targetHost, targetPort) {
+export async function sstpConnect(proxy, targetHost, targetPort) {
 	const sstp = createSstpClient(proxy);
 	let closedSettled = false;
 	let resolveClosed;

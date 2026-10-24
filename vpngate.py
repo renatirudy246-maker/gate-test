@@ -48,6 +48,8 @@ def verify_checker_health(checker):
     body = response.json()
     if body.get('service') != 'gate-checker-test' or body.get('configured') is not True:
         raise ValueError('Checker health/configuration invalid; scanning blocked')
+    if os.environ.get('CHECK_BACKEND') == 'node-local' and body.get('backend') != 'isolated-node-sstp':
+        raise ValueError('Isolated Node backend identity invalid; scanning blocked')
 
 def utcnow():
     return datetime.now(timezone.utc).isoformat()
@@ -105,18 +107,30 @@ def parse_candidates(text):
 def check_one(node, checker, token):
     result = {**node, 'checked_at': utcnow(), 'success': False}
     try:
-        response = requests.get(checker, params={'sstp': f"vpn:vpn@{node['host']}:{node['port']}"}, headers={'Authorization': f'Bearer {token}'}, timeout=45, allow_redirects=False)
+        response = requests.get(checker, params={'sstp': f"vpn:vpn@{node['host']}:{node['port']}"}, headers={'Authorization': f'Bearer {token}'}, timeout=180 if os.environ.get('CHECK_BACKEND') == 'node-local' else 45, allow_redirects=False)
         if response.status_code != 200:
             result['error'] = f'Checker HTTP {response.status_code}'
             return result
         payload = response.json()
         if payload.get('success') is not True:
             result['error'] = str(payload.get('error', 'SSTP check failed'))[:300]
+            if os.environ.get('CHECK_BACKEND') == 'node-local':
+                result['observations'] = payload.get('observations', [])
             return result
         exit_info = payload.get('exit') or {}
-        if not public_ip(exit_info.get('ip')) or payload.get('evidence') != 'SSTP tunnel to nonce-bound HMAC-authenticated Cloudflare echo':
+        expected_evidence = ('SSTP tunnel to two certificate-validated independent HTTPS exit services'
+                             if os.environ.get('CHECK_BACKEND') == 'node-local'
+                             else 'SSTP tunnel to nonce-bound HMAC-authenticated Cloudflare echo')
+        if not public_ip(exit_info.get('ip')) or payload.get('evidence') != expected_evidence:
             result['error'] = 'Missing authenticated public exit IP'
             return result
+        if os.environ.get('CHECK_BACKEND') == 'node-local':
+            observations = payload.get('observations') or []
+            if (len(observations) != 3 or {o.get('observer') for o in observations} != {'ipwhois', 'ipify'} or
+                    any(o.get('ip') != exit_info['ip'] or o.get('certificate_verified') is not True for o in observations)):
+                result['error'] = 'Missing independent certificate-verified repeated tunnel observations'
+                return result
+            result.update(observations=observations, stability=payload.get('stability'))
         result.update(success=True, exit=exit_info, latency_ms=payload.get('responseTime'), evidence=payload['evidence'], residential='unknown', risk_score=None, household_device='unknown', ip_cleanliness='unknown')
     except (requests.RequestException, ValueError) as exc:
         result['error'] = type(exc).__name__
@@ -165,7 +179,11 @@ def main():
         report['target_countries'] = sorted(target_countries())
         checker, token = os.environ.get('CHECK_WORKER', ''), os.environ.get('CHECK_TOKEN', '')
         parsed = urlsplit(checker)
-        if parsed.scheme != 'https' or not parsed.hostname or not parsed.hostname.endswith('.workers.dev') or parsed.path != '/check' or parsed.query or parsed.username or not token:
+        remote_worker = parsed.scheme == 'https' and parsed.hostname and parsed.hostname.endswith('.workers.dev')
+        isolated_node = (os.environ.get('CHECK_BACKEND') == 'node-local' and
+                         os.environ.get('GITHUB_ACTIONS') == 'true' and sys.platform == 'linux' and
+                         parsed.scheme == 'http' and parsed.hostname == '127.0.0.1' and parsed.port is not None)
+        if not (remote_worker or isolated_node) or parsed.path != '/check' or parsed.query or parsed.username or parsed.fragment or not token:
             raise ValueError('Missing or invalid independent checker configuration')
         if any(PUBLIC.glob('*')):
             raise ValueError('Output directory must be fresh; refusing stale results')
