@@ -45,3 +45,20 @@ test('Clash conversion stays local, preserves paths, and rejects empty nodes', (
   assert.ok(!('mixed-port' in sub));
   assert.ok(!('tun' in sub));
 });
+test('all 35 measured exits generate distinct pinned VLESS paths without network settings',()=>{
+  const config=JSON.parse(edge.makeSubscription('edgetunnel-test-4pz.pages.dev','00000000-0000-4000-8000-000000000000'));
+  assert.equal(config.proxies.length,35);
+  assert.equal(new Set(config.proxies.map(p=>p['ws-opts'].path)).size,35);
+  assert.equal(new Set(config.proxies.map(p=>p.name)).size,35);
+  assert.ok(config.proxies.every(p=>p.server==='edgetunnel-test-4pz.pages.dev'&&p.network==='ws'&&p.tls&&p['skip-cert-verify']===false));
+  for(const key of ['tun','dns','mixed-port','external-controller','redir-port'])assert.ok(!(key in config));
+  assert.throws(()=>edge.makeSubscription('yylo.ccwu.cc','00000000-0000-4000-8000-000000000000'));
+  assert.throws(()=>edge.toClash(Array(36).fill('invalid').join('\n')));
+});
+test('subscription requires test authorization and does not fetch external conversion/source',async()=>{
+  const env={ADMIN:'unit-only',UUID:'00000000-0000-4000-8000-000000000000',SUB_TOKEN:'unit-sub',IMPORT_TOKEN:'a'.repeat(64),KV:{}};
+  assert.equal((await edge.default.fetch(new Request('https://edgetunnel-test-4pz.pages.dev/sub'),env)).status,401);
+  const response=await edge.default.fetch(new Request('https://edgetunnel-test-4pz.pages.dev/clash/'+env.IMPORT_TOKEN+'.yaml'),env);
+  assert.equal(response.status,200);assert.equal((await response.json()).proxies.length,35);
+  assert.equal((await edge.default.fetch(new Request('https://edgetunnel-test-4pz.pages.dev/clash/'+'b'.repeat(64)+'.yaml'),env)).status,401);
+});

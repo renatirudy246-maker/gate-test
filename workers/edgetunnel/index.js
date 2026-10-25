@@ -1,4 +1,5 @@
-import upstream, { MD5MD5, base64SecretDecode } from './_worker.js';
+import upstream, { base64SecretDecode, base64SecretEncode } from './_worker.js';
+import verifiedNodes from './verified-nodes.json' with { type: 'json' };
 
 const encoder = new TextEncoder();
 const json = (data, status = 200) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
@@ -18,7 +19,7 @@ async function adminAuth(request, env) {
 }
 export function toClash(text) {
   const lines = text.trim().split('\n').filter(Boolean);
-  if (!lines.length || lines.length > 10) throw Error('No bounded test subscription');
+  if (!lines.length || lines.length > 35) throw Error('No bounded test subscription');
   const proxies = lines.map(line => {
     const u = new URL(line.trim());
     if (u.protocol !== 'vless:' || u.searchParams.get('type') !== 'ws' || !u.searchParams.get('path')?.startsWith('/video/')) throw Error('Unexpected test node format');
@@ -30,10 +31,20 @@ export function toClash(text) {
   // JSON is valid YAML 1.2, avoiding third-party subscription converters entirely.
   return JSON.stringify({ proxies, 'proxy-groups': [{ name: 'Gate Test', type: 'select', proxies: proxies.map(p => p.name) }], rules: ['MATCH,Gate Test'] }, null, 2);
 }
+export function makeSubscription(host, uuid, nodes=verifiedNodes) {
+  if(host!=='edgetunnel-test-4pz.pages.dev' || !/^[a-f0-9-]{36}$/i.test(uuid||'') || nodes.length!==35 || new Set(nodes.map(n=>n.exit_ip)).size!==35)throw Error('Invalid independent test manifest');
+  return toClash(nodes.map((node,index)=>{
+    const chain={type:'sstp',hostname:node.host,port:node.port,username:'vpn',password:'vpn'};
+    const url=new URL(`vless://${uuid}@${host}:443`);
+    url.search=new URLSearchParams({type:'ws',security:'tls',host,sni:host,path:'/video/'+base64SecretEncode(JSON.stringify(chain),uuid)});
+    url.hash=`${String(index+1).padStart(2,'0')}-${node.country}-${node.exit_ip}-${node.min_download_mbps.toFixed(2)}Mbps`;
+    return url.href;
+  }).join('\n'));
+}
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    if (url.pathname === '/health') return json({ service: 'edgetunnel-test', configured: Boolean(env.ADMIN && env.UUID && env.SUB_TOKEN && env.KV), automatic_update: false });
+    if (url.pathname === '/health') return json({ service: 'edgetunnel-test', configured: Boolean(env.ADMIN && env.UUID && env.SUB_TOKEN && env.KV), node_count:verifiedNodes.length, import_configured:Boolean(env.IMPORT_TOKEN), automatic_update: false });
     if (!env.ADMIN || !env.UUID || !env.SUB_TOKEN || !env.KV) return json({ error: 'Independent test credentials/binding missing' }, 503);
     if (url.pathname === '/login') {
       if (request.method === 'POST') {
@@ -48,26 +59,18 @@ export default {
     if (url.pathname === '/admin') {
       return new Response('<!doctype html><meta charset="utf-8"><title>edgetunnel-test</title><h1>独立测试环境</h1><p>不连接生产 KV，不使用第三方订阅转换。</p><a href="/admin/subscription">下载本次测试订阅（须已有成功出口）</a>', { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'", 'Cache-Control': 'no-store' } });
     }
-    if (url.pathname === '/sub' || url.pathname === '/admin/subscription') {
-      if (!isAdmin && !equal(url.searchParams.get('token'), env.SUB_TOKEN)) return json({ error: 'Unauthorized' }, 401);
+    const importMatch=/^\/clash\/([a-f0-9]{64})\.yaml$/.exec(url.pathname);
+    if (url.pathname === '/sub' || url.pathname === '/admin/subscription' || importMatch) {
+      if (!isAdmin && !(importMatch ? env.IMPORT_TOKEN && equal(importMatch[1],env.IMPORT_TOKEN) : equal(url.searchParams.get('token'), env.SUB_TOKEN))) return json({ error: 'Unauthorized' }, 401);
       if (request.method !== 'GET') return json({ error: 'Method not allowed' }, 405);
-      const source = await fetch(env.NODES_URL, { redirect: 'error', cache: 'no-store' });
-      if (!source.ok) return json({ error: 'No verified test nodes published', source_status: source.status }, 503);
-      const nodes = (await source.text()).trim().split('\n').filter(Boolean);
-      if (!nodes.length || nodes.length > 10 || !nodes.every(n => /^[a-z0-9.-]+:443#[^\r\n]+\$sstp:\/\/vpn:vpn@(?:vpn\d+|vpnv\d+|public-vpn-[a-z0-9-]+)\.opengw\.net:\d{1,5}$/i.test(n))) return json({ error: 'Invalid verified nodes list' }, 503);
-      const internal = new URL('/sub', url.origin);
-      internal.searchParams.set('target', 'mixed');
-      internal.searchParams.set('token', await MD5MD5(url.hostname + env.UUID));
-      const response = await upstream.fetch(new Request(internal, { headers: { 'User-Agent': 'Mozilla/5.0 gate-test' }, cf: request.cf }), env, ctx);
-      if (!response.ok) return json({ error: 'Subscription generation failed' }, 503);
       try {
-        return new Response(toClash(await response.text()), { headers: { 'Content-Type': 'text/yaml; charset=utf-8', 'Cache-Control': 'no-store', 'Content-Disposition': 'attachment; filename=gate-test.yaml' } });
+        return new Response(makeSubscription(url.hostname,env.UUID), { headers: { 'Content-Type': 'text/yaml; charset=utf-8', 'Cache-Control': 'no-store', 'Content-Disposition': 'attachment; filename=gate-test.yaml', 'Referrer-Policy':'no-referrer' } });
       } catch { return json({ error: 'Subscription validation failed' }, 503); }
     }
     if (/^\/video\/[^/]+\/?$/.test(url.pathname) && (request.headers.get('Upgrade') || '').toLowerCase() === 'websocket') {
       try {
         const chain = JSON.parse(base64SecretDecode(url.pathname.split('/')[2], env.UUID));
-        if (chain.type !== 'sstp' || !/\.opengw\.net$/i.test(chain.hostname) || chain.username !== 'vpn' || chain.password !== 'vpn') return json({ error: 'SSTP test path required' }, 403);
+        if (chain.type !== 'sstp' || !verifiedNodes.some(n=>n.host===chain.hostname&&n.port===chain.port) || chain.username !== 'vpn' || chain.password !== 'vpn') return json({ error: 'Published SSTP test path required' }, 403);
       } catch { return json({ error: 'Invalid test path' }, 403); }
       return upstream.fetch(request, env, ctx);
     }

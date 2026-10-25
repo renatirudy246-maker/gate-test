@@ -1,0 +1,352 @@
+[
+  {
+    "host": "vpn696208175.opengw.net",
+    "port": 1976,
+    "min_download_mbps": 5.8385813466074525,
+    "max_download_mbps": 5.912641481368361,
+    "finished_at": "2026-10-25T09:39:09.136Z",
+    "exit_ip": "180.23.140.247",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  },
+  {
+    "host": "vpn550892612.opengw.net",
+    "port": 1837,
+    "min_download_mbps": 5.563625732254764,
+    "max_download_mbps": 5.608023885481951,
+    "finished_at": "2026-10-25T09:41:04.113Z",
+    "exit_ip": "143.189.192.65",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  },
+  {
+    "host": "vpn371090610.opengw.net",
+    "port": 1605,
+    "min_download_mbps": 5.475591588458079,
+    "max_download_mbps": 5.488892580558131,
+    "finished_at": "2026-10-25T09:33:08.085Z",
+    "exit_ip": "58.87.159.9",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049"
+  },
+  {
+    "host": "vpn579347997.opengw.net",
+    "port": 1606,
+    "min_download_mbps": 5.284550394032993,
+    "max_download_mbps": 5.296100457223621,
+    "finished_at": "2026-10-25T09:45:13.572Z",
+    "exit_ip": "118.240.129.23",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468"
+  },
+  {
+    "host": "public-vpn-134.opengw.net",
+    "port": 443,
+    "min_download_mbps": 5.254780573818758,
+    "max_download_mbps": 5.496190801590619,
+    "finished_at": "2026-10-25T09:17:11.338Z",
+    "exit_ip": "219.100.37.239",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40179946727"
+  },
+  {
+    "host": "vpn947999180.opengw.net",
+    "port": 995,
+    "min_download_mbps": 5.254354498762058,
+    "max_download_mbps": 5.340585137240772,
+    "finished_at": "2026-10-25T09:47:02.333Z",
+    "exit_ip": "121.139.243.129",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696"
+  },
+  {
+    "host": "vpn783293517.opengw.net",
+    "port": 1544,
+    "min_download_mbps": 5.163305748947806,
+    "max_download_mbps": 5.212618206899688,
+    "finished_at": "2026-10-25T09:42:39.940Z",
+    "exit_ip": "60.152.122.44",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468"
+  },
+  {
+    "host": "vpn715947271.opengw.net",
+    "port": 1207,
+    "min_download_mbps": 5.141968388319708,
+    "max_download_mbps": 5.170232379775977,
+    "finished_at": "2026-10-25T09:46:11.947Z",
+    "exit_ip": "220.120.181.40",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696"
+  },
+  {
+    "host": "vpn161109829.opengw.net",
+    "port": 1305,
+    "min_download_mbps": 5.141496195798106,
+    "max_download_mbps": 5.738172665286941,
+    "finished_at": "2026-10-25T09:39:49.330Z",
+    "exit_ip": "126.116.210.146",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  },
+  {
+    "host": "vpn890613352.opengw.net",
+    "port": 995,
+    "min_download_mbps": 5.120874543104488,
+    "max_download_mbps": 5.398042917809517,
+    "finished_at": "2026-10-25T09:18:07.223Z",
+    "exit_ip": "110.13.26.111",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40179946727"
+  },
+  {
+    "host": "vpn101741607.opengw.net",
+    "port": 1299,
+    "min_download_mbps": 5.054185755963812,
+    "max_download_mbps": 5.0687999171493905,
+    "finished_at": "2026-10-25T09:43:18.096Z",
+    "exit_ip": "153.151.199.65",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468"
+  },
+  {
+    "host": "vpn940711939.opengw.net",
+    "port": 1950,
+    "min_download_mbps": 5.011731518728901,
+    "max_download_mbps": 5.180367591236746,
+    "finished_at": "2026-10-25T09:47:14.533Z",
+    "exit_ip": "1.241.129.177",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696"
+  },
+  {
+    "host": "public-vpn-48.opengw.net",
+    "port": 443,
+    "min_download_mbps": 5.0114913567639725,
+    "max_download_mbps": 5.127332567510781,
+    "finished_at": "2026-10-25T09:51:04.697Z",
+    "exit_ip": "219.100.37.233",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039"
+  },
+  {
+    "host": "vpn777651061.opengw.net",
+    "port": 1326,
+    "min_download_mbps": 4.96937770380456,
+    "max_download_mbps": 5.239153102244936,
+    "finished_at": "2026-10-25T09:37:38.126Z",
+    "exit_ip": "118.159.28.138",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331"
+  },
+  {
+    "host": "vpn890321947.opengw.net",
+    "port": 1630,
+    "min_download_mbps": 4.9345323053817465,
+    "max_download_mbps": 5.192430726007822,
+    "finished_at": "2026-10-25T09:38:15.818Z",
+    "exit_ip": "60.121.199.9",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331"
+  },
+  {
+    "host": "vpn344556353.opengw.net",
+    "port": 1633,
+    "min_download_mbps": 4.902073556787711,
+    "max_download_mbps": 5.301509506287072,
+    "finished_at": "2026-10-25T09:50:22.583Z",
+    "exit_ip": "60.128.85.178",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039"
+  },
+  {
+    "host": "vpn151676033.opengw.net",
+    "port": 1913,
+    "min_download_mbps": 4.889400523306407,
+    "max_download_mbps": 5.0086329814596775,
+    "finished_at": "2026-10-25T09:49:23.798Z",
+    "exit_ip": "60.96.58.251",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039"
+  },
+  {
+    "host": "vpn736555992.opengw.net",
+    "port": 1905,
+    "min_download_mbps": 4.876588833561301,
+    "max_download_mbps": 5.031130526769967,
+    "finished_at": "2026-10-25T09:46:26.261Z",
+    "exit_ip": "125.136.43.108",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696"
+  },
+  {
+    "host": "vpn731714666.opengw.net",
+    "port": 1951,
+    "min_download_mbps": 4.80457571578956,
+    "max_download_mbps": 4.890288191894766,
+    "finished_at": "2026-10-25T09:41:06.983Z",
+    "exit_ip": "125.240.229.103",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  },
+  {
+    "host": "vpn834328692.opengw.net",
+    "port": 995,
+    "min_download_mbps": 4.770205470846076,
+    "max_download_mbps": 4.920211724779946,
+    "finished_at": "2026-10-25T09:47:51.257Z",
+    "exit_ip": "119.194.109.53",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696"
+  },
+  {
+    "host": "vpn299484015.opengw.net",
+    "port": 1827,
+    "min_download_mbps": 4.733686505270042,
+    "max_download_mbps": 5.044026120612812,
+    "finished_at": "2026-10-25T09:43:55.830Z",
+    "exit_ip": "60.127.61.103",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468"
+  },
+  {
+    "host": "vpn652104780.opengw.net",
+    "port": 995,
+    "min_download_mbps": 4.73307897232458,
+    "max_download_mbps": 4.814847607044491,
+    "finished_at": "2026-10-25T09:39:11.575Z",
+    "exit_ip": "221.152.96.175",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  },
+  {
+    "host": "vpn606487832.opengw.net",
+    "port": 1195,
+    "min_download_mbps": 4.725505241096088,
+    "max_download_mbps": 4.741206961890411,
+    "finished_at": "2026-10-25T09:35:47.595Z",
+    "exit_ip": "112.172.121.216",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331"
+  },
+  {
+    "host": "vpn679130016.opengw.net",
+    "port": 995,
+    "min_download_mbps": 4.6909657892423295,
+    "max_download_mbps": 4.731915352991303,
+    "finished_at": "2026-10-25T09:39:47.783Z",
+    "exit_ip": "125.132.214.207",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  },
+  {
+    "host": "vpn237445464.opengw.net",
+    "port": 1324,
+    "min_download_mbps": 4.611457101082482,
+    "max_download_mbps": 4.728148230898348,
+    "finished_at": "2026-10-25T09:41:43.414Z",
+    "exit_ip": "220.92.236.98",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  },
+  {
+    "host": "vpn564106646.opengw.net",
+    "port": 1980,
+    "min_download_mbps": 4.605041450589868,
+    "max_download_mbps": 5.8808923054256255,
+    "finished_at": "2026-10-25T09:17:48.355Z",
+    "exit_ip": "123.143.79.15",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40179946727"
+  },
+  {
+    "host": "vpn195809939.opengw.net",
+    "port": 1632,
+    "min_download_mbps": 4.554046244812875,
+    "max_download_mbps": 4.866703931228616,
+    "finished_at": "2026-10-25T09:33:50.343Z",
+    "exit_ip": "221.165.229.38",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049"
+  },
+  {
+    "host": "vpn527937130.opengw.net",
+    "port": 1782,
+    "min_download_mbps": 4.527656105974219,
+    "max_download_mbps": 4.9931965960672215,
+    "finished_at": "2026-10-25T09:44:12.144Z",
+    "exit_ip": "14.42.74.165",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468"
+  },
+  {
+    "host": "public-vpn-154.opengw.net",
+    "port": 443,
+    "min_download_mbps": 4.51046609277876,
+    "max_download_mbps": 4.8173592105027465,
+    "finished_at": "2026-10-25T09:51:43.816Z",
+    "exit_ip": "219.100.37.240",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039"
+  },
+  {
+    "host": "vpn546914302.opengw.net",
+    "port": 1338,
+    "min_download_mbps": 4.480084380300218,
+    "max_download_mbps": 4.7329320469480765,
+    "finished_at": "2026-10-25T09:36:27.723Z",
+    "exit_ip": "27.119.130.58",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331"
+  },
+  {
+    "host": "vpn213976710.opengw.net",
+    "port": 995,
+    "min_download_mbps": 4.421059836264654,
+    "max_download_mbps": 4.551120619772964,
+    "finished_at": "2026-10-25T09:43:31.957Z",
+    "exit_ip": "121.166.151.245",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468"
+  },
+  {
+    "host": "vpn920650317.opengw.net",
+    "port": 995,
+    "min_download_mbps": 4.295668982600097,
+    "max_download_mbps": 4.618451562651606,
+    "finished_at": "2026-10-25T09:37:48.572Z",
+    "exit_ip": "59.30.209.57",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331"
+  },
+  {
+    "host": "vpn496179734.opengw.net",
+    "port": 1900,
+    "min_download_mbps": 4.2536578572921515,
+    "max_download_mbps": 4.5789630363537075,
+    "finished_at": "2026-10-25T09:40:27.373Z",
+    "exit_ip": "221.145.124.126",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  },
+  {
+    "host": "vpn514958227.opengw.net",
+    "port": 1752,
+    "min_download_mbps": 4.232460917607863,
+    "max_download_mbps": 4.741626462174999,
+    "finished_at": "2026-10-25T09:44:52.518Z",
+    "exit_ip": "175.192.186.64",
+    "country": "KR",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468"
+  },
+  {
+    "host": "vpn214335136.opengw.net",
+    "port": 1591,
+    "min_download_mbps": 4.183010828672067,
+    "max_download_mbps": 4.87776031532155,
+    "finished_at": "2026-10-25T09:41:45.746Z",
+    "exit_ip": "60.110.16.61",
+    "country": "JP",
+    "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271"
+  }
+]
