@@ -1,5 +1,12 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
+Latest performance objective: see `PERFORMANCE_RESULT_20261025.md`. The user now
+prioritizes availability and throughput over residential purity. Six historical
+entries were revalidated; the final measured run 40179946727 found four fully
+usable, three short-term stable, and two exceeding 5 Mbps in both downloads.
+No subscription was published and no Cloudflare or local network changes were
+made. The residential-only publication gate remains intact.
+
 Latest second-batch attempt: see `BATCH2_RESULT_20261025.md`. Residential-only
 publication now requires explicit allocation evidence, all seven Proxycheck
 flags false and a score of 0-25. All ten prior attempts (including failures)

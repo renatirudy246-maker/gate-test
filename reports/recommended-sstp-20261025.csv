@@ -1,0 +1,4 @@
+rank,protocol,host,port,country,actual_exit_ip,min_download_mbps,max_download_mbps,verified_sessions,long_term_stability
+1,SSTP,public-vpn-134.opengw.net,443,JP,219.100.37.239,5.25,5.5,6/6,unknown
+2,SSTP,vpn890613352.opengw.net,995,KR,110.13.26.111,5.12,5.4,6/6,unknown
+3,SSTP,vpn564106646.opengw.net,1980,KR,123.143.79.15,4.61,5.88,6/6,unknown

@@ -1,0 +1,764 @@
+{
+  "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40179032860",
+  "executed_commit": "d5492a4f6d8f7b365a847fa68b3bcb7f5ec66809",
+  "raw_sha256": "d367a149266fe92cc8ae3f132ef0b420f93aa646263a1663a204f6f198de2be1",
+  "measurements": {
+    "started_at": "2026-10-25T09:03:01.941Z",
+    "status": "completed_with_candidates",
+    "purpose": "availability-and-performance",
+    "max_candidates": 10,
+    "max_concurrency": 2,
+    "max_download_payload_bytes": 20971520,
+    "risk_is_hard_gate": false,
+    "published": false,
+    "results": [
+      {
+        "host": "vpn814090086.opengw.net",
+        "port": 1402,
+        "source_country_code": "JP",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "221.71.146.229",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:40.236527+00:00",
+        "started_at": "2026-10-25T09:03:04.280Z",
+        "downloads": [],
+        "attempts": 2,
+        "verified_sessions": 1,
+        "identity": {
+          "success": false,
+          "error": "40DD8CF76D7F0000:error:0A000119:SSL routines:tls_get_more_records:decryption failed or bad record mac:../deps/openssl/openssl/ssl/record/methods/tls_common.c:873:\n",
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "221.71.146.229",
+              "country_code": "JP",
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp.",
+              "latency_ms": 3234,
+              "observed_at": "2026-10-25T09:03:07.515Z",
+              "certificate_verified": true
+            }
+          ],
+          "stability": {
+            "successful_observations": 1,
+            "total_observations": 2,
+            "long_term": "unknown"
+          }
+        },
+        "error": "40DD8CF76D7F0000:error:0A000119:SSL routines:tls_get_more_records:decryption failed or bad record mac:../deps/openssl/openssl/ssl/record/methods/tls_common.c:873:\n",
+        "finished_at": "2026-10-25T09:03:09.437Z",
+        "elapsed_ms": 5157,
+        "usable": false,
+        "min_download_mbps": null,
+        "max_download_mbps": null,
+        "short_term_stable": false,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "public-vpn-134.opengw.net",
+        "port": 443,
+        "source_country_code": "JP",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "219.100.37.239",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:45.295842+00:00",
+        "started_at": "2026-10-25T09:03:04.283Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 3633.5072729999993,
+            "ttfb_ms": 396.15965700000015,
+            "mbps": 2.3086806684919496,
+            "exit_ip": "219.100.37.239",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:03:21.851Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 8229.537913,
+            "ttfb_ms": 382.54308099999616,
+            "mbps": 1.0193291638827888,
+            "exit_ip": "219.100.37.239",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:03:52.554Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2587,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "219.100.37.239",
+            "country_code": "JP",
+            "asn": {
+              "asn": 36599,
+              "org": "SoftEther Corporation"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "219.100.37.239",
+              "country_code": "JP",
+              "asn": 36599,
+              "org": "SoftEther Corporation",
+              "latency_ms": 2587,
+              "observed_at": "2026-10-25T09:03:06.871Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "219.100.37.239",
+              "latency_ms": 5933,
+              "observed_at": "2026-10-25T09:03:12.806Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "219.100.37.239",
+              "latency_ms": 2688,
+              "observed_at": "2026-10-25T09:03:15.495Z",
+              "certificate_verified": true
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "219.100.37.239",
+          "latency_ms": 2572,
+          "observed_at": "2026-10-25T09:03:55.127Z",
+          "certificate_verified": true
+        },
+        "finished_at": "2026-10-25T09:03:55.127Z",
+        "elapsed_ms": 50844,
+        "usable": true,
+        "min_download_mbps": 1.0193291638827888,
+        "max_download_mbps": 2.3086806684919496,
+        "short_term_stable": false,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn517964018.opengw.net",
+        "port": 1323,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "1.240.128.118",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:47.785406+00:00",
+        "started_at": "2026-10-25T09:03:09.452Z",
+        "downloads": [],
+        "attempts": 4,
+        "verified_sessions": 3,
+        "identity": {
+          "success": true,
+          "responseTime": 3562,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "1.240.128.118",
+            "country_code": "KR",
+            "asn": {
+              "asn": 9318,
+              "org": "SK Broadband Co Ltd"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "1.240.128.118",
+              "country_code": "KR",
+              "asn": 9318,
+              "org": "SK Broadband Co Ltd",
+              "latency_ms": 3562,
+              "observed_at": "2026-10-25T09:03:13.014Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "1.240.128.118",
+              "latency_ms": 3010,
+              "observed_at": "2026-10-25T09:03:16.024Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "1.240.128.118",
+              "latency_ms": 2649,
+              "observed_at": "2026-10-25T09:03:18.674Z",
+              "certificate_verified": true
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "error": "40DD8CF76D7F0000:error:0A000119:SSL routines:tls_get_more_records:decryption failed or bad record mac:../deps/openssl/openssl/ssl/record/methods/tls_common.c:873:\n",
+        "finished_at": "2026-10-25T09:03:25.390Z",
+        "elapsed_ms": 15938,
+        "usable": false,
+        "min_download_mbps": null,
+        "max_download_mbps": null,
+        "short_term_stable": false,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn564106646.opengw.net",
+        "port": 1980,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "123.143.79.15",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:50.206983+00:00",
+        "started_at": "2026-10-25T09:03:25.391Z",
+        "downloads": [],
+        "attempts": 4,
+        "verified_sessions": 3,
+        "identity": {
+          "success": true,
+          "responseTime": 3299,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "123.143.79.15",
+            "country_code": "KR",
+            "asn": {
+              "asn": 3786,
+              "org": "LG DACOM Corporation"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "123.143.79.15",
+              "country_code": "KR",
+              "asn": 3786,
+              "org": "LG DACOM Corporation",
+              "latency_ms": 3299,
+              "observed_at": "2026-10-25T09:03:28.690Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "123.143.79.15",
+              "latency_ms": 2664,
+              "observed_at": "2026-10-25T09:03:31.355Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "123.143.79.15",
+              "latency_ms": 2704,
+              "observed_at": "2026-10-25T09:03:34.059Z",
+              "certificate_verified": true
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "error": "40DD8CF76D7F0000:error:0A000119:SSL routines:tls_get_more_records:decryption failed or bad record mac:../deps/openssl/openssl/ssl/record/methods/tls_common.c:873:\n",
+        "finished_at": "2026-10-25T09:03:37.552Z",
+        "elapsed_ms": 12161,
+        "usable": false,
+        "min_download_mbps": null,
+        "max_download_mbps": null,
+        "short_term_stable": false,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn890613352.opengw.net",
+        "port": 995,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "110.13.26.111",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:53.631221+00:00",
+        "started_at": "2026-10-25T09:03:37.552Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 4221.826531999999,
+            "ttfb_ms": 402.63110900000174,
+            "mbps": 1.9869617892675657,
+            "exit_ip": "110.13.26.111",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:03:52.673Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 4236.755818999998,
+            "ttfb_ms": 399.96001599999727,
+            "mbps": 1.9799602239007401,
+            "exit_ip": "110.13.26.111",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:04:19.409Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2762,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "110.13.26.111",
+            "country_code": "KR",
+            "asn": {
+              "asn": 9318,
+              "org": "SK Broadband Co Ltd"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "110.13.26.111",
+              "country_code": "KR",
+              "asn": 9318,
+              "org": "SK Broadband Co Ltd",
+              "latency_ms": 2762,
+              "observed_at": "2026-10-25T09:03:40.315Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "110.13.26.111",
+              "latency_ms": 2868,
+              "observed_at": "2026-10-25T09:03:43.183Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "110.13.26.111",
+              "latency_ms": 2828,
+              "observed_at": "2026-10-25T09:03:46.012Z",
+              "certificate_verified": true
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "110.13.26.111",
+          "latency_ms": 2588,
+          "observed_at": "2026-10-25T09:04:21.997Z",
+          "certificate_verified": true
+        },
+        "finished_at": "2026-10-25T09:04:21.998Z",
+        "elapsed_ms": 44446,
+        "usable": true,
+        "min_download_mbps": 1.9799602239007401,
+        "max_download_mbps": 1.9869617892675657,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn368704878.opengw.net",
+        "port": 1511,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "182.220.175.195",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:56.227213+00:00",
+        "started_at": "2026-10-25T09:03:55.128Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 3711.150127000001,
+            "ttfb_ms": 397.6993349999975,
+            "mbps": 2.2603795893272407,
+            "exit_ip": "182.220.175.195",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:04:09.609Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 3713.6349869999976,
+            "ttfb_ms": 396.59229099999357,
+            "mbps": 2.2588671286664628,
+            "exit_ip": "182.220.175.195",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:04:35.927Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3146,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "182.220.175.195",
+            "country_code": "KR",
+            "asn": {
+              "asn": 17858,
+              "org": "LG POWERCOMM"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "182.220.175.195",
+              "country_code": "KR",
+              "asn": 17858,
+              "org": "LG POWERCOMM",
+              "latency_ms": 3146,
+              "observed_at": "2026-10-25T09:03:58.274Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "182.220.175.195",
+              "latency_ms": 2549,
+              "observed_at": "2026-10-25T09:04:00.823Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "182.220.175.195",
+              "latency_ms": 2666,
+              "observed_at": "2026-10-25T09:04:03.490Z",
+              "certificate_verified": true
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "182.220.175.195",
+          "latency_ms": 2513,
+          "observed_at": "2026-10-25T09:04:38.440Z",
+          "certificate_verified": true
+        },
+        "finished_at": "2026-10-25T09:04:38.440Z",
+        "elapsed_ms": 43312,
+        "usable": true,
+        "min_download_mbps": 2.2588671286664628,
+        "max_download_mbps": 2.2603795893272407,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      }
+    ],
+    "recommendations": [
+      {
+        "host": "vpn368704878.opengw.net",
+        "port": 1511,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "182.220.175.195",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:56.227213+00:00",
+        "started_at": "2026-10-25T09:03:55.128Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 3711.150127000001,
+            "ttfb_ms": 397.6993349999975,
+            "mbps": 2.2603795893272407,
+            "exit_ip": "182.220.175.195",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:04:09.609Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 3713.6349869999976,
+            "ttfb_ms": 396.59229099999357,
+            "mbps": 2.2588671286664628,
+            "exit_ip": "182.220.175.195",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:04:35.927Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3146,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "182.220.175.195",
+            "country_code": "KR",
+            "asn": {
+              "asn": 17858,
+              "org": "LG POWERCOMM"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "182.220.175.195",
+              "country_code": "KR",
+              "asn": 17858,
+              "org": "LG POWERCOMM",
+              "latency_ms": 3146,
+              "observed_at": "2026-10-25T09:03:58.274Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "182.220.175.195",
+              "latency_ms": 2549,
+              "observed_at": "2026-10-25T09:04:00.823Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "182.220.175.195",
+              "latency_ms": 2666,
+              "observed_at": "2026-10-25T09:04:03.490Z",
+              "certificate_verified": true
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "182.220.175.195",
+          "latency_ms": 2513,
+          "observed_at": "2026-10-25T09:04:38.440Z",
+          "certificate_verified": true
+        },
+        "finished_at": "2026-10-25T09:04:38.440Z",
+        "elapsed_ms": 43312,
+        "usable": true,
+        "min_download_mbps": 2.2588671286664628,
+        "max_download_mbps": 2.2603795893272407,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn890613352.opengw.net",
+        "port": 995,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "110.13.26.111",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:53.631221+00:00",
+        "started_at": "2026-10-25T09:03:37.552Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 4221.826531999999,
+            "ttfb_ms": 402.63110900000174,
+            "mbps": 1.9869617892675657,
+            "exit_ip": "110.13.26.111",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:03:52.673Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 4236.755818999998,
+            "ttfb_ms": 399.96001599999727,
+            "mbps": 1.9799602239007401,
+            "exit_ip": "110.13.26.111",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "observed_at": "2026-10-25T09:04:19.409Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2762,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "110.13.26.111",
+            "country_code": "KR",
+            "asn": {
+              "asn": 9318,
+              "org": "SK Broadband Co Ltd"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "110.13.26.111",
+              "country_code": "KR",
+              "asn": 9318,
+              "org": "SK Broadband Co Ltd",
+              "latency_ms": 2762,
+              "observed_at": "2026-10-25T09:03:40.315Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "110.13.26.111",
+              "latency_ms": 2868,
+              "observed_at": "2026-10-25T09:03:43.183Z",
+              "certificate_verified": true
+            },
+            {
+              "observer": "ipify",
+              "ip": "110.13.26.111",
+              "latency_ms": 2828,
+              "observed_at": "2026-10-25T09:03:46.012Z",
+              "certificate_verified": true
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "110.13.26.111",
+          "latency_ms": 2588,
+          "observed_at": "2026-10-25T09:04:21.997Z",
+          "certificate_verified": true
+        },
+        "finished_at": "2026-10-25T09:04:21.998Z",
+        "elapsed_ms": 44446,
+        "usable": true,
+        "min_download_mbps": 1.9799602239007401,
+        "max_download_mbps": 1.9869617892675657,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      }
+    ],
+    "health": {
+      "time": "2026-10-25T09:03:02.053Z",
+      "http": 200,
+      "service": "gate-performance-checker",
+      "configured": true,
+      "backend": "isolated-node-sstp",
+      "max_candidates": 10,
+      "max_concurrency": 2
+    },
+    "official_feed": {
+      "url": "https://www.vpngate.net/api/iphone/",
+      "http": 200,
+      "sha256": "37f8f13ce88432c5ac8d2ded6006b280321ed01683743bd8d8c43d7c83a00a3e",
+      "fetched_at": "2026-10-25T09:03:04.092Z",
+      "parse_status": "invalid"
+    },
+    "selected_candidates": [
+      {
+        "host": "vpn814090086.opengw.net",
+        "port": 1402,
+        "source_country_code": "JP",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "221.71.146.229",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:40.236527+00:00"
+      },
+      {
+        "host": "public-vpn-134.opengw.net",
+        "port": 443,
+        "source_country_code": "JP",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "219.100.37.239",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:45.295842+00:00"
+      },
+      {
+        "host": "vpn517964018.opengw.net",
+        "port": 1323,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "1.240.128.118",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:47.785406+00:00"
+      },
+      {
+        "host": "vpn564106646.opengw.net",
+        "port": 1980,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "123.143.79.15",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:50.206983+00:00"
+      },
+      {
+        "host": "vpn890613352.opengw.net",
+        "port": 995,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "110.13.26.111",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:53.631221+00:00"
+      },
+      {
+        "host": "vpn368704878.opengw.net",
+        "port": 1511,
+        "source_country_code": "KR",
+        "candidate_origin": "previously_measured_success",
+        "previous_exit_ip": "182.220.175.195",
+        "historical_risk_score": 100,
+        "historical_risk_checked_at": "2026-10-24T22:03:56.227213+00:00"
+      }
+    ],
+    "checked": 6,
+    "usable": 3,
+    "stable": 2,
+    "fast": 0,
+    "note": "Measurements originate from the Actions runner. Short repetition and small downloads do not establish long-term stability or the user network speed. Historical risk is not a current reputation check.",
+    "finished_at": "2026-10-25T09:04:38.441Z"
+  }
+}
