@@ -1,0 +1,39 @@
+name: Manual bounded node performance
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: gate-test-manual
+  cancel-in-progress: false
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: pip install -r requirements.txt
+      - name: Test validation and bounds
+        run: |
+          python -m unittest discover -s tests
+          node --test tests/*.test.mjs
+      - name: Verify and benchmark at most ten candidates
+        run: node node-checker/performance-runner.mjs
+      - name: Preserve measured results even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: gate-performance-diagnostics
+          path: diagnostics/performance/
+          retention-days: 1
+          if-no-files-found: error
