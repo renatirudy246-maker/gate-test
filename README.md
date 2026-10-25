@@ -1,6 +1,27 @@
 # gate-test: independent VPN Gate tests
 
-## Published direct OpenVPN subscription — 2026-10-25
+## Local acceptance FAILED — current status
+
+**Do not treat the published 35-node snapshot as usable on the user's network.**
+Only 11/35 gateways completed a 5-second local TCP probe. Four locally timed-out
+entrances remained reachable from GitHub Linux in 111–131 ms. The remote-runner
+ranking therefore does not establish local reachability.
+
+The original profiles also lacked per-node remote DNS, and local Google
+resolution differed from authenticated DoH. Enabling only the temporary node's
+remote resolver let one Korean exit load Google/Bing in 625/749 ms, but its
+fresh-session recheck failed. **Zero stable locally recommended exits remain.**
+No new "fixed" subscription was published. The original public file is retained
+as a historical snapshot, not a current local-use recommendation. Remote-only
+automatic publication has been removed. Per-node resolver settings are corrected
+for future test configs, and a separate local publisher refuses publication
+without both browsing verification and a successful fresh-session recheck.
+
+See [local diagnosis](LOCAL_OPENVPN_RESULT_20261025.md). The user's production
+subscription, Windows DNS/routes/TUN, protected ports and active Clash settings
+were not changed. All our temporary diagnostic core processes were stopped.
+
+## Historical overseas-verified OpenVPN snapshot — 2026-10-25
 
 [Clash / Mihomo subscription](https://renatirudy246-maker.github.io/gate-test/clash-openvpn.yaml)
 

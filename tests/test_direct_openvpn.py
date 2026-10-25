@@ -17,7 +17,9 @@ class DirectOpenVPNTests(unittest.TestCase):
         self.assertEqual(proxy['ip-stack'],{'mode':'gvisor'})
         self.assertTrue(proxy['ca'].startswith('-----BEGIN CERTIFICATE-----'))
         self.assertNotIn('skip-cert-verify',proxy)
-        for key in ('tun','dns','mixed-port','external-controller','interface-name'):self.assertNotIn(key,proxy)
+        self.assertIs(proxy['remote-dns-resolve'],True)
+        self.assertEqual(proxy['dns'],['https://1.1.1.1/dns-query','https://8.8.8.8/dns-query'])
+        for key in ('tun','mixed-port','external-controller','interface-name'):self.assertNotIn(key,proxy)
 
     def test_remote_private_ports_and_executable_directives_cannot_be_imported(self):
         text,row,m=self.fixture()

@@ -35,7 +35,8 @@ def convert_profile(text, row, measured):
     return {'name':f"{measured['country']}-{measured['exit_ip']}",'type':'openvpn','server':row['IP'],'port':measured['port'],
             'proto':'tcp','ca':blocks['ca'][1],'cert':blocks['cert'][1],'key':blocks['key'][1],
             'cipher':cipher,'data-ciphers':[cipher],'data-ciphers-fallback':cipher,'auth':auth,
-            'handshake-timeout':25,'ip-stack':{'mode':'gvisor'},'udp':False}
+            'handshake-timeout':25,'ip-stack':{'mode':'gvisor'},'udp':False,
+            'remote-dns-resolve':True,'dns':['https://1.1.1.1/dns-query','https://8.8.8.8/dns-query']}
 
 def prepare(source_path, output_path):
     raw=source_path.read_bytes();lines=raw.decode('utf-8-sig').splitlines()

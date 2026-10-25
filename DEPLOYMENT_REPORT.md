@@ -1,7 +1,14 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
-**Current working subscription:**
+**Historical published snapshot — subsequent local acceptance FAILED:**
 https://renatirudy246-maker.github.io/gate-test/clash-openvpn.yaml
+
+See `LOCAL_OPENVPN_RESULT_20261025.md`: local TCP reached only 11/35 gateways;
+remote controls show a material path difference. Per-node remote DNS fixed a
+Google/Bing test on one Korean exit, but a fresh-session recheck failed. Zero
+stable locally recommended exits. No repaired subscription has been published;
+the public file remains an overseas-only historical snapshot. Remote-only
+publication has been removed. No active production or system settings changed.
 
 See `DIRECT_OPENVPN_RESULT_20261025.md`: native Mihomo OpenVPN validation on
 isolated Linux Actions tested 58 distinct entrances, completed 44, qualified

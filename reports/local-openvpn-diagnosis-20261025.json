@@ -1,0 +1,1209 @@
+{
+  "status": "failed_local_acceptance",
+  "test_date": "2026-10-25",
+  "tcp": {
+    "time": "2026-10-25T10:45:58.187225+00:00",
+    "max_concurrency": 2,
+    "mode": "tcp",
+    "results": [
+      {
+        "name": "01-JP-153.151.199.65-6.62Mbps",
+        "ip": "153.151.199.65",
+        "port": 1299,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5009
+      },
+      {
+        "name": "02-JP-58.87.159.9-6.33Mbps",
+        "ip": "58.87.159.9",
+        "port": 1605,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5009
+      },
+      {
+        "name": "03-KR-220.92.236.98-6.22Mbps",
+        "ip": "220.92.236.98",
+        "port": 1324,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5004
+      },
+      {
+        "name": "04-JP-143.189.192.65-6.19Mbps",
+        "ip": "143.189.192.65",
+        "port": 1837,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5004
+      },
+      {
+        "name": "05-JP-60.121.199.9-5.95Mbps",
+        "ip": "60.121.199.9",
+        "port": 1630,
+        "tcp": true,
+        "elapsed_ms": 88
+      },
+      {
+        "name": "06-JP-60.128.85.178-5.94Mbps",
+        "ip": "60.128.85.178",
+        "port": 1633,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5010
+      },
+      {
+        "name": "07-JP-60.152.122.44-5.91Mbps",
+        "ip": "60.152.122.44",
+        "port": 1544,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5001
+      },
+      {
+        "name": "08-KR-1.241.129.177-5.87Mbps",
+        "ip": "1.241.129.177",
+        "port": 1950,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5015
+      },
+      {
+        "name": "09-JP-126.37.15.22-5.76Mbps",
+        "ip": "126.37.15.22",
+        "port": 1245,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5015
+      },
+      {
+        "name": "10-JP-153.176.78.15-5.76Mbps",
+        "ip": "153.176.78.15",
+        "port": 1327,
+        "tcp": true,
+        "elapsed_ms": 143
+      },
+      {
+        "name": "11-JP-118.159.28.138-5.74Mbps",
+        "ip": "118.159.28.138",
+        "port": 1326,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5005
+      },
+      {
+        "name": "12-KR-121.186.118.191-5.71Mbps",
+        "ip": "121.186.118.191",
+        "port": 1934,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5003
+      },
+      {
+        "name": "13-KR-59.30.209.57-5.67Mbps",
+        "ip": "183.108.90.145",
+        "port": 995,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5005
+      },
+      {
+        "name": "14-KR-125.132.214.207-5.64Mbps",
+        "ip": "218.155.138.169",
+        "port": 995,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5002
+      },
+      {
+        "name": "15-KR-183.98.13.38-5.63Mbps",
+        "ip": "183.98.13.38",
+        "port": 1203,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5007
+      },
+      {
+        "name": "16-KR-220.120.181.40-5.60Mbps",
+        "ip": "220.120.181.40",
+        "port": 1207,
+        "tcp": true,
+        "elapsed_ms": 1080
+      },
+      {
+        "name": "17-KR-175.192.186.64-5.58Mbps",
+        "ip": "175.192.186.64",
+        "port": 1752,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5006
+      },
+      {
+        "name": "18-JP-60.110.16.61-5.56Mbps",
+        "ip": "60.110.16.61",
+        "port": 1591,
+        "tcp": true,
+        "elapsed_ms": 78
+      },
+      {
+        "name": "19-KR-221.145.124.126-5.54Mbps",
+        "ip": "221.145.124.126",
+        "port": 1900,
+        "tcp": true,
+        "elapsed_ms": 64
+      },
+      {
+        "name": "20-KR-121.166.151.245-5.50Mbps",
+        "ip": "220.85.129.210",
+        "port": 995,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5015
+      },
+      {
+        "name": "21-KR-221.152.96.175-5.50Mbps",
+        "ip": "220.84.76.63",
+        "port": 995,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5011
+      },
+      {
+        "name": "22-KR-14.42.74.165-5.49Mbps",
+        "ip": "14.42.74.165",
+        "port": 1782,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5008
+      },
+      {
+        "name": "23-KR-221.151.149.159-5.45Mbps",
+        "ip": "221.151.149.159",
+        "port": 1792,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5013
+      },
+      {
+        "name": "24-KR-211.226.34.183-5.42Mbps",
+        "ip": "218.147.213.47",
+        "port": 995,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5006
+      },
+      {
+        "name": "25-KR-112.172.121.216-5.40Mbps",
+        "ip": "112.172.121.216",
+        "port": 1195,
+        "tcp": true,
+        "elapsed_ms": 55
+      },
+      {
+        "name": "26-KR-112.72.196.6-5.24Mbps",
+        "ip": "112.72.196.6",
+        "port": 1528,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5001
+      },
+      {
+        "name": "27-JP-60.96.58.251-5.22Mbps",
+        "ip": "60.96.58.251",
+        "port": 1913,
+        "tcp": true,
+        "elapsed_ms": 1083
+      },
+      {
+        "name": "28-JP-210.143.74.241-5.13Mbps",
+        "ip": "210.143.74.241",
+        "port": 1566,
+        "tcp": true,
+        "elapsed_ms": 103
+      },
+      {
+        "name": "29-KR-27.119.130.58-5.06Mbps",
+        "ip": "27.119.130.58",
+        "port": 1338,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5004
+      },
+      {
+        "name": "30-JP-60.127.61.103-4.92Mbps",
+        "ip": "60.127.61.103",
+        "port": 1827,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5015
+      },
+      {
+        "name": "31-KR-119.194.109.53-4.90Mbps",
+        "ip": "220.120.161.254",
+        "port": 995,
+        "tcp": true,
+        "elapsed_ms": 57
+      },
+      {
+        "name": "32-KR-125.136.43.108-4.72Mbps",
+        "ip": "125.136.43.108",
+        "port": 1905,
+        "tcp": true,
+        "elapsed_ms": 69
+      },
+      {
+        "name": "33-JP-153.174.22.211-4.53Mbps",
+        "ip": "153.174.22.211",
+        "port": 1394,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5003
+      },
+      {
+        "name": "34-JP-182.171.0.118-4.08Mbps",
+        "ip": "182.171.0.118",
+        "port": 1453,
+        "tcp": true,
+        "elapsed_ms": 1142
+      },
+      {
+        "name": "35-JP-218.228.192.151-3.97Mbps",
+        "ip": "218.228.192.151",
+        "port": 1240,
+        "tcp": false,
+        "error": "TimeoutError",
+        "elapsed_ms": 5012
+      }
+    ]
+  },
+  "initial_native": {
+    "time": "2026-10-25T10:47:39.200862+00:00",
+    "max_concurrency": 2,
+    "mode": "native",
+    "results": [
+      {
+        "name": "05-JP-60.121.199.9-5.95Mbps",
+        "ip": "60.121.199.9",
+        "port": 1630,
+        "started_at": "2026-10-25T10:47:39.212224+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ProxyError",
+            "elapsed_ms": 21957
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5028
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5002
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 2
+        },
+        "protocol_errors": [
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:48:11.768815+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "16-KR-220.120.181.40-5.60Mbps",
+        "ip": "220.120.181.40",
+        "port": 1207,
+        "started_at": "2026-10-25T10:48:11.770133+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "http": 204,
+            "elapsed_ms": 868
+          },
+          {
+            "kind": "ipwhois",
+            "http": 200,
+            "elapsed_ms": 725,
+            "ip": "220.120.181.40",
+            "country": "KR",
+            "certificate_verified": true
+          },
+          {
+            "kind": "ipify",
+            "http": 200,
+            "elapsed_ms": 754,
+            "ip": "220.120.181.40",
+            "country": null,
+            "certificate_verified": true
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": true,
+        "core_error_categories": {},
+        "protocol_errors": [],
+        "finished_at": "2026-10-25T10:48:14.677345+00:00",
+        "temporary_process_stopped": true
+      }
+    ]
+  },
+  "reachable": {
+    "time": "2026-10-25T10:49:45.493070+00:00",
+    "max_concurrency": 2,
+    "mode": "reachable",
+    "results": [
+      {
+        "name": "05-JP-60.121.199.9-5.95Mbps",
+        "ip": "60.121.199.9",
+        "port": 1630,
+        "started_at": "2026-10-25T10:49:45.500881+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5006
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5024
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3
+        },
+        "protocol_errors": [
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:50:01.094831+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "10-JP-153.176.78.15-5.76Mbps",
+        "ip": "153.176.78.15",
+        "port": 1327,
+        "started_at": "2026-10-25T10:49:45.498646+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "http": 204,
+            "elapsed_ms": 2675
+          },
+          {
+            "kind": "ipwhois",
+            "http": 200,
+            "elapsed_ms": 1828,
+            "ip": "153.176.78.15",
+            "country": "JP",
+            "certificate_verified": true
+          },
+          {
+            "kind": "ipify",
+            "http": 200,
+            "elapsed_ms": 1252,
+            "ip": "153.176.78.15",
+            "country": null,
+            "certificate_verified": true
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": true,
+        "web_checks": [
+          {
+            "kind": "google-search",
+            "error": "ConnectionError"
+          },
+          {
+            "kind": "bing-search",
+            "http": 200,
+            "first_chunk_bytes": 2545,
+            "elapsed_ms": 4640
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 524288,
+            "mbps": 0.09034507549016778,
+            "ttfb_ms": 3109,
+            "exit_ip": "153.176.78.15",
+            "country": "JP",
+            "certificate_verified": true
+          }
+        ],
+        "speed_error": "ReadTimeout",
+        "last_ip_check": {
+          "error": "ProxyError"
+        },
+        "browser_usable": false,
+        "core_error_categories": {
+          "context deadline exceeded": 1,
+          "network is unreachable": 1
+        },
+        "protocol_errors": [
+          "connect failed: dial tcp 69.171.235.22:443: context deadline exceeded\\nconnect failed: dial tcp [2001::1]:443: network is unreachable\""
+        ],
+        "finished_at": "2026-10-25T10:51:28.365214+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "16-KR-220.120.181.40-5.60Mbps",
+        "ip": "220.120.181.40",
+        "port": 1207,
+        "started_at": "2026-10-25T10:50:01.100997+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ConnectionError",
+            "elapsed_ms": 5015
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5005
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5005
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3
+        },
+        "protocol_errors": [
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:50:16.685572+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "18-JP-60.110.16.61-5.56Mbps",
+        "ip": "60.110.16.61",
+        "port": 1591,
+        "started_at": "2026-10-25T10:50:16.687713+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ReadTimeout",
+            "elapsed_ms": 25436
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5007
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 2,
+          "network is unreachable": 1
+        },
+        "protocol_errors": [
+          "connect failed: dial tcp 172.66.175.107:443: context deadline exceeded\\ndial tcp 104.20.44.133:443: context deadline exceeded\\nconnect failed: dial tcp [2606:4700:10::ac42:af6b]:443: network is unreachable\\ndial tcp [2606:4700:10::6814:2c85]:443: network is unreachable\"",
+          "dial tcp 104.26.13.205:443: context deadline exceeded\\ndial tcp 104.26.12.205:443: context deadline exceeded\\ndial tcp 172.67.74.152:443: context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:50:52.691036+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "19-KR-221.145.124.126-5.54Mbps",
+        "ip": "221.145.124.126",
+        "port": 1900,
+        "started_at": "2026-10-25T10:50:52.692103+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5005
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3
+        },
+        "protocol_errors": [
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:51:08.278624+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "25-KR-112.172.121.216-5.40Mbps",
+        "ip": "112.172.121.216",
+        "port": 1195,
+        "started_at": "2026-10-25T10:51:08.281767+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "http": 204,
+            "elapsed_ms": 1982
+          },
+          {
+            "kind": "ipwhois",
+            "http": 200,
+            "elapsed_ms": 448,
+            "ip": "112.172.121.216",
+            "country": "KR",
+            "certificate_verified": true
+          },
+          {
+            "kind": "ipify",
+            "http": 200,
+            "elapsed_ms": 688,
+            "ip": "112.172.121.216",
+            "country": null,
+            "certificate_verified": true
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": true,
+        "web_checks": [
+          {
+            "kind": "google-search",
+            "error": "ConnectionError"
+          },
+          {
+            "kind": "bing-search",
+            "error": "ConnectionError"
+          }
+        ],
+        "downloads": [],
+        "speed_error": "ConnectionError",
+        "last_ip_check": {
+          "error": "ProxyError"
+        },
+        "browser_usable": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3,
+          "network is unreachable": 2
+        },
+        "protocol_errors": [
+          "connect failed: dial tcp 185.45.5.35:443: context deadline exceeded\\nconnect failed: dial tcp [2001::1]:443: network is unreachable\"",
+          "dial tcp 202.89.233.101:443: context deadline exceeded\\ndial tcp 202.89.233.100:443: context deadline exceeded\"",
+          "connect failed: dial tcp 162.159.140.220:443: context deadline exceeded\\ndial tcp 172.66.0.218:443: context deadline exceeded\\nconnect failed: dial tcp [2a06:98c1:58::da]:443: network is unreachable\\ndial tcp [2606:4700:7::da]:443: network is unreachable\""
+        ],
+        "finished_at": "2026-10-25T10:51:32.250936+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "27-JP-60.96.58.251-5.22Mbps",
+        "ip": "60.96.58.251",
+        "port": 1913,
+        "started_at": "2026-10-25T10:51:28.368424+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "http": 204,
+            "elapsed_ms": 2458
+          },
+          {
+            "kind": "ipwhois",
+            "http": 200,
+            "elapsed_ms": 667,
+            "ip": "60.96.58.251",
+            "country": "JP",
+            "certificate_verified": true
+          },
+          {
+            "kind": "ipify",
+            "http": 200,
+            "elapsed_ms": 944,
+            "ip": "60.96.58.251",
+            "country": null,
+            "certificate_verified": true
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": true,
+        "web_checks": [
+          {
+            "kind": "google-search",
+            "error": "ConnectionError"
+          },
+          {
+            "kind": "bing-search",
+            "http": 200,
+            "first_chunk_bytes": 2531,
+            "elapsed_ms": 1885
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 524288,
+            "mbps": 0.5822968892205055,
+            "ttfb_ms": 461,
+            "exit_ip": "60.96.58.251",
+            "country": "JP",
+            "certificate_verified": true
+          }
+        ],
+        "speed_error": "ConnectionError",
+        "last_ip_check": {
+          "error": "ConnectionError"
+        },
+        "browser_usable": false,
+        "core_error_categories": {
+          "context deadline exceeded": 2,
+          "network is unreachable": 1
+        },
+        "protocol_errors": [
+          "connect failed: dial tcp 185.45.5.35:443: context deadline exceeded\\nconnect failed: dial tcp [2001::1]:443: network is unreachable\"",
+          "dial tcp 104.26.13.205:443: context deadline exceeded\\ndial tcp 104.26.12.205:443: context deadline exceeded\\ndial tcp 172.67.74.152:443: context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:52:30.693944+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "28-JP-210.143.74.241-5.13Mbps",
+        "ip": "210.143.74.241",
+        "port": 1566,
+        "started_at": "2026-10-25T10:51:32.252182+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "http": 204,
+            "elapsed_ms": 2188
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ReadTimeout",
+            "elapsed_ms": 8255
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 1
+        },
+        "protocol_errors": [
+          "dial tcp 172.67.74.152:443: context deadline exceeded\\ndial tcp 104.26.12.205:443: context deadline exceeded\\ndial tcp 104.26.13.205:443: context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:51:48.250941+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "31-KR-119.194.109.53-4.90Mbps",
+        "ip": "220.120.161.254",
+        "port": 995,
+        "started_at": "2026-10-25T10:51:48.252192+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "http": 204,
+            "elapsed_ms": 778
+          },
+          {
+            "kind": "ipwhois",
+            "http": 200,
+            "elapsed_ms": 689,
+            "ip": "119.194.109.53",
+            "country": "KR",
+            "certificate_verified": true
+          },
+          {
+            "kind": "ipify",
+            "http": 200,
+            "elapsed_ms": 723,
+            "ip": "119.194.109.53",
+            "country": null,
+            "certificate_verified": true
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": true,
+        "web_checks": [
+          {
+            "kind": "google-search",
+            "error": "ConnectionError"
+          },
+          {
+            "kind": "bing-search",
+            "http": 200,
+            "first_chunk_bytes": 2548,
+            "elapsed_ms": 1219
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 524288,
+            "mbps": 1.634874673761401,
+            "ttfb_ms": 140,
+            "exit_ip": "119.194.109.53",
+            "country": "KR",
+            "certificate_verified": true
+          },
+          {
+            "bytes": 524288,
+            "mbps": 1.3621650580162106,
+            "ttfb_ms": 316,
+            "exit_ip": "119.194.109.53",
+            "country": "KR",
+            "certificate_verified": true
+          }
+        ],
+        "last_ip_check": {
+          "ip": "119.194.109.53",
+          "certificate_verified": true
+        },
+        "browser_usable": false,
+        "core_error_categories": {
+          "context deadline exceeded": 1,
+          "network is unreachable": 1
+        },
+        "protocol_errors": [
+          "connect failed: dial tcp 185.45.5.35:443: context deadline exceeded\\nconnect failed: dial tcp [2001::1]:443: network is unreachable\""
+        ],
+        "finished_at": "2026-10-25T10:52:23.619307+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "32-KR-125.136.43.108-4.72Mbps",
+        "ip": "125.136.43.108",
+        "port": 1905,
+        "started_at": "2026-10-25T10:52:23.621295+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5004
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5002
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3
+        },
+        "protocol_errors": [
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:52:39.175000+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "34-JP-182.171.0.118-4.08Mbps",
+        "ip": "182.171.0.118",
+        "port": 1453,
+        "started_at": "2026-10-25T10:52:30.698397+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5005
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5002
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3,
+          "network is unreachable": 2
+        },
+        "protocol_errors": [
+          "connect failed: dial tcp 180.163.151.34:443: context deadline exceeded\\nconnect failed: dial tcp [240e:983:1a04:6::1002]:443: network is unreachable\"",
+          "connect failed: dial tcp 104.20.44.133:443: context deadline exceeded\\ndial tcp 172.66.175.107:443: context deadline exceeded\\nconnect failed: dial tcp [2606:4700:10::6814:2c85]:443: network is unreachable\\ndial tcp [2606:4700:10::ac42:af6b]:443: network is unreachable\"",
+          "dial tcp 172.67.74.152:443: context deadline exceeded\\ndial tcp 104.26.12.205:443: context deadline exceeded\\ndial tcp 104.26.13.205:443: context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:52:46.269967+00:00",
+        "temporary_process_stopped": true
+      }
+    ]
+  },
+  "remote_dns": {
+    "time": "2026-10-25T10:54:06.340530+00:00",
+    "max_concurrency": 2,
+    "mode": "remote-dns",
+    "results": [
+      {
+        "name": "27-JP-60.96.58.251-5.22Mbps",
+        "ip": "60.96.58.251",
+        "port": 1913,
+        "started_at": "2026-10-25T10:54:06.358934+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5015
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5014
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3
+        },
+        "protocol_errors": [
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:54:22.942367+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "10-JP-153.176.78.15-5.76Mbps",
+        "ip": "153.176.78.15",
+        "port": 1327,
+        "started_at": "2026-10-25T10:54:06.359069+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5004
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3
+        },
+        "protocol_errors": [
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:54:22.942561+00:00",
+        "temporary_process_stopped": true
+      },
+      {
+        "name": "31-KR-119.194.109.53-4.90Mbps",
+        "ip": "220.120.161.254",
+        "port": 995,
+        "started_at": "2026-10-25T10:54:22.943598+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "http": 204,
+            "elapsed_ms": 1521
+          },
+          {
+            "kind": "ipwhois",
+            "http": 200,
+            "elapsed_ms": 1008,
+            "ip": "119.194.109.53",
+            "country": "KR",
+            "certificate_verified": true
+          },
+          {
+            "kind": "ipify",
+            "http": 200,
+            "elapsed_ms": 1074,
+            "ip": "119.194.109.53",
+            "country": null,
+            "certificate_verified": true
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": true,
+        "web_checks": [
+          {
+            "kind": "google-search",
+            "http": 200,
+            "first_chunk_bytes": 8192,
+            "elapsed_ms": 625
+          },
+          {
+            "kind": "bing-search",
+            "http": 200,
+            "first_chunk_bytes": 8192,
+            "elapsed_ms": 749
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 524288,
+            "mbps": 1.3716629416321244,
+            "ttfb_ms": 138,
+            "exit_ip": "119.194.109.53",
+            "country": "KR",
+            "certificate_verified": true
+          },
+          {
+            "bytes": 524288,
+            "mbps": 1.2647883799636046,
+            "ttfb_ms": 452,
+            "exit_ip": "119.194.109.53",
+            "country": "KR",
+            "certificate_verified": true
+          }
+        ],
+        "last_ip_check": {
+          "ip": "119.194.109.53",
+          "certificate_verified": true
+        },
+        "browser_usable": true,
+        "core_error_categories": {},
+        "protocol_errors": [],
+        "finished_at": "2026-10-25T10:54:55.582192+00:00",
+        "temporary_process_stopped": true
+      }
+    ]
+  },
+  "remote_dns_extra": {
+    "time": "2026-10-25T10:56:41.873505+00:00",
+    "max_concurrency": 2,
+    "mode": "remote-dns-extra",
+    "results": [
+      {
+        "name": "25-KR-112.172.121.216-5.40Mbps",
+        "ip": "112.172.121.216",
+        "port": 1195,
+        "started_at": "2026-10-25T10:56:41.876587+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "http": 204,
+            "elapsed_ms": 1021
+          },
+          {
+            "kind": "ipwhois",
+            "http": 200,
+            "elapsed_ms": 527,
+            "ip": "112.172.121.216",
+            "country": "KR",
+            "certificate_verified": true
+          },
+          {
+            "kind": "ipify",
+            "http": 200,
+            "elapsed_ms": 977,
+            "ip": "112.172.121.216",
+            "country": null,
+            "certificate_verified": true
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": true,
+        "web_checks": [
+          {
+            "kind": "google-search",
+            "error": "ReadTimeout"
+          },
+          {
+            "kind": "bing-search",
+            "error": "ConnectionError"
+          }
+        ],
+        "downloads": [],
+        "speed_error": "ConnectionError",
+        "last_ip_check": {
+          "error": "ConnectionError"
+        },
+        "browser_usable": false,
+        "core_error_categories": {
+          "context deadline exceeded": 2
+        },
+        "protocol_errors": [
+          "dns resolve failed: couldn't find ip\"",
+          "context canceled\"",
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:57:14.686643+00:00",
+        "temporary_process_stopped": true
+      }
+    ]
+  },
+  "fresh_recheck": {
+    "time": "2026-10-25T10:57:53.300331+00:00",
+    "max_concurrency": 2,
+    "mode": "remote-dns-recheck",
+    "results": [
+      {
+        "name": "31-KR-119.194.109.53-4.90Mbps",
+        "ip": "220.120.161.254",
+        "port": 995,
+        "started_at": "2026-10-25T10:57:53.314780+00:00",
+        "checks": [
+          {
+            "kind": "latency-url",
+            "error": "ConnectionError",
+            "elapsed_ms": 5003
+          },
+          {
+            "kind": "ipwhois",
+            "error": "ConnectionError",
+            "elapsed_ms": 5016
+          },
+          {
+            "kind": "ipify",
+            "error": "ConnectionError",
+            "elapsed_ms": 5014
+          }
+        ],
+        "local_settings_modified": false,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32"
+        },
+        "verified_exit": false,
+        "core_error_categories": {
+          "context deadline exceeded": 3
+        },
+        "protocol_errors": [
+          "context deadline exceeded\""
+        ],
+        "finished_at": "2026-10-25T10:58:08.924170+00:00",
+        "temporary_process_stopped": true
+      }
+    ]
+  },
+  "system_google_ipv4_observed": [
+    "185.45.5.35"
+  ],
+  "authenticated_google_doh_ipv4": [
+    "142.251.150.119",
+    "142.251.153.119",
+    "142.251.156.119",
+    "142.251.154.119",
+    "142.251.152.119",
+    "142.251.151.119",
+    "142.251.157.119",
+    "142.251.155.119"
+  ],
+  "existing_proxy_baseline": {
+    "url": "https://www.gstatic.com/generate_204",
+    "http": 204,
+    "elapsed_ms": 4687
+  },
+  "production_modified": false,
+  "windows_network_modified": false,
+  "existing_clash_modified": false,
+  "stable_locally_recommended_exits": 0
+}

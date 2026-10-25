@@ -1,4 +1,7 @@
-# 已发布的 Clash / Mihomo 直连 OpenVPN 订阅
+# 历史海外 OpenVPN 实测：本机验收未通过
+
+**后续本机复测失败：这份 35 条快照不能作为当前网络的可用订阅推荐。详见 [本机诊断](LOCAL_OPENVPN_RESULT_20261025.md)。旧数据保留供审计，不能代替本机网页或稳定性验收。**
+
 
 订阅地址：[https://renatirudy246-maker.github.io/gate-test/clash-openvpn.yaml](https://renatirudy246-maker.github.io/gate-test/clash-openvpn.yaml)。
 已实际下载检查：HTTP 200，35 条节点，187819 字节，SHA256 `cb0e2c5a6f774eb45ce748ff098f7b48b93b6e694cf3fda3cc66e254e4b44131`。

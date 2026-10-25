@@ -80,6 +80,9 @@ def main():
            'Cloudflare 生产与测试 Worker/Pages/KV、yylo.ccwu.cc、现有订阅和密钥没有更改。Windows 代理/DNS/路由/VPN/TUN/网卡和 Clash 配置没有更改。',
            '没有升级套餐、付费、安装系统级软件或申请额外权限。','',
            '[Mihomo OpenVPN 官方文档](https://wiki.metacubex.one/config/proxies/openvpn/)；[VPN Gate 官方 OpenVPN 说明](https://www.vpngate.net/en/howto_openvpn.aspx)。']
+    if (ROOT/'reports/local-openvpn-diagnosis-20261025.json').exists():
+        text[0]='# 历史海外 OpenVPN 实测：本机验收未通过'
+        text[1:1]=['','**后续本机复测失败：这份 35 条快照不能作为当前网络的可用订阅推荐。详见 [本机诊断](LOCAL_OPENVPN_RESULT_20261025.md)。旧数据保留供审计，不能代替本机网页或稳定性验收。**','']
     (ROOT/'DIRECT_OPENVPN_RESULT_20261025.md').write_text('\n'.join(text)+'\n',encoding='utf-8')
     print(json.dumps({'selected':len(selected),'countries':countries,'all_candidates':len(seen),'all_complete':sum(r['success'] for r in runs),'eligible_distinct_exits':len(by_ip),'download_payload_mib':total_bytes/1048576}))
 

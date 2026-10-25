@@ -6,6 +6,7 @@ import os
 import re
 import socket
 import subprocess
+import threading
 import time
 from datetime import datetime,timezone
 from pathlib import Path
@@ -45,11 +46,12 @@ def test_proxy(proxy,index,extended=False):
     path=folder/'config.json';path.write_text(json.dumps(config),encoding='utf-8')
     result={'name':proxy['name'],'ip':proxy['server'],'port':proxy['port'],'started_at':utcnow(),'checks':[],'local_settings_modified':False}
     child_env={k:v for k,v in os.environ.items() if not k.startswith(('CLASH_','MIHOMO_'))}
-    log=(folder/'core.log').open('wb');process=None
+    log=(folder/'core.log').open('wb');process=None;watchdog=None
     control=requests.Session();control.trust_env=False
     session=requests.Session();session.trust_env=False;session.proxies={'http':f'http://127.0.0.1:{mixed}','https':f'http://127.0.0.1:{mixed}'}
     try:
         process=subprocess.Popen([str(CORE),'-d',str(folder/'home'),'-f',str(path)],env=child_env,stdin=subprocess.DEVNULL,stdout=log,stderr=log,creationflags=subprocess.CREATE_NO_WINDOW)
+        watchdog=threading.Timer(120,process.terminate);watchdog.daemon=True;watchdog.start()
         for _ in range(50):
             if process.poll() is not None:raise ValueError('Temporary core exited before health')
             try:
@@ -89,6 +91,7 @@ def test_proxy(proxy,index,extended=False):
                             if first is None:first=round((time.monotonic()-before)*1000)
                             count+=len(chunk)
                             if count>524288:raise ValueError('Bounded speed payload exceeded')
+                            if time.monotonic()-before>15:raise ValueError('Download exceeded 15-second speed budget')
                     if count!=524288:raise ValueError('Incomplete speed response')
                     result['downloads'].append({'bytes':count,'mbps':count*8/(time.monotonic()-before)/1e6,'ttfb_ms':first,'exit_ip':fields['ip'],'country':fields.get('loc'),'certificate_verified':True})
                 except Exception as error:
@@ -101,6 +104,7 @@ def test_proxy(proxy,index,extended=False):
     except Exception as e:result['error']=str(e) if isinstance(e,ValueError) else type(e).__name__
     finally:
         session.close();control.close()
+        if watchdog:watchdog.cancel()
         if process:
             process.terminate()
             try:process.wait(timeout=5)
@@ -115,7 +119,7 @@ def test_proxy(proxy,index,extended=False):
 
 def main():
     mode=os.sys.argv[1]
-    if mode not in {'tcp','native','reachable'}:raise ValueError('Explicit bounded diagnostic mode required')
+    if mode not in {'tcp','native','reachable','remote-dns','remote-dns-extra','remote-dns-recheck'}:raise ValueError('Explicit bounded diagnostic mode required')
     config=json.loads((ROOT/'dist/direct-openvpn.yaml').read_text());proxies=config['proxies']
     if len(proxies)!=35 or not all(p['type']=='openvpn' for p in proxies):raise ValueError('Only known 35-node public test subscription permitted')
     report={'time':utcnow(),'max_concurrency':2,'mode':mode,'results':[]}
@@ -127,12 +131,25 @@ def main():
         selected=[next(p for p in proxies if '-JP-' in p['name'] and p['name'] in reachable),next(p for p in proxies if '-KR-' in p['name'] and p['name'] in reachable)]
         for index,p in enumerate(selected):
             r=test_proxy(p,index);report['results'].append(r);print(json.dumps(r),flush=True)
-    else:
+    elif mode=='reachable':
         reachable={r['name'] for r in json.loads((DIR/'tcp.json').read_text())['results'] if r['tcp']}
         selected=[p for p in proxies if p['name'] in reachable]
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
-            for result in pool.map(lambda pair:test_proxy(pair[1],100+pair[0],True),enumerate(selected)):
+            futures=[pool.submit(test_proxy,p,100+i,True) for i,p in enumerate(selected)]
+            for future in concurrent.futures.as_completed(futures):
+                result=future.result()
                 report['results'].append(result);(DIR/(mode+'.json')).write_text(json.dumps(report,indent=2),encoding='utf-8');print(json.dumps(result),flush=True)
+    else:
+        previous=json.loads((DIR/('remote-dns.json' if mode=='remote-dns-recheck' else 'reachable.json')).read_text())['results']
+        names=({r['name'] for r in previous if r.get('browser_usable')} if mode=='remote-dns-recheck' else
+               {r['name'] for r in previous if r.get('verified_exit') and
+                (any(c.get('http')==200 for c in r.get('web_checks',[])) if mode=='remote-dns' else not any(c.get('http')==200 for c in r.get('web_checks',[])))})
+        selected=[{**p,'remote-dns-resolve':True,'dns':['https://1.1.1.1/dns-query','https://8.8.8.8/dns-query']} for p in proxies if p['name'] in names]
+        if not 1<=len(selected)<=4:raise ValueError('At most four resolver-isolation controls permitted')
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            futures=[pool.submit(test_proxy,p,200+i,True) for i,p in enumerate(selected)]
+            for future in concurrent.futures.as_completed(futures):
+                result=future.result();report['results'].append(result);(DIR/(mode+'.json')).write_text(json.dumps(report,indent=2),encoding='utf-8');print(json.dumps(result),flush=True)
     (DIR/(mode+'.json')).write_text(json.dumps(report,indent=2),encoding='utf-8')
     if mode=='tcp':print(json.dumps({'checked':len(proxies),'tcp_connected':sum(r['tcp'] for r in report['results']),'results':report['results']}))
 

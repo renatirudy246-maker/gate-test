@@ -1,0 +1,59 @@
+{
+  "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40186489893",
+  "commit": "994b8b3ac791b1a58de203e236cbbe61866b1748",
+  "artifact_sha256": "e3aab2f4aa60a6b8e361f8454e40425c3e45a2fbe682fb574a2f5fe626422597",
+  "measurements": {
+    "backend": "isolated-github-linux",
+    "max_concurrency": 2,
+    "results": [
+      {
+        "name": "01-JP-153.151.199.65-6.62Mbps",
+        "ip": "153.151.199.65",
+        "port": 1299,
+        "time": "2026-10-25T10:51:40.836008+00:00",
+        "tcp": true,
+        "elapsed_ms": 116
+      },
+      {
+        "name": "02-JP-58.87.159.9-6.33Mbps",
+        "ip": "58.87.159.9",
+        "port": 1605,
+        "time": "2026-10-25T10:51:40.836309+00:00",
+        "tcp": true,
+        "elapsed_ms": 113
+      },
+      {
+        "name": "03-KR-220.92.236.98-6.22Mbps",
+        "ip": "220.92.236.98",
+        "port": 1324,
+        "time": "2026-10-25T10:51:40.949367+00:00",
+        "tcp": true,
+        "elapsed_ms": 131
+      },
+      {
+        "name": "04-JP-143.189.192.65-6.19Mbps",
+        "ip": "143.189.192.65",
+        "port": 1837,
+        "time": "2026-10-25T10:51:40.951573+00:00",
+        "tcp": true,
+        "elapsed_ms": 111
+      },
+      {
+        "name": "05-JP-60.121.199.9-5.95Mbps",
+        "ip": "60.121.199.9",
+        "port": 1630,
+        "time": "2026-10-25T10:51:41.062694+00:00",
+        "tcp": true,
+        "elapsed_ms": 121
+      },
+      {
+        "name": "16-KR-220.120.181.40-5.60Mbps",
+        "ip": "220.120.181.40",
+        "port": 1207,
+        "time": "2026-10-25T10:51:41.080245+00:00",
+        "tcp": true,
+        "elapsed_ms": 130
+      }
+    ]
+  }
+}

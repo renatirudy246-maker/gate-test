@@ -1,4 +1,4 @@
-name: Manual verified direct OpenVPN subscription
+name: Manual remote OpenVPN diagnostics (local acceptance required)
 on:
   workflow_dispatch:
     inputs:
@@ -42,16 +42,3 @@ jobs:
         with:
           path: public
           retention-days: 1
-  publish:
-    needs: verify
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - id: deploy
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e

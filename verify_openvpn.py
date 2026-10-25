@@ -39,7 +39,7 @@ def get_json(session,url,**kwargs):
     return r.json()
 
 def benchmark(entry,index,ports):
-    expected=entry['expected'];proxy=entry['proxy'];folder=DIR/f'node-{index:02d}';folder.mkdir(exist_ok=True)
+    expected=entry['expected'];proxy={**entry['proxy'],'remote-dns-resolve':True,'dns':['https://1.1.1.1/dns-query','https://8.8.8.8/dns-query']};folder=DIR/f'node-{index:02d}';folder.mkdir(exist_ok=True)
     mixed,controller=ports
     config={'mixed-port':mixed,'bind-address':'127.0.0.1','allow-lan':False,'external-controller':f'127.0.0.1:{controller}',
             'log-level':'warning','mode':'rule','tun':{'enable':False},'dns':{'enable':False},
@@ -150,14 +150,14 @@ def main():
         for proxy,r in combined:
             if r['exit_ip'] not in distinct or r['min_download_mbps']>distinct[r['exit_ip']][1]['min_download_mbps']:distinct[r['exit_ip']]=(proxy,r)
         combined=sorted(distinct.values(),key=lambda pair:-pair[1]['min_download_mbps'])[:35]
-        proxies=[{**proxy,'name':f"{rank:02d}-{r['country']}-{r['exit_ip']}-{r['min_download_mbps']:.2f}Mbps"} for rank,(proxy,r) in enumerate(combined,1)]
+        proxies=[{**proxy,'remote-dns-resolve':True,'dns':['https://1.1.1.1/dns-query','https://8.8.8.8/dns-query'],'name':f"{rank:02d}-{r['country']}-{r['exit_ip']}-{r['min_download_mbps']:.2f}Mbps"} for rank,(proxy,r) in enumerate(combined,1)]
         config={'proxies':proxies,'proxy-groups':[{'name':'Gate Direct','type':'select','proxies':[p['name'] for p in proxies]}],'rules':['MATCH,Gate Direct']}
         PUBLIC=ROOT/'public';PUBLIC.mkdir(exist_ok=True)
         (PUBLIC/'clash-openvpn.yaml').write_text(json.dumps(config,indent=2)+'\n',encoding='utf-8')
         subprocess.run([str(BINARY),'-t','-d',str(DIR/'final-syntax'),'-f',str(PUBLIC/'clash-openvpn.yaml')],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=20)
-        report.update(status='verified',selected=len(proxies),selected_countries={country:sum(r['country']==country for _,r in combined) for country in ('US','JP','KR','SG','CA','AU')},selected_exits=[r['exit_ip'] for _,r in combined],published=False)
-        (PUBLIC/'verification.json').write_text(json.dumps({'verified_at':utcnow(),'protocol':'openvpn','core':VERSION,'count':len(proxies),'source':doc['source'],'no_cloudflare_relay':True},indent=2),encoding='utf-8')
-        (PUBLIC/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>Gate direct test</title><a href="clash-openvpn.yaml">Verified OpenVPN Clash subscription</a>',encoding='utf-8')
+        report.update(status='remote_checks_completed_local_acceptance_pending',selected=len(proxies),selected_countries={country:sum(r['country']==country for _,r in combined) for country in ('US','JP','KR','SG','CA','AU')},selected_exits=[r['exit_ip'] for _,r in combined],published=False)
+        (PUBLIC/'verification.json').write_text(json.dumps({'measured_at':utcnow(),'protocol':'openvpn','core':VERSION,'count':len(proxies),'source':doc['source'],'no_cloudflare_relay':True,'local_acceptance':'pending','published':False},indent=2),encoding='utf-8')
+        (PUBLIC/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>Remote diagnostic candidates</title><p>Remote measurements only. Local acceptance pending. Not a local usability recommendation.</p>',encoding='utf-8')
     except Exception as error:
         report.update(status='failed',error=str(error) if isinstance(error,ValueError) else type(error).__name__);print(json.dumps({'status':'failed','error':report['error']}),flush=True);return 1
     finally:
