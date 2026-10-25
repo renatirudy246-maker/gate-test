@@ -1,0 +1,70 @@
+{
+  "format": "gate-performance-candidates-v1",
+  "source": "https://www.vpngate.net/api/iphone/",
+  "tls_verified": true,
+  "source_sha256": "7664100204b83921bcc97341b83d6302be3dd976338a5ef0850a3e3d2dfca057",
+  "fetched_at": "2026-10-25T09:25:52.181061+00:00",
+  "excluded_prior_nodes": 10,
+  "candidates": [
+    {
+      "host": "vpn281927743.opengw.net",
+      "port": 1314,
+      "entry_ip": "104.28.201.99",
+      "source_country_code": "US"
+    },
+    {
+      "host": "vpn713625800.opengw.net",
+      "port": 1245,
+      "entry_ip": "126.37.15.22",
+      "source_country_code": "JP"
+    },
+    {
+      "host": "vpn314046814.opengw.net",
+      "port": 1792,
+      "entry_ip": "221.151.149.159",
+      "source_country_code": "KR"
+    },
+    {
+      "host": "vpn371090610.opengw.net",
+      "port": 1605,
+      "entry_ip": "58.87.159.9",
+      "source_country_code": "JP"
+    },
+    {
+      "host": "vpn893972689.opengw.net",
+      "port": 1934,
+      "entry_ip": "121.186.118.191",
+      "source_country_code": "KR"
+    },
+    {
+      "host": "vpn309430266.opengw.net",
+      "port": 1394,
+      "entry_ip": "153.174.22.211",
+      "source_country_code": "JP"
+    },
+    {
+      "host": "vpn195809939.opengw.net",
+      "port": 1632,
+      "entry_ip": "221.165.229.38",
+      "source_country_code": "KR"
+    },
+    {
+      "host": "vpn272949870.opengw.net",
+      "port": 1355,
+      "entry_ip": "120.74.8.14",
+      "source_country_code": "JP"
+    },
+    {
+      "host": "vpn312291996.opengw.net",
+      "port": 995,
+      "entry_ip": "220.92.176.236",
+      "source_country_code": "KR"
+    },
+    {
+      "host": "vpn137812529.opengw.net",
+      "port": 1240,
+      "entry_ip": "218.228.192.151",
+      "source_country_code": "JP"
+    }
+  ]
+}

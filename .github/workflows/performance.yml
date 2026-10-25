@@ -1,6 +1,12 @@
 name: Manual bounded node performance
 on:
   workflow_dispatch:
+    inputs:
+      manifest:
+        description: Optional official-source candidate manifest within candidates/
+        required: false
+        default: ''
+        type: string
 permissions:
   contents: read
 concurrency:
@@ -29,6 +35,9 @@ jobs:
           node --test tests/*.test.mjs
       - name: Verify and benchmark at most ten candidates
         run: node node-checker/performance-runner.mjs
+        env:
+          PERFORMANCE_MANIFEST: ${{ inputs.manifest }}
+          TARGET_COUNTRIES: US,JP,KR,SG,CA,AU
       - name: Preserve measured results even on failure
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

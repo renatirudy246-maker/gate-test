@@ -5,7 +5,7 @@ import { sstpConnect } from '../workers/checker/upstream.js';
 import { checkCandidate, observeExit, EVIDENCE } from './check.mjs';
 import { withSocketScope } from './performance-sockets.mjs';
 export const DOWNLOAD_BYTES = 1048576;
-export const TARGET_COUNTRIES = new Set(['US', 'JP', 'KR', 'SG']);
+export const TARGET_COUNTRIES = new Set(['US', 'JP', 'KR', 'SG', 'CA', 'AU']);
 
 export function throughputMbps(bytes, elapsedMs) {
   if (bytes !== DOWNLOAD_BYTES || !Number.isFinite(elapsedMs) || elapsedMs <= 0) throw Error('Incomplete or invalid download measurement');

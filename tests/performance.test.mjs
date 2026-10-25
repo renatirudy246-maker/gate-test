@@ -32,3 +32,11 @@ test('trace requires an exit address and country',()=>{
   assert.deepEqual(parseTrace('ip=1.1.1.1\nloc=JP\ncolo=NRT\n'),{ip:'1.1.1.1',country_code:'JP',colo:'NRT'});
   assert.throws(()=>parseTrace('loc=JP\n'));
 });
+test('Canada and Australia require the same verified download and exit evidence',()=>{
+  for(const country of ['CA','AU']) {
+    const r=fixture();r.identity.exit.country_code=country;
+    for(const d of r.downloads)d.country_code=country;
+    assert.equal(summarizePerformance(r).usable,true);
+    r.downloads[1].country_code='DE';assert.equal(summarizePerformance(r).usable,false);
+  }
+});
