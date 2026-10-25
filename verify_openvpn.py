@@ -10,6 +10,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 import requests
+import vpngate as gate
 
 ROOT=Path(__file__).resolve().parent
 DIR=ROOT/'diagnostics/openvpn-verification'
@@ -46,7 +47,7 @@ def benchmark(entry,index,ports):
             'rules':['MATCH,Gate Test']}
     cfg=folder/'config.json';cfg.write_text(json.dumps(config),encoding='utf-8')
     result={'host':expected['host'],'port':expected['port'],'expected_exit':expected['exit_ip'],'expected_country':expected['country'],
-            'started_at':utcnow(),'observations':[],'downloads':[],'success':False,'verified_sessions':0}
+            'started_at':utcnow(),'observations':[],'downloads':[],'success':False,'verified_https_checks':0,'openvpn_tunnel_sessions':1}
     started=time.monotonic();process=None;logfile=(folder/'core.log').open('wb')
     control=requests.Session();control.trust_env=False
     session=requests.Session();session.trust_env=False;session.proxies={'http':f'http://127.0.0.1:{mixed}','https':f'http://127.0.0.1:{mixed}'}
@@ -63,7 +64,8 @@ def benchmark(entry,index,ports):
         if not healthy:raise ValueError('Actual controller readiness failed')
         result['health']={'http':200,'version':health['version'],'configured':True}
         who=get_json(session,'https://ipwho.is/')
-        if who.get('success') is False or who.get('ip')!=expected['exit_ip'] or who.get('country_code')!=expected['country']:raise ValueError('Actual OpenVPN exit or country differs from measured SSTP exit')
+        if who.get('success') is False or not gate.public_ip(who.get('ip')) or who.get('country_code') not in {'US','JP','KR','SG','CA','AU'}:raise ValueError('Unverified public OpenVPN exit or non-target actual country')
+        if expected.get('exit_ip') and (who['ip']!=expected['exit_ip'] or who['country_code']!=expected['country']):raise ValueError('Actual OpenVPN exit or country differs from measured SSTP exit')
         result['observations'].append({'source':'ipwho.is','ip':who['ip'],'country':who['country_code'],'asn':who.get('connection',{}).get('asn'),'certificate_verified':True})
         ipify=get_json(session,'https://api.ipify.org/?format=json')
         if ipify.get('ip')!=who['ip']:raise ValueError('Independent actual exit providers disagree')
@@ -85,7 +87,7 @@ def benchmark(entry,index,ports):
             result['downloads'].append({'bytes':count,'mbps':count*8/elapsed/1e6,'ttfb_ms':first,'certificate_verified':True,'observed_at':utcnow()})
         final=get_json(session,'https://api.ipify.org/?format=json')
         if final.get('ip')!=who['ip']:raise ValueError('Actual exit changed at final observation')
-        result.update(success=True,exit_ip=who['ip'],country=who['country_code'],asn=who.get('connection',{}).get('asn'),isp=who.get('connection',{}).get('org'),verified_sessions=6)
+        result.update(success=True,exit_ip=who['ip'],country=who['country_code'],asn=who.get('connection',{}).get('asn'),isp=who.get('connection',{}).get('org'),verified_https_checks=7)
         speeds=[d['mbps'] for d in result['downloads']]
         result.update(min_download_mbps=min(speeds),max_download_mbps=max(speeds),short_term_stable=max(speeds)/min(speeds)<=2 and time.monotonic()-started>=20,long_term_stability='unknown')
     except Exception as error:
@@ -116,10 +118,14 @@ def main():
         if len(response.content)>40*1024*1024 or hashlib.sha256(response.content).hexdigest()!=CORE_SHA256:raise ValueError('Official core asset digest mismatch')
         BINARY.write_bytes(gzip.decompress(response.content));BINARY.chmod(0o700)
         report['core_asset_sha256']=CORE_SHA256
-        doc=json.loads((ROOT/'candidates/direct-openvpn-20261025.json').read_text());candidates=doc['candidates']
+        batch=os.environ.get('OPENVPN_BATCH','initial')
+        if batch not in {'initial','remaining'}:raise ValueError('Invalid manual batch choice')
+        manifest='candidates/direct-openvpn-'+('extra-' if batch=='remaining' else '')+'20261025.json'
+        doc=json.loads((ROOT/manifest).read_text());candidates=doc['candidates'];report['manifest']=manifest
         if not 2<=len(candidates)<=35:raise ValueError('Invalid bounded candidate list')
         reserved=free_ports(len(candidates)*2)
-        pilot=[0,next(i for i,e in enumerate(candidates) if e['expected']['country']=='KR')]
+        pilot=[next((i for i,e in enumerate(candidates) if e['expected'].get('country')=='JP'),0),
+               next(i for i,e in enumerate(candidates) if e['expected'].get('country')=='KR')]
         by_index={}
         with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
             for i,res in zip(pilot,pool.map(lambda i:benchmark(candidates[i],i,reserved[2*i:2*i+2]),pilot)):
@@ -131,12 +137,25 @@ def main():
         successful=[(i,r) for i,r in by_index.items() if r['success'] and r.get('short_term_stable') and r['min_download_mbps']>=3]
         successful.sort(key=lambda pair:-pair[1]['min_download_mbps'])
         if not successful:raise ValueError('No independently validated stable OpenVPN exits meet 3 Mbps gate')
-        proxies=[{**candidates[i]['proxy'],'name':f"{rank:02d}-{r['country']}-{r['exit_ip']}-{r['min_download_mbps']:.2f}Mbps"} for rank,(i,r) in enumerate(successful,1)]
+        combined=[(candidates[i]['proxy'],r) for i,r in successful]
+        if batch=='remaining':
+            previous=json.loads((ROOT/'reports/direct-openvpn-40184315423.json').read_text())['measurements']
+            old_candidates=json.loads((ROOT/'candidates/direct-openvpn-20261025.json').read_text())['candidates']
+            lookup={(e['expected']['host'],e['expected']['port']):e['proxy'] for e in old_candidates}
+            for old in previous['results']:
+                if old['success'] and old.get('short_term_stable') and old['min_download_mbps']>=3:
+                    combined.append((lookup[(old['host'],old['port'])],old))
+            report['merge_base']='reports/direct-openvpn-40184315423.json'
+        distinct={}
+        for proxy,r in combined:
+            if r['exit_ip'] not in distinct or r['min_download_mbps']>distinct[r['exit_ip']][1]['min_download_mbps']:distinct[r['exit_ip']]=(proxy,r)
+        combined=sorted(distinct.values(),key=lambda pair:-pair[1]['min_download_mbps'])[:35]
+        proxies=[{**proxy,'name':f"{rank:02d}-{r['country']}-{r['exit_ip']}-{r['min_download_mbps']:.2f}Mbps"} for rank,(proxy,r) in enumerate(combined,1)]
         config={'proxies':proxies,'proxy-groups':[{'name':'Gate Direct','type':'select','proxies':[p['name'] for p in proxies]}],'rules':['MATCH,Gate Direct']}
         PUBLIC=ROOT/'public';PUBLIC.mkdir(exist_ok=True)
         (PUBLIC/'clash-openvpn.yaml').write_text(json.dumps(config,indent=2)+'\n',encoding='utf-8')
         subprocess.run([str(BINARY),'-t','-d',str(DIR/'final-syntax'),'-f',str(PUBLIC/'clash-openvpn.yaml')],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=20)
-        report.update(status='verified',selected=len(proxies),selected_countries={country:sum(r['country']==country for _,r in successful) for country in ('US','JP','KR','SG','CA','AU')},published=False)
+        report.update(status='verified',selected=len(proxies),selected_countries={country:sum(r['country']==country for _,r in combined) for country in ('US','JP','KR','SG','CA','AU')},selected_exits=[r['exit_ip'] for _,r in combined],published=False)
         (PUBLIC/'verification.json').write_text(json.dumps({'verified_at':utcnow(),'protocol':'openvpn','core':VERSION,'count':len(proxies),'source':doc['source'],'no_cloudflare_relay':True},indent=2),encoding='utf-8')
         (PUBLIC/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>Gate direct test</title><a href="clash-openvpn.yaml">Verified OpenVPN Clash subscription</a>',encoding='utf-8')
     except Exception as error:

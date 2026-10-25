@@ -32,3 +32,13 @@ class DirectOpenVPNTests(unittest.TestCase):
         self.assertEqual(len(doc['candidates']),35)
         self.assertEqual(len({n['expected']['exit_ip'] for n in doc['candidates']}),35)
         self.assertTrue(all(n['proxy']['type']=='openvpn' and n['expected']['country'] in {'US','JP','KR','SG','CA','AU'} for n in doc['candidates']))
+
+    def test_remaining_candidates_are_disjoint_and_never_assume_entry_is_exit(self):
+        base=json.loads((ROOT/'candidates/direct-openvpn-20261025.json').read_text())['candidates']
+        extra=json.loads((ROOT/'candidates/direct-openvpn-extra-20261025.json').read_text())['candidates']
+        key=lambda e:(e['expected']['host'],e['expected']['port'])
+        self.assertTrue(2<=len(extra)<=35)
+        self.assertFalse({key(e) for e in base}&{key(e) for e in extra})
+        self.assertTrue(any(e['expected']['exit_ip'] is None for e in extra))
+        for e in extra:
+            if e['expected']['exit_ip'] is None:self.assertIsNone(e['expected']['country'])

@@ -1,6 +1,14 @@
 name: Manual verified direct OpenVPN subscription
 on:
   workflow_dispatch:
+    inputs:
+      batch:
+        description: Initial profiles or remaining entrances from the original candidate pool
+        type: choice
+        options:
+          - initial
+          - remaining
+        default: initial
 permissions:
   contents: read
 concurrency:
@@ -21,6 +29,8 @@ jobs:
       - run: python -m unittest discover -s tests
       - name: Verify direct OpenVPN exits before publishing any subscription
         run: python verify_openvpn.py
+        env:
+          OPENVPN_BATCH: ${{ inputs.batch }}
       - if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:

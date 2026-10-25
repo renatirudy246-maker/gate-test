@@ -1,0 +1,1707 @@
+{
+  "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40184315423",
+  "executed_commit": "6ad4c297fac1289aa8585b6124d27c16ac549618",
+  "artifact_zip_sha256": "61b175ce8e5179bfcb1638862ddb9b4c188cc91bf353902d6bd37f8350b85843",
+  "raw_run_sha256": "62bc6c861308c7026708447a68cab9f18bf28af82633e7a14cbb191d816a1453",
+  "measurements": {
+    "started_at": "2026-10-25T10:19:59.218037+00:00",
+    "core": "v1.19.32",
+    "max_candidates": 35,
+    "max_concurrency": 2,
+    "max_download_payload_mib": 70,
+    "backend": "native-mihomo-openvpn-gvisor",
+    "results": [
+      {
+        "host": "vpn696208175.opengw.net",
+        "port": 1976,
+        "expected_exit": "180.23.140.247",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:19:59.713084+00:00",
+        "observations": [],
+        "downloads": [],
+        "success": false,
+        "verified_sessions": 0,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "error": "SSLError",
+        "core_error_categories": [],
+        "finished_at": "2026-10-25T10:20:04.822395+00:00",
+        "elapsed_ms": 5109
+      },
+      {
+        "host": "vpn550892612.opengw.net",
+        "port": 1837,
+        "expected_exit": "143.189.192.65",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:20:29.456919+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "143.189.192.65",
+            "country": "JP",
+            "asn": 2527,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "143.189.192.65",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.994795782176355,
+            "ttfb_ms": 205.35706700000844,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:20:33.904527+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 6.187822301052432,
+            "ttfb_ms": 203.1571480000025,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:20:56.591193+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "143.189.192.65",
+        "country": "JP",
+        "asn": 2527,
+        "isp": "Sony Network Communications Inc.",
+        "min_download_mbps": 6.187822301052432,
+        "max_download_mbps": 6.994795782176355,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:20:57.272855+00:00",
+        "elapsed_ms": 27816
+      },
+      {
+        "host": "vpn371090610.opengw.net",
+        "port": 1605,
+        "expected_exit": "58.87.159.9",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:20:29.457000+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "58.87.159.9",
+            "country": "JP",
+            "asn": 2527,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "58.87.159.9",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.5289697269445215,
+            "ttfb_ms": 266.2893349999962,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:20:34.823452+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 6.326544246485455,
+            "ttfb_ms": 195.5499650000121,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:20:59.681466+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "58.87.159.9",
+        "country": "JP",
+        "asn": 2527,
+        "isp": "Sony Network Communications Inc.",
+        "min_download_mbps": 6.326544246485455,
+        "max_download_mbps": 6.5289697269445215,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:21:00.347515+00:00",
+        "elapsed_ms": 30891
+      },
+      {
+        "host": "vpn579347997.opengw.net",
+        "port": 1606,
+        "expected_exit": "118.240.129.23",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:20:57.274668+00:00",
+        "observations": [],
+        "downloads": [],
+        "success": false,
+        "verified_sessions": 0,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "error": "SSLError",
+        "core_error_categories": [],
+        "finished_at": "2026-10-25T10:21:02.380838+00:00",
+        "elapsed_ms": 5106
+      },
+      {
+        "host": "public-vpn-134.opengw.net",
+        "port": 443,
+        "expected_exit": "219.100.37.239",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:21:00.349488+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "219.100.37.239",
+            "country": "JP",
+            "asn": 36599,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "219.100.37.239",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.018661432965096,
+            "ttfb_ms": 350.66979599999115,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:21:05.575506+00:00"
+          }
+        ],
+        "success": false,
+        "verified_sessions": 0,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "error": "SSLError",
+        "core_error_categories": [],
+        "finished_at": "2026-10-25T10:21:30.581113+00:00",
+        "elapsed_ms": 30232
+      },
+      {
+        "host": "vpn783293517.opengw.net",
+        "port": 1544,
+        "expected_exit": "60.152.122.44",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:21:02.381455+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "60.152.122.44",
+            "country": "JP",
+            "asn": 17676,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "60.152.122.44",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.722814986434292,
+            "ttfb_ms": 217.85011000000054,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:21:06.936877+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.908647508339255,
+            "ttfb_ms": 220.21445199999334,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:21:29.733096+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "60.152.122.44",
+        "country": "JP",
+        "asn": 17676,
+        "isp": "Japan Nation-wide Network of Softbank Corp.",
+        "min_download_mbps": 5.908647508339255,
+        "max_download_mbps": 6.722814986434292,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:21:30.435728+00:00",
+        "elapsed_ms": 28054
+      },
+      {
+        "host": "vpn715947271.opengw.net",
+        "port": 1207,
+        "expected_exit": "220.120.181.40",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:19:59.713152+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "220.120.181.40",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "220.120.181.40",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.746229829566463,
+            "ttfb_ms": 214.9883189999997,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:20:05.516500+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.5950454860970416,
+            "ttfb_ms": 218.27118999999584,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:20:28.491833+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "220.120.181.40",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.5950454860970416,
+        "max_download_mbps": 5.746229829566463,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:20:29.454513+00:00",
+        "elapsed_ms": 29741
+      },
+      {
+        "host": "vpn161109829.opengw.net",
+        "port": 1305,
+        "expected_exit": "126.116.210.146",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:21:30.437420+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "126.116.210.146",
+            "country": "JP",
+            "asn": 17676,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "126.116.210.146",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.583918471341355,
+            "ttfb_ms": 211.17411099999117,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:21:35.127017+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 13.622890386128308,
+            "ttfb_ms": 271.8632350000121,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:21:55.921932+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "126.116.210.146",
+        "country": "JP",
+        "asn": 17676,
+        "isp": "Japan Nation-wide Network of Softbank Corp.",
+        "min_download_mbps": 6.583918471341355,
+        "max_download_mbps": 13.622890386128308,
+        "short_term_stable": false,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:21:56.273013+00:00",
+        "elapsed_ms": 25836
+      },
+      {
+        "host": "vpn101741607.opengw.net",
+        "port": 1299,
+        "expected_exit": "153.151.199.65",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:21:30.581758+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "153.151.199.65",
+            "country": "JP",
+            "asn": 4713,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "153.151.199.65",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.799606038565123,
+            "ttfb_ms": 248.73958700001708,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:21:35.153282+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 6.619185861809901,
+            "ttfb_ms": 204.80116200002385,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:21:57.772591+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "153.151.199.65",
+        "country": "JP",
+        "asn": 4713,
+        "isp": "NTT DOCOMO BUSINESS,Inc.",
+        "min_download_mbps": 6.619185861809901,
+        "max_download_mbps": 6.799606038565123,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:21:58.487854+00:00",
+        "elapsed_ms": 27906
+      },
+      {
+        "host": "vpn940711939.opengw.net",
+        "port": 1950,
+        "expected_exit": "1.241.129.177",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:21:56.274685+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "1.241.129.177",
+            "country": "KR",
+            "asn": 9318,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "1.241.129.177",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.270370040385535,
+            "ttfb_ms": 220.98042799999007,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:01.369116+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.868295081391381,
+            "ttfb_ms": 221.55884700001138,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:24.274835+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "1.241.129.177",
+        "country": "KR",
+        "asn": 9318,
+        "isp": "SK Broadband Co Ltd",
+        "min_download_mbps": 5.868295081391381,
+        "max_download_mbps": 6.270370040385535,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:22:25.115419+00:00",
+        "elapsed_ms": 28841
+      },
+      {
+        "host": "public-vpn-48.opengw.net",
+        "port": 443,
+        "expected_exit": "219.100.37.233",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:21:58.489804+00:00",
+        "observations": [],
+        "downloads": [],
+        "success": false,
+        "verified_sessions": 0,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "error": "SSLError",
+        "core_error_categories": [],
+        "finished_at": "2026-10-25T10:22:03.595878+00:00",
+        "elapsed_ms": 5106
+      },
+      {
+        "host": "vpn777651061.opengw.net",
+        "port": 1326,
+        "expected_exit": "118.159.28.138",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:22:03.596126+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "118.159.28.138",
+            "country": "JP",
+            "asn": 2516,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "118.159.28.138",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.1666385279654286,
+            "ttfb_ms": 202.8067930000077,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:08.697147+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.738694531317011,
+            "ttfb_ms": 200.98383699999545,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:31.495209+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "118.159.28.138",
+        "country": "JP",
+        "asn": 2516,
+        "isp": "KDDI CORPORATION",
+        "min_download_mbps": 5.738694531317011,
+        "max_download_mbps": 6.1666385279654286,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:22:32.165785+00:00",
+        "elapsed_ms": 28570
+      },
+      {
+        "host": "vpn890321947.opengw.net",
+        "port": 1630,
+        "expected_exit": "60.121.199.9",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:22:25.117539+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "60.121.199.9",
+            "country": "JP",
+            "asn": 17676,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "60.121.199.9",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.674740012934007,
+            "ttfb_ms": 208.42176399997925,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:29.768934+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.949714632457936,
+            "ttfb_ms": 211.1762500000225,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:52.577272+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "60.121.199.9",
+        "country": "JP",
+        "asn": 17676,
+        "isp": "Japan Nation-wide Network of Softbank Corp.",
+        "min_download_mbps": 5.949714632457936,
+        "max_download_mbps": 6.674740012934007,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:22:53.282168+00:00",
+        "elapsed_ms": 28165
+      },
+      {
+        "host": "vpn344556353.opengw.net",
+        "port": 1633,
+        "expected_exit": "60.128.85.178",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:22:32.167967+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "60.128.85.178",
+            "country": "JP",
+            "asn": 17676,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "60.128.85.178",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.119576624768835,
+            "ttfb_ms": 212.29155300000002,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:36.905059+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.944684035752704,
+            "ttfb_ms": 213.40396600001554,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:59.717491+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "60.128.85.178",
+        "country": "JP",
+        "asn": 17676,
+        "isp": "Japan Nation-wide Network of Softbank Corp.",
+        "min_download_mbps": 5.944684035752704,
+        "max_download_mbps": 6.119576624768835,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:23:00.425415+00:00",
+        "elapsed_ms": 28257
+      },
+      {
+        "host": "vpn151676033.opengw.net",
+        "port": 1913,
+        "expected_exit": "60.96.58.251",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:22:53.283617+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "60.96.58.251",
+            "country": "JP",
+            "asn": 17676,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "60.96.58.251",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.2199742018425725,
+            "ttfb_ms": 230.54096600000662,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:22:57.781457+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.855625371163914,
+            "ttfb_ms": 211.2303590000124,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:23:20.619928+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "60.96.58.251",
+        "country": "JP",
+        "asn": 17676,
+        "isp": "Japan Nation-wide Network of Softbank Corp.",
+        "min_download_mbps": 5.2199742018425725,
+        "max_download_mbps": 5.855625371163914,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:23:21.387280+00:00",
+        "elapsed_ms": 28104
+      },
+      {
+        "host": "vpn736555992.opengw.net",
+        "port": 1905,
+        "expected_exit": "125.136.43.108",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:23:00.427160+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "125.136.43.108",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "125.136.43.108",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.040223387965108,
+            "ttfb_ms": 223.53759700001774,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:23:05.762596+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 4.720193669981723,
+            "ttfb_ms": 226.51659799998924,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:23:29.069516+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "125.136.43.108",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 4.720193669981723,
+        "max_download_mbps": 6.040223387965108,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:23:30.091396+00:00",
+        "elapsed_ms": 29664
+      },
+      {
+        "host": "vpn731714666.opengw.net",
+        "port": 1951,
+        "expected_exit": "125.240.229.103",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:23:21.389393+00:00",
+        "observations": [],
+        "downloads": [],
+        "success": false,
+        "verified_sessions": 0,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "error": "SSLError",
+        "core_error_categories": [],
+        "finished_at": "2026-10-25T10:23:26.495714+00:00",
+        "elapsed_ms": 5106
+      },
+      {
+        "host": "vpn834328692.opengw.net",
+        "port": 995,
+        "expected_exit": "119.194.109.53",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:23:26.495964+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "119.194.109.53",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "119.194.109.53",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.735564546449059,
+            "ttfb_ms": 217.13515599998345,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:23:32.275551+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 4.898893212039561,
+            "ttfb_ms": 221.72580099999095,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:23:55.525709+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "119.194.109.53",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 4.898893212039561,
+        "max_download_mbps": 5.735564546449059,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:23:56.550393+00:00",
+        "elapsed_ms": 30054
+      },
+      {
+        "host": "vpn299484015.opengw.net",
+        "port": 1827,
+        "expected_exit": "60.127.61.103",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:23:30.093489+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "60.127.61.103",
+            "country": "JP",
+            "asn": 17676,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "60.127.61.103",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.759787131939447,
+            "ttfb_ms": 275.60660699998607,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:23:34.914763+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 4.920600295394715,
+            "ttfb_ms": 527.9233349999686,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:23:58.004451+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "60.127.61.103",
+        "country": "JP",
+        "asn": 17676,
+        "isp": "Japan Nation-wide Network of Softbank Corp.",
+        "min_download_mbps": 4.920600295394715,
+        "max_download_mbps": 5.759787131939447,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:23:58.705868+00:00",
+        "elapsed_ms": 28612
+      },
+      {
+        "host": "vpn652104780.opengw.net",
+        "port": 995,
+        "expected_exit": "221.152.96.175",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:23:56.552773+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "221.152.96.175",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "221.152.96.175",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.1290941149376446,
+            "ttfb_ms": 219.11739900002658,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:24:01.898619+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.496625130691247,
+            "ttfb_ms": 225.80319100001134,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:24:24.902200+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "221.152.96.175",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.496625130691247,
+        "max_download_mbps": 6.1290941149376446,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:24:25.890104+00:00",
+        "elapsed_ms": 29337
+      },
+      {
+        "host": "vpn606487832.opengw.net",
+        "port": 1195,
+        "expected_exit": "112.172.121.216",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:23:58.707086+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "112.172.121.216",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "112.172.121.216",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.173338323160334,
+            "ttfb_ms": 218.8070360000438,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:24:03.978454+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.399846490684565,
+            "ttfb_ms": 221.05604899996933,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:24:27.047276+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "112.172.121.216",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.399846490684565,
+        "max_download_mbps": 6.173338323160334,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:24:28.059933+00:00",
+        "elapsed_ms": 29353
+      },
+      {
+        "host": "vpn679130016.opengw.net",
+        "port": 995,
+        "expected_exit": "125.132.214.207",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:24:25.892622+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "125.132.214.207",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "125.132.214.207",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.12720065784258,
+            "ttfb_ms": 219.55334799997672,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:24:30.681740+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.636311781264953,
+            "ttfb_ms": 227.0682699999611,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:24:53.718954+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "125.132.214.207",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.636311781264953,
+        "max_download_mbps": 6.12720065784258,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:24:54.841710+00:00",
+        "elapsed_ms": 28949
+      },
+      {
+        "host": "vpn237445464.opengw.net",
+        "port": 1324,
+        "expected_exit": "220.92.236.98",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:24:28.062199+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "220.92.236.98",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "220.92.236.98",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.238281680774573,
+            "ttfb_ms": 216.53149899998425,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:24:33.226218+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 6.21571897471301,
+            "ttfb_ms": 219.6226859999797,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:24:56.133971+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "220.92.236.98",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 6.21571897471301,
+        "max_download_mbps": 6.238281680774573,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:24:57.154542+00:00",
+        "elapsed_ms": 29092
+      },
+      {
+        "host": "vpn195809939.opengw.net",
+        "port": 1632,
+        "expected_exit": "221.165.229.38",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:24:54.843543+00:00",
+        "observations": [],
+        "downloads": [],
+        "success": false,
+        "verified_sessions": 0,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "error": "SSLError",
+        "core_error_categories": [
+          "make OpenVPN handshake"
+        ],
+        "finished_at": "2026-10-25T10:24:59.951602+00:00",
+        "elapsed_ms": 5108
+      },
+      {
+        "host": "vpn527937130.opengw.net",
+        "port": 1782,
+        "expected_exit": "14.42.74.165",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:24:57.156896+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "14.42.74.165",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "14.42.74.165",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.566822070991278,
+            "ttfb_ms": 230.9356970000067,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:25:02.770407+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.4853115370647245,
+            "ttfb_ms": 215.70876599997746,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:25:25.770393+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "14.42.74.165",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.4853115370647245,
+        "max_download_mbps": 5.566822070991278,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:25:26.776076+00:00",
+        "elapsed_ms": 29619
+      },
+      {
+        "host": "public-vpn-154.opengw.net",
+        "port": 443,
+        "expected_exit": "219.100.37.240",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:24:59.952992+00:00",
+        "observations": [],
+        "downloads": [],
+        "success": false,
+        "verified_sessions": 0,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "error": "SSLError",
+        "core_error_categories": [],
+        "finished_at": "2026-10-25T10:25:05.059243+00:00",
+        "elapsed_ms": 5106
+      },
+      {
+        "host": "vpn546914302.opengw.net",
+        "port": 1338,
+        "expected_exit": "27.119.130.58",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:25:05.059502+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "27.119.130.58",
+            "country": "KR",
+            "asn": 17864,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "27.119.130.58",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.246268000527704,
+            "ttfb_ms": 235.30325299998367,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:25:10.107832+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.063940173272415,
+            "ttfb_ms": 241.0053350000112,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:25:33.362018+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "27.119.130.58",
+        "country": "KR",
+        "asn": 17864,
+        "isp": "SK Broadband Co Ltd",
+        "min_download_mbps": 5.063940173272415,
+        "max_download_mbps": 5.246268000527704,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:25:34.407540+00:00",
+        "elapsed_ms": 29348
+      },
+      {
+        "host": "vpn213976710.opengw.net",
+        "port": 995,
+        "expected_exit": "121.166.151.245",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:25:26.778490+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "121.166.151.245",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "121.166.151.245",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.699030291959246,
+            "ttfb_ms": 211.1711049999485,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:25:32.026007+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.50435316452649,
+            "ttfb_ms": 211.17926900001294,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:25:55.032018+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "121.166.151.245",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.50435316452649,
+        "max_download_mbps": 5.699030291959246,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:25:56.005018+00:00",
+        "elapsed_ms": 29227
+      },
+      {
+        "host": "vpn920650317.opengw.net",
+        "port": 995,
+        "expected_exit": "59.30.209.57",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:25:34.409541+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "59.30.209.57",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "59.30.209.57",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.192740034524825,
+            "ttfb_ms": 217.04865600003131,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:25:39.433262+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.673990346860971,
+            "ttfb_ms": 222.58248700001104,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:02.402357+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "59.30.209.57",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.673990346860971,
+        "max_download_mbps": 6.192740034524825,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:26:03.380416+00:00",
+        "elapsed_ms": 28971
+      },
+      {
+        "host": "vpn496179734.opengw.net",
+        "port": 1900,
+        "expected_exit": "221.145.124.126",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:25:56.007503+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "221.145.124.126",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "221.145.124.126",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.752219666487138,
+            "ttfb_ms": 212.30056000001696,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:01.646481+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.543162380558394,
+            "ttfb_ms": 212.7239000000145,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:24.655574+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "221.145.124.126",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.543162380558394,
+        "max_download_mbps": 5.752219666487138,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:26:25.676741+00:00",
+        "elapsed_ms": 29669
+      },
+      {
+        "host": "vpn514958227.opengw.net",
+        "port": 1752,
+        "expected_exit": "175.192.186.64",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:26:03.382389+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "175.192.186.64",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "175.192.186.64",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.352561099402726,
+            "ttfb_ms": 213.1334709999919,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:08.842332+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.576168749257724,
+            "ttfb_ms": 215.9610190000194,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:31.858167+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "175.192.186.64",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.576168749257724,
+        "max_download_mbps": 6.352561099402726,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:26:32.881921+00:00",
+        "elapsed_ms": 29500
+      },
+      {
+        "host": "vpn214335136.opengw.net",
+        "port": 1591,
+        "expected_exit": "60.110.16.61",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:26:25.679215+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "60.110.16.61",
+            "country": "JP",
+            "asn": 17676,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "60.110.16.61",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.132920183446271,
+            "ttfb_ms": 264.90309700000125,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:30.588514+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.559487504044928,
+            "ttfb_ms": 245.24070299997902,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:53.569096+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "60.110.16.61",
+        "country": "JP",
+        "asn": 17676,
+        "isp": "Japan Nation-wide Network of Softbank Corp.",
+        "min_download_mbps": 5.559487504044928,
+        "max_download_mbps": 6.132920183446271,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:26:54.316443+00:00",
+        "elapsed_ms": 28637
+      },
+      {
+        "host": "vpn906763950.opengw.net",
+        "port": 1566,
+        "expected_exit": "210.143.74.241",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:26:32.884888+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "210.143.74.241",
+            "country": "JP",
+            "asn": 7679,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "210.143.74.241",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 5.696462449601611,
+            "ttfb_ms": 234.20735299998796,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:37.584617+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.130148237304003,
+            "ttfb_ms": 237.51505399997086,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:27:00.720109+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "210.143.74.241",
+        "country": "JP",
+        "asn": 7679,
+        "isp": "QTnet,Inc.",
+        "min_download_mbps": 5.130148237304003,
+        "max_download_mbps": 5.696462449601611,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:27:01.502935+00:00",
+        "elapsed_ms": 28618
+      },
+      {
+        "host": "vpn384923948.opengw.net",
+        "port": 1203,
+        "expected_exit": "183.98.13.38",
+        "expected_country": "KR",
+        "started_at": "2026-10-25T10:26:54.318277+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "183.98.13.38",
+            "country": "KR",
+            "asn": 4766,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "183.98.13.38",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 6.28181550034013,
+            "ttfb_ms": 215.46663399999488,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:26:59.429952+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 5.627134235161092,
+            "ttfb_ms": 288.69239599998764,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:27:22.408147+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "183.98.13.38",
+        "country": "KR",
+        "asn": 4766,
+        "isp": "Korea Telecom",
+        "min_download_mbps": 5.627134235161092,
+        "max_download_mbps": 6.28181550034013,
+        "short_term_stable": true,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:27:23.373386+00:00",
+        "elapsed_ms": 29055
+      },
+      {
+        "host": "vpn255478470.opengw.net",
+        "port": 1795,
+        "expected_exit": "118.87.181.254",
+        "expected_country": "JP",
+        "started_at": "2026-10-25T10:27:01.506001+00:00",
+        "observations": [
+          {
+            "source": "ipwho.is",
+            "ip": "118.87.181.254",
+            "country": "JP",
+            "asn": 4721,
+            "certificate_verified": true
+          },
+          {
+            "source": "ipify",
+            "ip": "118.87.181.254",
+            "certificate_verified": true
+          }
+        ],
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "mbps": 0.3259863612648505,
+            "ttfb_ms": 567.4249660000328,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:27:37.846659+00:00"
+          },
+          {
+            "bytes": 1048576,
+            "mbps": 1.0801215505669113,
+            "ttfb_ms": 418.9721269999609,
+            "certificate_verified": true,
+            "observed_at": "2026-10-25T10:28:07.830520+00:00"
+          }
+        ],
+        "success": true,
+        "verified_sessions": 6,
+        "health": {
+          "http": 200,
+          "version": "v1.19.32",
+          "configured": true
+        },
+        "exit_ip": "118.87.181.254",
+        "country": "JP",
+        "asn": 4721,
+        "isp": "JCOM Co., Ltd.",
+        "min_download_mbps": 0.3259863612648505,
+        "max_download_mbps": 1.0801215505669113,
+        "short_term_stable": false,
+        "long_term_stability": "unknown",
+        "finished_at": "2026-10-25T10:28:08.635700+00:00",
+        "elapsed_ms": 67130
+      }
+    ],
+    "published": false,
+    "core_asset_sha256": "ba3ce607747a07f948fc35780e108a4a7c7f552a38b9bd4d115f313ebcb89c20",
+    "status": "verified",
+    "selected": 26,
+    "selected_countries": {
+      "US": 0,
+      "JP": 11,
+      "KR": 15,
+      "SG": 0,
+      "CA": 0,
+      "AU": 0
+    },
+    "checked": 35,
+    "success": 28,
+    "finished_at": "2026-10-25T10:28:08.654703+00:00"
+  },
+  "measurement_note": "In initial commit 6ad4c29, verified_sessions=6 was a mislabeled counter. Actual successful test uses one OpenVPN session and seven HTTPS requests; no independent reconnect is claimed."
+}
