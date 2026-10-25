@@ -1,0 +1,61 @@
+host,port,advertised_country,actual_exit_ip,actual_country,usable,short_term_stable,min_download_mbps,max_download_mbps,verified_sessions,attempts,error,observed_at,workflow_url
+vpn281927743.opengw.net,1314,US,,,False,False,,,0,1,SSTP server connection timed out,2026-10-25T09:32:30.451Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn713625800.opengw.net,1245,JP,,,False,False,,,1,2,TCP handshake through SSTP timed out,2026-10-25T09:32:25.631Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn314046814.opengw.net,1792,KR,221.151.149.159,KR,True,True,2.934844215322983,4.772778334128208,6,6,,2026-10-25T09:33:07.209Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn371090610.opengw.net,1605,JP,58.87.159.9,JP,True,True,5.475591588458079,5.488892580558131,6,6,,2026-10-25T09:33:08.085Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn893972689.opengw.net,1934,KR,121.186.118.191,KR,False,False,,,5,6,TCP handshake through SSTP timed out,2026-10-25T09:33:46.173Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn309430266.opengw.net,1394,JP,,,False,False,,,0,1,TCP handshake through SSTP timed out,2026-10-25T09:33:10.425Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn195809939.opengw.net,1632,KR,221.165.229.38,KR,True,True,4.554046244812875,4.866703931228616,6,6,,2026-10-25T09:33:50.343Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn272949870.opengw.net,1355,JP,120.74.8.14,JP,True,False,1.5996112736647732,5.4284881596979595,6,6,,2026-10-25T09:34:27.995Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn312291996.opengw.net,995,KR,220.92.176.69,KR,False,False,,,3,4,TCP handshake through SSTP timed out,2026-10-25T09:34:06.334Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn137812529.opengw.net,1240,JP,,,False,False,,,0,1,TCP handshake through SSTP timed out,2026-10-25T09:34:09.604Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181037049
+vpn122709402.opengw.net,995,KR,211.226.34.183,KR,False,False,,,5,6,TCP handshake through SSTP timed out,2026-10-25T09:35:29.341Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn981288372.opengw.net,1925,JP,,,False,False,,,0,1,SSTP socket closed,2026-10-25T09:35:07.281Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn606487832.opengw.net,1195,KR,112.172.121.216,KR,True,True,4.725505241096088,4.741206961890411,6,6,,2026-10-25T09:35:47.595Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn926557169.opengw.net,1649,JP,60.62.115.247,JP,True,True,0.9353995823181126,1.2415199405991348,6,6,,2026-10-25T09:36:21.683Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn546914302.opengw.net,1338,KR,27.119.130.58,KR,True,True,4.480084380300218,4.7329320469480765,6,6,,2026-10-25T09:36:27.723Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn906763950.opengw.net,1566,JP,210.143.74.241,JP,True,True,3.8431155947424935,4.3147049173724215,6,6,,2026-10-25T09:37:01.206Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn384923948.opengw.net,1203,KR,183.98.13.38,KR,True,True,3.714132045145862,4.526334503169274,6,6,,2026-10-25T09:37:08.530Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn777651061.opengw.net,1326,JP,118.159.28.138,JP,True,True,4.96937770380456,5.239153102244936,6,6,,2026-10-25T09:37:38.126Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn920650317.opengw.net,995,KR,59.30.209.57,KR,True,True,4.295668982600097,4.618451562651606,6,6,,2026-10-25T09:37:48.572Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn890321947.opengw.net,1630,JP,60.121.199.9,JP,True,True,4.9345323053817465,5.192430726007822,6,6,,2026-10-25T09:38:15.818Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181212331
+vpn652104780.opengw.net,995,KR,221.152.96.175,KR,True,True,4.73307897232458,4.814847607044491,6,6,,2026-10-25T09:39:11.575Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn696208175.opengw.net,1976,JP,180.23.140.247,JP,True,True,5.8385813466074525,5.912641481368361,6,6,,2026-10-25T09:39:09.136Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn679130016.opengw.net,995,KR,125.132.214.207,KR,True,True,4.6909657892423295,4.731915352991303,6,6,,2026-10-25T09:39:47.783Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn161109829.opengw.net,1305,JP,126.116.210.146,JP,True,True,5.141496195798106,5.738172665286941,6,6,,2026-10-25T09:39:49.330Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn496179734.opengw.net,1900,KR,221.145.124.126,KR,True,True,4.2536578572921515,4.5789630363537075,6,6,,2026-10-25T09:40:27.373Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn255478470.opengw.net,1795,JP,118.87.181.254,JP,True,True,3.4494281701985,4.261539406696596,6,6,,2026-10-25T09:40:27.838Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn731714666.opengw.net,1951,KR,125.240.229.103,KR,True,True,4.80457571578956,4.890288191894766,6,6,,2026-10-25T09:41:06.983Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn550892612.opengw.net,1837,JP,143.189.192.65,JP,True,True,5.563625732254764,5.608023885481951,6,6,,2026-10-25T09:41:04.113Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn237445464.opengw.net,1324,KR,220.92.236.98,KR,True,True,4.611457101082482,4.728148230898348,6,6,,2026-10-25T09:41:43.414Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn214335136.opengw.net,1591,JP,60.110.16.61,JP,True,True,4.183010828672067,4.87776031532155,6,6,,2026-10-25T09:41:45.746Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271
+vpn733833812.opengw.net,995,KR,,,False,False,,,0,1,SSTP server connection timed out,2026-10-25T09:42:12.012Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn783293517.opengw.net,1544,JP,60.152.122.44,JP,True,True,5.163305748947806,5.212618206899688,6,6,,2026-10-25T09:42:39.940Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn738072531.opengw.net,1528,KR,112.72.196.6,KR,False,False,,,5,6,TCP handshake through SSTP timed out,2026-10-25T09:42:51.545Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn101741607.opengw.net,1299,JP,153.151.199.65,JP,True,True,5.054185755963812,5.0687999171493905,6,6,,2026-10-25T09:43:18.096Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn213976710.opengw.net,995,KR,121.166.151.245,KR,True,True,4.421059836264654,4.551120619772964,6,6,,2026-10-25T09:43:31.957Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn299484015.opengw.net,1827,JP,60.127.61.103,JP,True,True,4.733686505270042,5.044026120612812,6,6,,2026-10-25T09:43:55.830Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn527937130.opengw.net,1782,KR,14.42.74.165,KR,True,True,4.527656105974219,4.9931965960672215,6,6,,2026-10-25T09:44:12.144Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn266441259.opengw.net,1777,JP,60.114.233.246,JP,True,True,2.425251987802493,2.6966671183620945,6,6,,2026-10-25T09:44:36.869Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn514958227.opengw.net,1752,KR,175.192.186.64,KR,True,True,4.232460917607863,4.741626462174999,6,6,,2026-10-25T09:44:52.518Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn579347997.opengw.net,1606,JP,118.240.129.23,JP,True,True,5.284550394032993,5.296100457223621,6,6,,2026-10-25T09:45:13.572Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181493468
+vpn715947271.opengw.net,1207,KR,220.120.181.40,KR,True,True,5.141968388319708,5.170232379775977,6,6,,2026-10-25T09:46:11.947Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn689660871.opengw.net,1385,JP,,,False,False,,,0,1,SSTP socket closed,2026-10-25T09:45:45.722Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn736555992.opengw.net,1905,KR,125.136.43.108,KR,True,True,4.876588833561301,5.031130526769967,6,6,,2026-10-25T09:46:26.261Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn852692839.opengw.net,1783,JP,,,False,False,,,0,1,SSTP server connection timed out,2026-10-25T09:46:21.948Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn947999180.opengw.net,995,KR,121.139.243.129,KR,True,True,5.254354498762058,5.340585137240772,6,6,,2026-10-25T09:47:02.333Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn192923708.opengw.net,1725,JP,,,False,False,,,0,1,SSTP server connection timed out,2026-10-25T09:46:36.262Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn940711939.opengw.net,1950,KR,1.241.129.177,KR,True,True,5.011731518728901,5.180367591236746,6,6,,2026-10-25T09:47:14.533Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn532160734.opengw.net,1327,JP,,,False,False,,,0,1,SSTP server connection timed out,2026-10-25T09:47:12.334Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn834328692.opengw.net,995,KR,119.194.109.53,KR,True,True,4.770205470846076,4.920211724779946,6,6,,2026-10-25T09:47:51.257Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn609476505.opengw.net,1453,JP,182.171.0.118,JP,True,True,0.44888622514736454,0.4797895140300515,6,6,,2026-10-25T09:48:30.160Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181884696
+vpn890053288.opengw.net,995,KR,220.81.125.144,KR,True,True,3.7630701162591493,4.210490405106312,6,6,,2026-10-25T09:49:27.405Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+vpn151676033.opengw.net,1913,JP,60.96.58.251,JP,True,True,4.889400523306407,5.0086329814596775,6,6,,2026-10-25T09:49:23.798Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+vpn202156851.opengw.net,1635,KR,,,False,False,,,0,1,SSTP server connection timed out,2026-10-25T09:49:33.799Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+vpn574722688.opengw.net,1746,JP,118.155.121.4,JP,True,True,3.360544517331052,3.385011074047159,6,6,,2026-10-25T09:50:10.243Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+vpn291636652.opengw.net,1308,JP,,,False,False,,,0,1,SSTP server connection timed out,2026-10-25T09:49:43.799Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+vpn344556353.opengw.net,1633,JP,60.128.85.178,JP,True,True,4.902073556787711,5.301509506287072,6,6,,2026-10-25T09:50:22.583Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+vpn987172410.opengw.net,1415,JP,180.220.215.192,JP,True,True,1.4312662110363037,1.6686422362594304,6,6,,2026-10-25T09:50:56.347Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+public-vpn-48.opengw.net,443,JP,219.100.37.233,JP,True,True,5.0114913567639725,5.127332567510781,6,6,,2026-10-25T09:51:04.697Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+public-vpn-237.opengw.net,443,JP,219.100.37.245,JP,True,False,1.3114661541602421,3.985468686967144,6,6,,2026-10-25T09:51:43.995Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039
+public-vpn-154.opengw.net,443,JP,219.100.37.240,JP,True,True,4.51046609277876,4.8173592105027465,6,6,,2026-10-25T09:51:43.816Z,https://github.com/renatirudy246-maker/gate-test/actions/runs/40181994039

@@ -1,0 +1,2980 @@
+{
+  "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40181333271",
+  "executed_commit": "f5b757c540c8dc54aab28fb7d9b3f0d5888ca651",
+  "artifact_zip_sha256": "51e3b38e0259351e0036ae21a808e5e431877b60df627160dda52991ad521769",
+  "raw_run_sha256": "6b653e003781766b43dffdbe3aacba49d420e7664ea3036a7f03e0b8d150624a",
+  "measurements": {
+    "started_at": "2026-10-25T09:38:31.333Z",
+    "status": "completed_with_candidates",
+    "purpose": "availability-and-performance",
+    "max_candidates": 10,
+    "max_concurrency": 2,
+    "max_download_payload_bytes": 20971520,
+    "target_countries": [
+      "US",
+      "JP",
+      "KR",
+      "SG",
+      "CA",
+      "AU"
+    ],
+    "risk_is_hard_gate": false,
+    "published": false,
+    "results": [
+      {
+        "host": "vpn652104780.opengw.net",
+        "port": 995,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:38:31.683Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1772.3363690000006,
+            "ttfb_ms": 376.40763399999923,
+            "mbps": 4.73307897232458,
+            "exit_ip": "221.152.96.175",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:38:44.615Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1742.2374879999988,
+            "ttfb_ms": 380.8395820000005,
+            "mbps": 4.814847607044491,
+            "exit_ip": "221.152.96.175",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:08.584Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3204,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "221.152.96.175",
+            "country_code": "KR",
+            "asn": {
+              "asn": 4766,
+              "org": "Korea Telecom"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "221.152.96.175",
+              "country_code": "KR",
+              "asn": 4766,
+              "org": "Korea Telecom",
+              "latency_ms": 3204,
+              "observed_at": "2026-10-25T09:38:34.888Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "221.152.96.175",
+              "latency_ms": 2800,
+              "observed_at": "2026-10-25T09:38:37.688Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "221.152.96.175",
+              "latency_ms": 2727,
+              "observed_at": "2026-10-25T09:38:40.415Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "221.152.96.175",
+          "latency_ms": 2991,
+          "observed_at": "2026-10-25T09:39:11.575Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:39:11.575Z",
+        "elapsed_ms": 39892,
+        "usable": true,
+        "min_download_mbps": 4.73307897232458,
+        "max_download_mbps": 4.814847607044491,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn696208175.opengw.net",
+        "port": 1976,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:38:31.686Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1418.7581009999994,
+            "ttfb_ms": 351.92359899999974,
+            "mbps": 5.912641481368361,
+            "exit_ip": "180.23.140.247",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:38:43.411Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1436.7544960000014,
+            "ttfb_ms": 350.32540500000323,
+            "mbps": 5.8385813466074525,
+            "exit_ip": "180.23.140.247",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:06.905Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3017,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "180.23.140.247",
+            "country_code": "JP",
+            "asn": {
+              "asn": 4713,
+              "org": "NTT DOCOMO BUSINESS,Inc."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "180.23.140.247",
+              "country_code": "JP",
+              "asn": 4713,
+              "org": "NTT DOCOMO BUSINESS,Inc.",
+              "latency_ms": 3017,
+              "observed_at": "2026-10-25T09:38:34.703Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "180.23.140.247",
+              "latency_ms": 2556,
+              "observed_at": "2026-10-25T09:38:37.261Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "180.23.140.247",
+              "latency_ms": 2323,
+              "observed_at": "2026-10-25T09:38:39.585Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "180.23.140.247",
+          "latency_ms": 2230,
+          "observed_at": "2026-10-25T09:39:09.136Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:39:09.136Z",
+        "elapsed_ms": 37450,
+        "usable": true,
+        "min_download_mbps": 5.8385813466074525,
+        "max_download_mbps": 5.912641481368361,
+        "short_term_stable": true,
+        "meets_5mbps_target": true,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn679130016.opengw.net",
+        "port": 995,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:39:09.137Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1772.772202,
+            "ttfb_ms": 414.76937400000315,
+            "mbps": 4.731915352991303,
+            "exit_ip": "125.132.214.207",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:21.274Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1788.2475330000016,
+            "ttfb_ms": 385.9101579999988,
+            "mbps": 4.6909657892423295,
+            "exit_ip": "125.132.214.207",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:45.199Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2559,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "125.132.214.207",
+            "country_code": "KR",
+            "asn": {
+              "asn": 4766,
+              "org": "Korea Telecom"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "125.132.214.207",
+              "country_code": "KR",
+              "asn": 4766,
+              "org": "Korea Telecom",
+              "latency_ms": 2559,
+              "observed_at": "2026-10-25T09:39:11.696Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "125.132.214.207",
+              "latency_ms": 2665,
+              "observed_at": "2026-10-25T09:39:14.361Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "125.132.214.207",
+              "latency_ms": 2803,
+              "observed_at": "2026-10-25T09:39:17.165Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "125.132.214.207",
+          "latency_ms": 2583,
+          "observed_at": "2026-10-25T09:39:47.782Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:39:47.783Z",
+        "elapsed_ms": 38646,
+        "usable": true,
+        "min_download_mbps": 4.6909657892423295,
+        "max_download_mbps": 4.731915352991303,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn161109829.opengw.net",
+        "port": 1305,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:39:11.575Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1631.5499770000024,
+            "ttfb_ms": 370.0807730000015,
+            "mbps": 5.141496195798106,
+            "exit_ip": "126.116.210.146",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:23.590Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1461.8953610000026,
+            "ttfb_ms": 361.63736300000164,
+            "mbps": 5.738172665286941,
+            "exit_ip": "126.116.210.146",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:47.018Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2735,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "126.116.210.146",
+            "country_code": "JP",
+            "asn": {
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "126.116.210.146",
+              "country_code": "JP",
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp.",
+              "latency_ms": 2735,
+              "observed_at": "2026-10-25T09:39:14.310Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "126.116.210.146",
+              "latency_ms": 2313,
+              "observed_at": "2026-10-25T09:39:16.623Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "126.116.210.146",
+              "latency_ms": 2339,
+              "observed_at": "2026-10-25T09:39:18.962Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "126.116.210.146",
+          "latency_ms": 2312,
+          "observed_at": "2026-10-25T09:39:49.330Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:39:49.330Z",
+        "elapsed_ms": 37755,
+        "usable": true,
+        "min_download_mbps": 5.141496195798106,
+        "max_download_mbps": 5.738172665286941,
+        "short_term_stable": true,
+        "meets_5mbps_target": true,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn496179734.opengw.net",
+        "port": 1900,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:39:47.783Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1831.9885819999909,
+            "ttfb_ms": 373.70754699999816,
+            "mbps": 4.5789630363537075,
+            "exit_ip": "221.145.124.126",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:00.439Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1972.0927919999958,
+            "ttfb_ms": 396.77676199999405,
+            "mbps": 4.2536578572921515,
+            "exit_ip": "221.145.124.126",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:24.729Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3264,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "221.145.124.126",
+            "country_code": "KR",
+            "asn": {
+              "asn": 4766,
+              "org": "Korea Telecom"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "221.145.124.126",
+              "country_code": "KR",
+              "asn": 4766,
+              "org": "Korea Telecom",
+              "latency_ms": 3264,
+              "observed_at": "2026-10-25T09:39:51.047Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "221.145.124.126",
+              "latency_ms": 2665,
+              "observed_at": "2026-10-25T09:39:53.712Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "221.145.124.126",
+              "latency_ms": 2676,
+              "observed_at": "2026-10-25T09:39:56.388Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "221.145.124.126",
+          "latency_ms": 2644,
+          "observed_at": "2026-10-25T09:40:27.373Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:40:27.373Z",
+        "elapsed_ms": 39590,
+        "usable": true,
+        "min_download_mbps": 4.2536578572921515,
+        "max_download_mbps": 4.5789630363537075,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn255478470.opengw.net",
+        "port": 1795,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:39:49.330Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 2431.883658999999,
+            "ttfb_ms": 447.7136290000053,
+            "mbps": 3.4494281701985,
+            "exit_ip": "118.87.181.254",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:01.516Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1968.4454840000108,
+            "ttfb_ms": 372.82023599999957,
+            "mbps": 4.261539406696596,
+            "exit_ip": "118.87.181.254",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:25.606Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2892,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "118.87.181.254",
+            "country_code": "JP",
+            "asn": {
+              "asn": 4721,
+              "org": "JCOM Co., Ltd."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "118.87.181.254",
+              "country_code": "JP",
+              "asn": 4721,
+              "org": "JCOM Co., Ltd.",
+              "latency_ms": 2892,
+              "observed_at": "2026-10-25T09:39:52.222Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "118.87.181.254",
+              "latency_ms": 2508,
+              "observed_at": "2026-10-25T09:39:54.731Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "118.87.181.254",
+              "latency_ms": 2178,
+              "observed_at": "2026-10-25T09:39:56.909Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "118.87.181.254",
+          "latency_ms": 2232,
+          "observed_at": "2026-10-25T09:40:27.838Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:40:27.838Z",
+        "elapsed_ms": 38508,
+        "usable": true,
+        "min_download_mbps": 3.4494281701985,
+        "max_download_mbps": 4.261539406696596,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn731714666.opengw.net",
+        "port": 1951,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:40:27.374Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1715.360664000007,
+            "ttfb_ms": 396.9134090000007,
+            "mbps": 4.890288191894766,
+            "exit_ip": "125.240.229.103",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:39.883Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1745.9622859999945,
+            "ttfb_ms": 400.7842289999826,
+            "mbps": 4.80457571578956,
+            "exit_ip": "125.240.229.103",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:04.187Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3162,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "125.240.229.103",
+            "country_code": "KR",
+            "asn": {
+              "asn": 17858,
+              "org": "DACOM-PUBNETPLUS"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "125.240.229.103",
+              "country_code": "KR",
+              "asn": 17858,
+              "org": "DACOM-PUBNETPLUS",
+              "latency_ms": 3162,
+              "observed_at": "2026-10-25T09:40:30.536Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "125.240.229.103",
+              "latency_ms": 2611,
+              "observed_at": "2026-10-25T09:40:33.147Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "125.240.229.103",
+              "latency_ms": 2599,
+              "observed_at": "2026-10-25T09:40:35.746Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "125.240.229.103",
+          "latency_ms": 2795,
+          "observed_at": "2026-10-25T09:41:06.983Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:41:06.983Z",
+        "elapsed_ms": 39609,
+        "usable": true,
+        "min_download_mbps": 4.80457571578956,
+        "max_download_mbps": 4.890288191894766,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn550892612.opengw.net",
+        "port": 1837,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:40:27.839Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1507.7592210000003,
+            "ttfb_ms": 354.9036550000019,
+            "mbps": 5.563625732254764,
+            "exit_ip": "143.189.192.65",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:38.217Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1495.822444999998,
+            "ttfb_ms": 342.9475649999804,
+            "mbps": 5.608023885481951,
+            "exit_ip": "143.189.192.65",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:01.766Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2724,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "143.189.192.65",
+            "country_code": "JP",
+            "asn": {
+              "asn": 2527,
+              "org": "Sony Network Communications Inc."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "143.189.192.65",
+              "country_code": "JP",
+              "asn": 2527,
+              "org": "Sony Network Communications Inc.",
+              "latency_ms": 2724,
+              "observed_at": "2026-10-25T09:40:30.563Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "143.189.192.65",
+              "latency_ms": 2150,
+              "observed_at": "2026-10-25T09:40:32.713Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "143.189.192.65",
+              "latency_ms": 2154,
+              "observed_at": "2026-10-25T09:40:34.867Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "143.189.192.65",
+          "latency_ms": 2346,
+          "observed_at": "2026-10-25T09:41:04.112Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:41:04.113Z",
+        "elapsed_ms": 36274,
+        "usable": true,
+        "min_download_mbps": 5.563625732254764,
+        "max_download_mbps": 5.608023885481951,
+        "short_term_stable": true,
+        "meets_5mbps_target": true,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn237445464.opengw.net",
+        "port": 1324,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:41:04.113Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1819.079700000002,
+            "ttfb_ms": 413.965909999999,
+            "mbps": 4.611457101082482,
+            "exit_ip": "220.92.236.98",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:16.845Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1774.1846469999873,
+            "ttfb_ms": 369.3723410000093,
+            "mbps": 4.728148230898348,
+            "exit_ip": "220.92.236.98",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:40.710Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3068,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "220.92.236.98",
+            "country_code": "KR",
+            "asn": {
+              "asn": 4766,
+              "org": "Korea Telecom"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "220.92.236.98",
+              "country_code": "KR",
+              "asn": 4766,
+              "org": "Korea Telecom",
+              "latency_ms": 3068,
+              "observed_at": "2026-10-25T09:41:07.181Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "220.92.236.98",
+              "latency_ms": 2636,
+              "observed_at": "2026-10-25T09:41:09.817Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "220.92.236.98",
+              "latency_ms": 2981,
+              "observed_at": "2026-10-25T09:41:12.798Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "220.92.236.98",
+          "latency_ms": 2704,
+          "observed_at": "2026-10-25T09:41:43.414Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:41:43.414Z",
+        "elapsed_ms": 39301,
+        "usable": true,
+        "min_download_mbps": 4.611457101082482,
+        "max_download_mbps": 4.728148230898348,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn214335136.opengw.net",
+        "port": 1591,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:41:06.984Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1719.7663389999943,
+            "ttfb_ms": 378.75255400000606,
+            "mbps": 4.87776031532155,
+            "exit_ip": "60.110.16.61",
+            "country_code": "JP",
+            "colo": "KIX",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:18.800Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 2005.3995419999992,
+            "ttfb_ms": 668.4663009999786,
+            "mbps": 4.183010828672067,
+            "exit_ip": "60.110.16.61",
+            "country_code": "JP",
+            "colo": "KIX",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 10,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:43.011Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3064,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "60.110.16.61",
+            "country_code": "JP",
+            "asn": {
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "60.110.16.61",
+              "country_code": "JP",
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp.",
+              "latency_ms": 3064,
+              "observed_at": "2026-10-25T09:41:10.048Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 1,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "60.110.16.61",
+              "latency_ms": 2604,
+              "observed_at": "2026-10-25T09:41:12.652Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "60.110.16.61",
+              "latency_ms": 2233,
+              "observed_at": "2026-10-25T09:41:14.885Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "60.110.16.61",
+          "latency_ms": 2735,
+          "observed_at": "2026-10-25T09:41:45.746Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:41:45.746Z",
+        "elapsed_ms": 38762,
+        "usable": true,
+        "min_download_mbps": 4.183010828672067,
+        "max_download_mbps": 4.87776031532155,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      }
+    ],
+    "recommendations": [
+      {
+        "host": "vpn696208175.opengw.net",
+        "port": 1976,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:38:31.686Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1418.7581009999994,
+            "ttfb_ms": 351.92359899999974,
+            "mbps": 5.912641481368361,
+            "exit_ip": "180.23.140.247",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:38:43.411Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1436.7544960000014,
+            "ttfb_ms": 350.32540500000323,
+            "mbps": 5.8385813466074525,
+            "exit_ip": "180.23.140.247",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:06.905Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3017,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "180.23.140.247",
+            "country_code": "JP",
+            "asn": {
+              "asn": 4713,
+              "org": "NTT DOCOMO BUSINESS,Inc."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "180.23.140.247",
+              "country_code": "JP",
+              "asn": 4713,
+              "org": "NTT DOCOMO BUSINESS,Inc.",
+              "latency_ms": 3017,
+              "observed_at": "2026-10-25T09:38:34.703Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "180.23.140.247",
+              "latency_ms": 2556,
+              "observed_at": "2026-10-25T09:38:37.261Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "180.23.140.247",
+              "latency_ms": 2323,
+              "observed_at": "2026-10-25T09:38:39.585Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "180.23.140.247",
+          "latency_ms": 2230,
+          "observed_at": "2026-10-25T09:39:09.136Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:39:09.136Z",
+        "elapsed_ms": 37450,
+        "usable": true,
+        "min_download_mbps": 5.8385813466074525,
+        "max_download_mbps": 5.912641481368361,
+        "short_term_stable": true,
+        "meets_5mbps_target": true,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn550892612.opengw.net",
+        "port": 1837,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:40:27.839Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1507.7592210000003,
+            "ttfb_ms": 354.9036550000019,
+            "mbps": 5.563625732254764,
+            "exit_ip": "143.189.192.65",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:38.217Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1495.822444999998,
+            "ttfb_ms": 342.9475649999804,
+            "mbps": 5.608023885481951,
+            "exit_ip": "143.189.192.65",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:01.766Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2724,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "143.189.192.65",
+            "country_code": "JP",
+            "asn": {
+              "asn": 2527,
+              "org": "Sony Network Communications Inc."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "143.189.192.65",
+              "country_code": "JP",
+              "asn": 2527,
+              "org": "Sony Network Communications Inc.",
+              "latency_ms": 2724,
+              "observed_at": "2026-10-25T09:40:30.563Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "143.189.192.65",
+              "latency_ms": 2150,
+              "observed_at": "2026-10-25T09:40:32.713Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "143.189.192.65",
+              "latency_ms": 2154,
+              "observed_at": "2026-10-25T09:40:34.867Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "143.189.192.65",
+          "latency_ms": 2346,
+          "observed_at": "2026-10-25T09:41:04.112Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:41:04.113Z",
+        "elapsed_ms": 36274,
+        "usable": true,
+        "min_download_mbps": 5.563625732254764,
+        "max_download_mbps": 5.608023885481951,
+        "short_term_stable": true,
+        "meets_5mbps_target": true,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn161109829.opengw.net",
+        "port": 1305,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:39:11.575Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1631.5499770000024,
+            "ttfb_ms": 370.0807730000015,
+            "mbps": 5.141496195798106,
+            "exit_ip": "126.116.210.146",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:23.590Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1461.8953610000026,
+            "ttfb_ms": 361.63736300000164,
+            "mbps": 5.738172665286941,
+            "exit_ip": "126.116.210.146",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:47.018Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2735,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "126.116.210.146",
+            "country_code": "JP",
+            "asn": {
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "126.116.210.146",
+              "country_code": "JP",
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp.",
+              "latency_ms": 2735,
+              "observed_at": "2026-10-25T09:39:14.310Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "126.116.210.146",
+              "latency_ms": 2313,
+              "observed_at": "2026-10-25T09:39:16.623Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "126.116.210.146",
+              "latency_ms": 2339,
+              "observed_at": "2026-10-25T09:39:18.962Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "126.116.210.146",
+          "latency_ms": 2312,
+          "observed_at": "2026-10-25T09:39:49.330Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:39:49.330Z",
+        "elapsed_ms": 37755,
+        "usable": true,
+        "min_download_mbps": 5.141496195798106,
+        "max_download_mbps": 5.738172665286941,
+        "short_term_stable": true,
+        "meets_5mbps_target": true,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn731714666.opengw.net",
+        "port": 1951,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:40:27.374Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1715.360664000007,
+            "ttfb_ms": 396.9134090000007,
+            "mbps": 4.890288191894766,
+            "exit_ip": "125.240.229.103",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:39.883Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1745.9622859999945,
+            "ttfb_ms": 400.7842289999826,
+            "mbps": 4.80457571578956,
+            "exit_ip": "125.240.229.103",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:04.187Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3162,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "125.240.229.103",
+            "country_code": "KR",
+            "asn": {
+              "asn": 17858,
+              "org": "DACOM-PUBNETPLUS"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "125.240.229.103",
+              "country_code": "KR",
+              "asn": 17858,
+              "org": "DACOM-PUBNETPLUS",
+              "latency_ms": 3162,
+              "observed_at": "2026-10-25T09:40:30.536Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "125.240.229.103",
+              "latency_ms": 2611,
+              "observed_at": "2026-10-25T09:40:33.147Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "125.240.229.103",
+              "latency_ms": 2599,
+              "observed_at": "2026-10-25T09:40:35.746Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "125.240.229.103",
+          "latency_ms": 2795,
+          "observed_at": "2026-10-25T09:41:06.983Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:41:06.983Z",
+        "elapsed_ms": 39609,
+        "usable": true,
+        "min_download_mbps": 4.80457571578956,
+        "max_download_mbps": 4.890288191894766,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn652104780.opengw.net",
+        "port": 995,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:38:31.683Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1772.3363690000006,
+            "ttfb_ms": 376.40763399999923,
+            "mbps": 4.73307897232458,
+            "exit_ip": "221.152.96.175",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:38:44.615Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1742.2374879999988,
+            "ttfb_ms": 380.8395820000005,
+            "mbps": 4.814847607044491,
+            "exit_ip": "221.152.96.175",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:08.584Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3204,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "221.152.96.175",
+            "country_code": "KR",
+            "asn": {
+              "asn": 4766,
+              "org": "Korea Telecom"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "221.152.96.175",
+              "country_code": "KR",
+              "asn": 4766,
+              "org": "Korea Telecom",
+              "latency_ms": 3204,
+              "observed_at": "2026-10-25T09:38:34.888Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "221.152.96.175",
+              "latency_ms": 2800,
+              "observed_at": "2026-10-25T09:38:37.688Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "221.152.96.175",
+              "latency_ms": 2727,
+              "observed_at": "2026-10-25T09:38:40.415Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "221.152.96.175",
+          "latency_ms": 2991,
+          "observed_at": "2026-10-25T09:39:11.575Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:39:11.575Z",
+        "elapsed_ms": 39892,
+        "usable": true,
+        "min_download_mbps": 4.73307897232458,
+        "max_download_mbps": 4.814847607044491,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn679130016.opengw.net",
+        "port": 995,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:39:09.137Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1772.772202,
+            "ttfb_ms": 414.76937400000315,
+            "mbps": 4.731915352991303,
+            "exit_ip": "125.132.214.207",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:21.274Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1788.2475330000016,
+            "ttfb_ms": 385.9101579999988,
+            "mbps": 4.6909657892423295,
+            "exit_ip": "125.132.214.207",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:39:45.199Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2559,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "125.132.214.207",
+            "country_code": "KR",
+            "asn": {
+              "asn": 4766,
+              "org": "Korea Telecom"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "125.132.214.207",
+              "country_code": "KR",
+              "asn": 4766,
+              "org": "Korea Telecom",
+              "latency_ms": 2559,
+              "observed_at": "2026-10-25T09:39:11.696Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "125.132.214.207",
+              "latency_ms": 2665,
+              "observed_at": "2026-10-25T09:39:14.361Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "125.132.214.207",
+              "latency_ms": 2803,
+              "observed_at": "2026-10-25T09:39:17.165Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "125.132.214.207",
+          "latency_ms": 2583,
+          "observed_at": "2026-10-25T09:39:47.782Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:39:47.783Z",
+        "elapsed_ms": 38646,
+        "usable": true,
+        "min_download_mbps": 4.6909657892423295,
+        "max_download_mbps": 4.731915352991303,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn237445464.opengw.net",
+        "port": 1324,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:41:04.113Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1819.079700000002,
+            "ttfb_ms": 413.965909999999,
+            "mbps": 4.611457101082482,
+            "exit_ip": "220.92.236.98",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:16.845Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1774.1846469999873,
+            "ttfb_ms": 369.3723410000093,
+            "mbps": 4.728148230898348,
+            "exit_ip": "220.92.236.98",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:40.710Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3068,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "220.92.236.98",
+            "country_code": "KR",
+            "asn": {
+              "asn": 4766,
+              "org": "Korea Telecom"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "220.92.236.98",
+              "country_code": "KR",
+              "asn": 4766,
+              "org": "Korea Telecom",
+              "latency_ms": 3068,
+              "observed_at": "2026-10-25T09:41:07.181Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "220.92.236.98",
+              "latency_ms": 2636,
+              "observed_at": "2026-10-25T09:41:09.817Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "220.92.236.98",
+              "latency_ms": 2981,
+              "observed_at": "2026-10-25T09:41:12.798Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "220.92.236.98",
+          "latency_ms": 2704,
+          "observed_at": "2026-10-25T09:41:43.414Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:41:43.414Z",
+        "elapsed_ms": 39301,
+        "usable": true,
+        "min_download_mbps": 4.611457101082482,
+        "max_download_mbps": 4.728148230898348,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn496179734.opengw.net",
+        "port": 1900,
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:39:47.783Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1831.9885819999909,
+            "ttfb_ms": 373.70754699999816,
+            "mbps": 4.5789630363537075,
+            "exit_ip": "221.145.124.126",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:00.439Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1972.0927919999958,
+            "ttfb_ms": 396.77676199999405,
+            "mbps": 4.2536578572921515,
+            "exit_ip": "221.145.124.126",
+            "country_code": "KR",
+            "colo": "ICN",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:24.729Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3264,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "221.145.124.126",
+            "country_code": "KR",
+            "asn": {
+              "asn": 4766,
+              "org": "Korea Telecom"
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "221.145.124.126",
+              "country_code": "KR",
+              "asn": 4766,
+              "org": "Korea Telecom",
+              "latency_ms": 3264,
+              "observed_at": "2026-10-25T09:39:51.047Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "221.145.124.126",
+              "latency_ms": 2665,
+              "observed_at": "2026-10-25T09:39:53.712Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "221.145.124.126",
+              "latency_ms": 2676,
+              "observed_at": "2026-10-25T09:39:56.388Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "221.145.124.126",
+          "latency_ms": 2644,
+          "observed_at": "2026-10-25T09:40:27.373Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:40:27.373Z",
+        "elapsed_ms": 39590,
+        "usable": true,
+        "min_download_mbps": 4.2536578572921515,
+        "max_download_mbps": 4.5789630363537075,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn214335136.opengw.net",
+        "port": 1591,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:41:06.984Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1719.7663389999943,
+            "ttfb_ms": 378.75255400000606,
+            "mbps": 4.87776031532155,
+            "exit_ip": "60.110.16.61",
+            "country_code": "JP",
+            "colo": "KIX",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:18.800Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 2005.3995419999992,
+            "ttfb_ms": 668.4663009999786,
+            "mbps": 4.183010828672067,
+            "exit_ip": "60.110.16.61",
+            "country_code": "JP",
+            "colo": "KIX",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 10,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:41:43.011Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 3064,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "60.110.16.61",
+            "country_code": "JP",
+            "asn": {
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "60.110.16.61",
+              "country_code": "JP",
+              "asn": 17676,
+              "org": "Japan Nation-wide Network of Softbank Corp.",
+              "latency_ms": 3064,
+              "observed_at": "2026-10-25T09:41:10.048Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 1,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "60.110.16.61",
+              "latency_ms": 2604,
+              "observed_at": "2026-10-25T09:41:12.652Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "60.110.16.61",
+              "latency_ms": 2233,
+              "observed_at": "2026-10-25T09:41:14.885Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "60.110.16.61",
+          "latency_ms": 2735,
+          "observed_at": "2026-10-25T09:41:45.746Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:41:45.746Z",
+        "elapsed_ms": 38762,
+        "usable": true,
+        "min_download_mbps": 4.183010828672067,
+        "max_download_mbps": 4.87776031532155,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      },
+      {
+        "host": "vpn255478470.opengw.net",
+        "port": 1795,
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot",
+        "started_at": "2026-10-25T09:39:49.330Z",
+        "downloads": [
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 2431.883658999999,
+            "ttfb_ms": 447.7136290000053,
+            "mbps": 3.4494281701985,
+            "exit_ip": "118.87.181.254",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:01.516Z"
+          },
+          {
+            "bytes": 1048576,
+            "elapsed_ms": 1968.4454840000108,
+            "ttfb_ms": 372.82023599999957,
+            "mbps": 4.261539406696596,
+            "exit_ip": "118.87.181.254",
+            "country_code": "JP",
+            "colo": "NRT",
+            "certificate_verified": true,
+            "same_tls_connection": true,
+            "transport_diagnostics": {
+              "duplicate_segments": 0,
+              "overlap_segments": 0,
+              "out_of_order_segments": 0,
+              "buffer_limit_drops": 0,
+              "window_scale_requested": 2,
+              "window_scaling_negotiated": true
+            },
+            "observed_at": "2026-10-25T09:40:25.606Z"
+          }
+        ],
+        "attempts": 6,
+        "verified_sessions": 6,
+        "identity": {
+          "success": true,
+          "responseTime": 2892,
+          "evidence": "SSTP tunnel to two certificate-validated independent HTTPS exit services",
+          "exit": {
+            "ip": "118.87.181.254",
+            "country_code": "JP",
+            "asn": {
+              "asn": 4721,
+              "org": "JCOM Co., Ltd."
+            }
+          },
+          "observations": [
+            {
+              "observer": "ipwhois",
+              "ip": "118.87.181.254",
+              "country_code": "JP",
+              "asn": 4721,
+              "org": "JCOM Co., Ltd.",
+              "latency_ms": 2892,
+              "observed_at": "2026-10-25T09:39:52.222Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "118.87.181.254",
+              "latency_ms": 2508,
+              "observed_at": "2026-10-25T09:39:54.731Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            },
+            {
+              "observer": "ipify",
+              "ip": "118.87.181.254",
+              "latency_ms": 2178,
+              "observed_at": "2026-10-25T09:39:56.909Z",
+              "certificate_verified": true,
+              "transport_diagnostics": {
+                "duplicate_segments": 0,
+                "overlap_segments": 0,
+                "out_of_order_segments": 0,
+                "buffer_limit_drops": 0,
+                "window_scale_requested": 0,
+                "window_scaling_negotiated": false
+              }
+            }
+          ],
+          "stability": {
+            "successful_observations": 3,
+            "total_observations": 3,
+            "same_exit": true,
+            "long_term": "unknown"
+          }
+        },
+        "final_exit": {
+          "observer": "ipify",
+          "ip": "118.87.181.254",
+          "latency_ms": 2232,
+          "observed_at": "2026-10-25T09:40:27.838Z",
+          "certificate_verified": true,
+          "transport_diagnostics": {
+            "duplicate_segments": 0,
+            "overlap_segments": 0,
+            "out_of_order_segments": 0,
+            "buffer_limit_drops": 0,
+            "window_scale_requested": 0,
+            "window_scaling_negotiated": false
+          }
+        },
+        "finished_at": "2026-10-25T09:40:27.838Z",
+        "elapsed_ms": 38508,
+        "usable": true,
+        "min_download_mbps": 3.4494281701985,
+        "max_download_mbps": 4.261539406696596,
+        "short_term_stable": true,
+        "meets_5mbps_target": false,
+        "long_term_stability": "unknown"
+      }
+    ],
+    "health": {
+      "time": "2026-10-25T09:38:31.608Z",
+      "http": 200,
+      "service": "gate-performance-checker",
+      "configured": true,
+      "backend": "isolated-node-sstp",
+      "max_candidates": 10,
+      "max_concurrency": 2
+    },
+    "official_feed": {
+      "url": "https://www.vpngate.net/api/iphone/",
+      "status": "not_requested_historical_revalidation_only"
+    },
+    "candidate_manifest": "candidates/expand-20261025-03.json",
+    "selected_candidates": [
+      {
+        "host": "vpn652104780.opengw.net",
+        "port": 995,
+        "entry_ip": "220.84.76.63",
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn696208175.opengw.net",
+        "port": 1976,
+        "entry_ip": "180.23.140.247",
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn679130016.opengw.net",
+        "port": 995,
+        "entry_ip": "218.155.138.169",
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn161109829.opengw.net",
+        "port": 1305,
+        "entry_ip": "126.116.210.146",
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn496179734.opengw.net",
+        "port": 1900,
+        "entry_ip": "221.145.124.126",
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn255478470.opengw.net",
+        "port": 1795,
+        "entry_ip": "118.87.181.254",
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn731714666.opengw.net",
+        "port": 1951,
+        "entry_ip": "125.240.229.103",
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn550892612.opengw.net",
+        "port": 1837,
+        "entry_ip": "143.189.192.65",
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn237445464.opengw.net",
+        "port": 1324,
+        "entry_ip": "220.92.236.98",
+        "source_country_code": "KR",
+        "candidate_origin": "official_source_snapshot"
+      },
+      {
+        "host": "vpn214335136.opengw.net",
+        "port": 1591,
+        "entry_ip": "60.110.16.61",
+        "source_country_code": "JP",
+        "candidate_origin": "official_source_snapshot"
+      }
+    ],
+    "checked": 10,
+    "usable": 10,
+    "stable": 10,
+    "fast": 3,
+    "note": "Measurements originate from the Actions runner. Short repetition and small downloads do not establish long-term stability or the user network speed. Historical risk is not a current reputation check.",
+    "finished_at": "2026-10-25T09:41:45.747Z"
+  }
+}
