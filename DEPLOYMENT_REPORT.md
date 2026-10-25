@@ -1,5 +1,17 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
+**Current working subscription:**
+https://renatirudy246-maker.github.io/gate-test/clash-openvpn.yaml
+
+See `DIRECT_OPENVPN_RESULT_20261025.md`: native Mihomo OpenVPN validation on
+isolated Linux Actions tested 58 distinct entrances, completed 44, qualified
+36 for speed/stability, and published the fastest 35 distinct actual exits
+(JP 16, KR 19). Actual HTTPS download and the user's installed Mihomo v1.19.32
+syntax check passed. No Cloudflare relay, production resource or Windows
+network change was involved. The Cloudflare project block remains unresolved.
+
+## Earlier stages — historical records
+
 Latest performance objective: see `PERFORMANCE_RESULT_20261025.md`. The user now
 prioritizes availability and throughput over residential purity. Six historical
 entries were revalidated; the final measured run 40179946727 found four fully

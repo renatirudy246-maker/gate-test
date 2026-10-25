@@ -1,4 +1,34 @@
-# gate-test: isolated manual SSTP experiment
+# gate-test: independent VPN Gate tests
+
+## Published direct OpenVPN subscription — 2026-10-25
+
+[Clash / Mihomo subscription](https://renatirudy246-maker.github.io/gate-test/clash-openvpn.yaml)
+
+**35 independently observed exits: 16 Japan, 19 South Korea.** Two manual
+Actions runs tested 58 distinct OpenVPN entrances; 44 completed all checks and
+36 met the current speed/stability gate. The fastest 35 distinct exits are
+published. Each was checked through native Mihomo v1.19.32 using ipwho.is,
+ipify, Cloudflare trace and two 1-MiB HTTPS downloads at least 20 seconds apart.
+29 selected exits exceeded 5 Mbps in both rounds. Long-term stability and
+current reputation remain unknown.
+
+Mihomo connects directly to the public VPN Gate OpenVPN TCP gateway. GitHub
+Pages only hosts this static configuration; no Cloudflare relay is involved.
+The download contains publicly distributed VPN Gate client certificates/keys
+from the official source, **no private user or Cloudflare credentials**.
+It includes no DNS, TUN, interface, mixed-port or controller settings.
+The published download passed the user's installed Mihomo v1.19.32 `-t` check.
+Nothing was imported into or activated in the existing Clash setup.
+
+See [actual measurements and limits](DIRECT_OPENVPN_RESULT_20261025.md) and
+[selected exits CSV](reports/clash-direct-openvpn-20261025.csv).
+The Cloudflare test project remains blocked; it was not redeployed or replaced.
+Updates are manual only, without any schedule.
+
+## Earlier SSTP / residential-only experiment
+
+The following records describe the original stricter pipeline. They do not
+describe the independent OpenVPN performance subscription above.
 
 This repository owns only `gate-checker-test`, Pages project `edgetunnel-test`,
 KV `EDGETUNNEL_TEST_KV`, and this repository's GitHub Pages/Actions resources.

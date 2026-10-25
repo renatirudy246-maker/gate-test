@@ -1,0 +1,11 @@
+{
+  "url": "https://renatirudy246-maker.github.io/gate-test/clash-openvpn.yaml",
+  "http": 200,
+  "tls_verified": true,
+  "nodes": 35,
+  "sha256": "cb0e2c5a6f774eb45ce748ff098f7b48b93b6e694cf3fda3cc66e254e4b44131",
+  "bytes": 187819,
+  "verified_at": "2026-10-25T10:37:04.800184+00:00",
+  "installed_mihomo_version": "v1.19.32",
+  "installed_mihomo_config_test": "passed; isolated -t only; no proxy listener or import"
+}
