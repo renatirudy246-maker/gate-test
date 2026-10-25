@@ -19,6 +19,9 @@ try {
     deployment:p.canonical_deployment&&{id:p.canonical_deployment.id,url:p.canonical_deployment.url,created_on:p.canonical_deployment.created_on,status:p.canonical_deployment.latest_stage?.status},
     environments:Object.fromEntries(Object.entries(p.deployment_configs||{}).map(([name,c])=>[name,{compatibility_date:c.compatibility_date,compatibility_flags:c.compatibility_flags,kv:c.kv_namespaces,env_var_types:Object.fromEntries(Object.entries(c.env_vars||{}).map(([k,v])=>[k,v.type]))}]))};
   if(report.domains.some(d=>!d.endsWith('.pages.dev')))throw Error('Unexpected custom domain on test project');
+  const dr=await fetch(base+'/deployments?per_page=3',{headers:{Authorization:`Bearer ${auth.token}`},dispatcher,signal:AbortSignal.timeout(20000)});
+  const dj=await dr.json();
+  if(dr.ok&&dj.success)report.latest_deployments=dj.result.map(d=>({id:d.id,created_on:d.created_on,environment:d.environment,stage:d.latest_stage?.name,status:d.latest_stage?.status}));
   await mkdir('diagnostics/subscription',{recursive:true});
   const output='diagnostics/subscription/'+(process.argv[3]==='after'?'after':'before')+'.json';
   let exists=false;try{await access(output);exists=true;}catch{}

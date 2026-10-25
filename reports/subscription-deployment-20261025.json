@@ -1,0 +1,135 @@
+{
+  "before": {
+    "time": "2026-10-25T09:57:53.236Z",
+    "account": "e5a0857508f37d031d9137c3ecec80e3",
+    "project": "edgetunnel-test",
+    "domains": [
+      "edgetunnel-test-4pz.pages.dev"
+    ],
+    "production_branch": "main",
+    "deployment": {
+      "id": "5e84ea9d-bd15-4f40-abe4-fa370d32cc57",
+      "url": "https://5e84ea9d.edgetunnel-test-4pz.pages.dev",
+      "created_on": "2026-10-24T21:02:21.988841Z",
+      "status": "success"
+    },
+    "environments": {
+      "preview": {
+        "compatibility_date": "2026-10-24",
+        "compatibility_flags": [],
+        "kv": {
+          "KV": {
+            "namespace_id": "9bd2a387ba5647acba9a3d27c5327444"
+          }
+        },
+        "env_var_types": {
+          "ADMIN": "secret_text",
+          "DEBUG": "plain_text",
+          "KEY": "secret_text",
+          "NODES_URL": "plain_text",
+          "OFF_LOG": "plain_text",
+          "SUB_TOKEN": "secret_text",
+          "UUID": "secret_text"
+        }
+      },
+      "production": {
+        "compatibility_date": "2026-10-24",
+        "compatibility_flags": [],
+        "kv": {
+          "KV": {
+            "namespace_id": "9bd2a387ba5647acba9a3d27c5327444"
+          }
+        },
+        "env_var_types": {
+          "ADMIN": "secret_text",
+          "DEBUG": "plain_text",
+          "KEY": "secret_text",
+          "NODES_URL": "plain_text",
+          "OFF_LOG": "plain_text",
+          "SUB_TOKEN": "secret_text",
+          "UUID": "secret_text"
+        }
+      }
+    }
+  },
+  "after": {
+    "time": "2026-10-25T10:07:21.018Z",
+    "account": "e5a0857508f37d031d9137c3ecec80e3",
+    "project": "edgetunnel-test",
+    "domains": [
+      "edgetunnel-test-4pz.pages.dev"
+    ],
+    "production_branch": "main",
+    "deployment": {
+      "id": "5e84ea9d-bd15-4f40-abe4-fa370d32cc57",
+      "url": "https://5e84ea9d.edgetunnel-test-4pz.pages.dev",
+      "created_on": "2026-10-24T21:02:21.988841Z",
+      "status": "success"
+    },
+    "environments": {
+      "preview": {
+        "compatibility_date": "2026-10-24",
+        "compatibility_flags": [],
+        "kv": {
+          "KV": {
+            "namespace_id": "9bd2a387ba5647acba9a3d27c5327444"
+          }
+        },
+        "env_var_types": {
+          "ADMIN": "secret_text",
+          "DEBUG": "plain_text",
+          "KEY": "secret_text",
+          "NODES_URL": "plain_text",
+          "OFF_LOG": "plain_text",
+          "SUB_TOKEN": "secret_text",
+          "UUID": "secret_text"
+        }
+      },
+      "production": {
+        "compatibility_date": "2026-10-24",
+        "compatibility_flags": [],
+        "kv": {
+          "KV": {
+            "namespace_id": "9bd2a387ba5647acba9a3d27c5327444"
+          }
+        },
+        "env_var_types": {
+          "ADMIN": "secret_text",
+          "DEBUG": "plain_text",
+          "IMPORT_TOKEN": "secret_text",
+          "KEY": "secret_text",
+          "NODES_URL": "plain_text",
+          "OFF_LOG": "plain_text",
+          "SUB_TOKEN": "secret_text",
+          "UUID": "secret_text"
+        }
+      }
+    },
+    "latest_deployments": [
+      {
+        "id": "5e84ea9d-bd15-4f40-abe4-fa370d32cc57",
+        "created_on": "2026-10-24T21:02:21.988841Z",
+        "environment": "production",
+        "stage": "deploy",
+        "status": "success"
+      }
+    ]
+  },
+  "live_health": {
+    "time": "2026-10-25T10:08:07.679Z",
+    "http": 200,
+    "service": "edgetunnel-test",
+    "configured": true,
+    "node_count": null,
+    "import_configured": null
+  },
+  "deployment_result": {
+    "activated": false,
+    "error_code": 8000119,
+    "error_message": "Your Pages project has been blocked. Contact abusereply@cloudflare.com.",
+    "error_time_utc": "2026-10-25T10:06:17/10:06:26",
+    "code_commit": "1ee685cac7fd0ccd0d2bf96952d843b0b0fb6d2b"
+  },
+  "end_to_end_test_executed": false,
+  "support_appeal_sent": false
+}
