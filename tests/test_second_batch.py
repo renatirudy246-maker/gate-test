@@ -1,4 +1,3 @@
-import copy
 import json
 import tempfile
 import unittest
@@ -144,6 +143,24 @@ class SecondBatchSelectionTests(unittest.TestCase):
         self.assertEqual(len(excluded), 10)
         self.assertIn(('vpn622613092.opengw.net',1496), excluded)  # Failed in batch one.
         self.assertIn(('vpn258563631.opengw.net',1423), excluded)  # Failed TLS in batch one.
+
+    def test_source_timeout_retains_exclusion_evidence_and_never_scans(self):
+        with tempfile.TemporaryDirectory() as directory:
+            with patch.dict(gate.os.environ, {'CHECK_WORKER':'https://test.workers.dev/check', 'CHECK_TOKEN':'unit-test-only',
+                                             'EXCLUDE_REPORTS':'reports/node-scan-40136541061.json', 'SCAN_BATCH':'second'}), \
+                    patch.object(gate, 'PUBLIC', Path(directory)/'public'), patch.object(gate, 'DIAGNOSTICS', Path(directory)/'diagnostics'), \
+                    patch.object(gate, 'verify_checker_health'), patch.object(gate.requests, 'get', side_effect=gate.requests.ConnectTimeout()), \
+                    patch.object(gate, 'parse_candidates') as parse, patch.object(gate, 'check_one') as check:
+                self.assertEqual(gate.main(), 1)
+                report = json.loads((Path(directory)/'diagnostics/run.json').read_text())
+                self.assertEqual(report['checked'], 0)
+                self.assertEqual(report['excluded_prior_nodes'], 10)
+                self.assertEqual(report['source'], gate.SOURCE)
+                self.assertEqual(report['error'], 'ConnectTimeout')
+                self.assertFalse(report['published'])
+                self.assertFalse((Path(directory)/'public').exists())
+                parse.assert_not_called()
+                check.assert_not_called()
 
 
 if __name__ == '__main__':

@@ -1,5 +1,13 @@
 # Independent test deployment: 2026-10-25 (Asia/Shanghai)
 
+Latest second-batch attempt: see `BATCH2_RESULT_20261025.md`. Residential-only
+publication now requires explicit allocation evidence, all seven Proxycheck
+flags false and a score of 0-25. All ten prior attempts (including failures)
+are excluded and balanced selection is tested. Actions 40144734339 passed
+actual detector health but hit ConnectTimeout fetching the official feed:
+zero nodes scanned, no publication and no third batch. No Cloudflare or system
+network resource was changed.
+
 Latest real scan: see `NODE_SCAN_RESULT_20261025.md`. A bounded Actions-only Node
 SSTP backend passed actual HTTP health checks and scanned ten candidates: six
 authenticated repeated exits, two explicitly residential allocations, but all

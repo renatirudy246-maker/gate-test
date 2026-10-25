@@ -300,7 +300,8 @@ def build_nodes_text(results, edge):
 
 def main():
     report = {'started_at': utcnow(), 'status': 'failed', 'results': [], 'published': False,
-              'checked': 0, 'success': 0, 'crosschecked': 0, 'qualified': 0, 'qualified_residential': 0}
+              'checked': 0, 'success': 0, 'crosschecked': 0, 'qualified': 0, 'qualified_residential': 0,
+              'source': SOURCE, 'batch': os.environ.get('SCAN_BATCH')}
     try:
         report['target_countries'] = sorted(target_countries())
         checker, token = os.environ.get('CHECK_WORKER', ''), os.environ.get('CHECK_TOKEN', '')
@@ -319,13 +320,13 @@ def main():
         verify_checker_health(checker)
         exclusion_paths = [ROOT / path.strip() for path in os.environ.get('EXCLUDE_REPORTS', '').split(',') if path.strip()]
         excluded = load_excluded_nodes(exclusion_paths)
+        report.update(exclusion_reports=[str(path.relative_to(ROOT)) for path in exclusion_paths], excluded_prior_nodes=len(excluded))
         response = requests.get(SOURCE, timeout=30, allow_redirects=False)
         response.raise_for_status()
         all_candidates = parse_candidates(response.text)
         candidates, available = select_candidates(all_candidates, limit, excluded)
         report.update(source=SOURCE, source_candidates=len(all_candidates), checked=len(candidates), concurrency=concurrency,
-                      batch=os.environ.get('SCAN_BATCH'), exclusion_reports=[str(path.relative_to(ROOT)) for path in exclusion_paths],
-                      excluded_prior_nodes=len(excluded), eligible_unseen_by_advertised_country=available,
+                      eligible_unseen_by_advertised_country=available,
                       selected_advertised_countries=dict(Counter(node['source_country_code'] for node in candidates)),
                       selected_candidates=candidates)
         if not candidates:

@@ -1,0 +1,36 @@
+{
+  "workflow_url": "https://github.com/renatirudy246-maker/gate-test/actions/runs/40144734339",
+  "executed_commit": "4bdae8c7a3359753ad17f44642fd202124a4da6b",
+  "raw_run_sha256": "ddd9b6a918e27c069b01d48ca436fa82f21c4577a6d8d906b2b10080be005187",
+  "raw_run": {
+    "started_at": "2026-10-24T23:56:46.825410+00:00",
+    "status": "failed",
+    "results": [],
+    "published": false,
+    "checked": 0,
+    "success": 0,
+    "crosschecked": 0,
+    "qualified": 0,
+    "qualified_residential": 0,
+    "target_countries": [
+      "JP",
+      "KR",
+      "SG",
+      "US"
+    ],
+    "error": "ConnectTimeout",
+    "finished_at": "2026-10-25T00:00:47.226535+00:00"
+  },
+  "actual_node_health": {
+    "time": "2026-10-24T23:56:46.686Z",
+    "http": 200,
+    "service": "gate-checker-test",
+    "backend": "isolated-node-sstp",
+    "configured": true,
+    "max_candidates": 10,
+    "max_concurrency": 2
+  },
+  "validated_exclusion_count": 10,
+  "fresh_candidates_obtained": false,
+  "note": "No candidate was scanned. Country distribution, allocation, risk and connection latency are unmeasured; zero counts do not prove no qualifying residential exits exist."
+}
