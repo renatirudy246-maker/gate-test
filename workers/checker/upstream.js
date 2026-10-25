@@ -1290,13 +1290,48 @@ function createSstpClient(proxy) {
 	};
 }
 
-function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort) {
+// Sequence-aware delivery: retransmissions must never enter a TLS stream twice.
+export function createSstpReceiveQueue(initialSequence, byteLimit = 65535) {
+	let next = initialSequence >>> 0;
+	const pending = [];
+	let buffered = 0;
+	const stats = { duplicate_segments: 0, overlap_segments: 0, out_of_order_segments: 0, buffer_limit_drops: 0 };
+	const accept = (sequence, payload, fin = false) => {
+		const start = sequence >>> 0;
+		const distance = (start - next) | 0;
+		if (distance > 0) stats.out_of_order_segments++;
+		if (distance < 0 && -distance >= payload.byteLength && !fin) stats.duplicate_segments++;
+		if (distance < 0 && -distance < payload.byteLength) stats.overlap_segments++;
+		const duplicate = pending.some(p => p.sequence === start && p.payload.byteLength >= payload.byteLength && (!fin || p.fin));
+		if (!duplicate && (distance >= 0 || -distance < payload.byteLength || (fin && ((start + payload.byteLength) >>> 0) === next))) {
+			if (buffered + payload.byteLength <= byteLimit && pending.length < 256) {
+				pending.push({ sequence: start, payload: new Uint8Array(payload), fin }); buffered += payload.byteLength;
+			} else stats.buffer_limit_drops++;
+		}
+		const chunks = []; let finished = false;
+		for (;;) {
+			pending.sort((a,b) => ((a.sequence-next)|0) - ((b.sequence-next)|0));
+			const p = pending[0]; if (!p || ((p.sequence-next)|0) > 0) break;
+			pending.shift(); buffered -= p.payload.byteLength;
+			const skip = Math.min((next-p.sequence) >>> 0, p.payload.byteLength);
+			const bytes = p.payload.subarray(skip);
+			if (bytes.byteLength) { chunks.push(bytes); next = (next+bytes.byteLength) >>> 0; }
+			if (p.fin && ((p.sequence+p.payload.byteLength) >>> 0) === next) { finished = true; break; }
+		}
+		return { chunks, next, finished, needsAck: payload.byteLength > 0 || fin };
+	};
+	return { accept, stats };
+}
+
+export function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort, receiveWindowScale = 0) {
+	if (!Number.isInteger(receiveWindowScale) || receiveWindowScale < 0 || receiveWindowScale > 2) throw Error('Invalid bounded receive window scale');
 	const sourcePort = 10000 + (randomSstpUint16() % 50000);
 	const sourceAddress = ipv4ToBytes(sourceIp);
 	const destinationAddress = ipv4ToBytes(destinationIp);
 
 	let sequenceNumber = randomSstpUint32();
 	let acknowledgementNumber = 0;
+	let windowScalingNegotiated = false;
 
 	const ipHeaderTemplate = new Uint8Array(20);
 	ipHeaderTemplate.set([0x45, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 64, 6]);
@@ -1311,7 +1346,8 @@ function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort)
 	const buildTcpFrame = (flags, payload = SSTP_EMPTY_BYTES) => {
 		const bytes = 数据转Uint8Array(payload);
 		const payloadLength = bytes.byteLength;
-		const tcpLength = 20 + payloadLength;
+		const options = (flags & 0x02) && receiveWindowScale ? new Uint8Array([2,4,5,120,1,3,3,receiveWindowScale]) : SSTP_EMPTY_BYTES;
+		const tcpLength = 20 + options.byteLength + payloadLength;
 		const ipLength = 20 + tcpLength;
 		const sstpLength = 8 + ipLength;
 		const frame = new Uint8Array(sstpLength);
@@ -1327,10 +1363,11 @@ function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort)
 		view.setUint16(30, destinationPort);
 		view.setUint32(32, sequenceNumber);
 		view.setUint32(36, acknowledgementNumber);
-		frame[40] = 0x50;
+		frame[40] = ((20+options.byteLength)/4) << 4;
 		frame[41] = flags;
 		view.setUint16(42, 65535);
-		if (payloadLength) frame.set(bytes, 48);
+		if (options.byteLength) frame.set(options, 48);
+		if (payloadLength) frame.set(bytes, 48+options.byteLength);
 
 		tcpPseudoHeader[10] = tcpLength >> 8;
 		tcpPseudoHeader[11] = tcpLength & 0xff;
@@ -1342,13 +1379,18 @@ function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort)
 	const matchIncomingIpPacket = ipPacket => {
 		if (ipPacket.byteLength < 40 || ipPacket[9] !== 6) return null;
 		const ipHeaderLength = (ipPacket[0] & 0x0f) * 4;
-		if (ipPacket.byteLength < ipHeaderLength + 20) return null;
+		const totalLength = readSstpUint16(ipPacket, 2);
+		if (ipHeaderLength < 20 || totalLength > ipPacket.byteLength || totalLength < ipHeaderLength+20 || (readSstpUint16(ipPacket,6)&0x3fff)) return null;
+		const tcpHeaderLength = ((ipPacket[ipHeaderLength+12] >> 4)&0x0f)*4;
+		if (tcpHeaderLength < 20 || ipHeaderLength+tcpHeaderLength > totalLength) return null;
 		if (readSstpUint16(ipPacket, ipHeaderLength) !== destinationPort) return null;
 		if (readSstpUint16(ipPacket, ipHeaderLength + 2) !== sourcePort) return null;
 		return {
 			flags: ipPacket[ipHeaderLength + 13],
 			sequence: readSstpUint32(ipPacket, ipHeaderLength + 4),
-			payloadOffset: ipHeaderLength + ((ipPacket[ipHeaderLength + 12] >> 4) & 0x0f) * 4
+			payloadOffset: ipHeaderLength + tcpHeaderLength,
+			payloadEnd: totalLength,
+			options: ipPacket.subarray(ipHeaderLength+20,ipHeaderLength+tcpHeaderLength)
 		};
 	};
 
@@ -1365,6 +1407,12 @@ function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort)
 
 			const tcp = matchIncomingIpPacket(ppp.ipPacket);
 			if (!tcp || (tcp.flags & 0x12) !== 0x12) continue;
+			for (let offset=0; offset<tcp.options.length;) {
+				const kind=tcp.options[offset]; if(kind===0) break; if(kind===1){offset++;continue;}
+				const length=tcp.options[offset+1]; if(length<2 || offset+length>tcp.options.length) break;
+				if(kind===3 && length===3 && tcp.options[offset+2]<=14) windowScalingNegotiated=receiveWindowScale>0;
+				offset+=length;
+			}
 
 			acknowledgementNumber = (tcp.sequence + 1) >>> 0;
 			await withTimeout(sstp.writer.write(buildTcpFrame(0x10)), CONNECT_TIMEOUT_MS, 'SSTP TCP ACK write timed out');
@@ -1377,6 +1425,7 @@ function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort)
 		buildTcpFrame,
 		matchIncomingIpPacket,
 		handshake,
+		get windowScalingNegotiated() { return windowScalingNegotiated; },
 		get sequenceNumber() {
 			return sequenceNumber;
 		},
@@ -1392,7 +1441,7 @@ function createTcpOverPppSession(sstp, sourceIp, destinationIp, destinationPort)
 	};
 }
 
-export async function sstpConnect(proxy, targetHost, targetPort) {
+export async function sstpConnect(proxy, targetHost, targetPort, { receiveWindowScale = 0 } = {}) {
 	const sstp = createSstpClient(proxy);
 	let closedSettled = false;
 	let resolveClosed;
@@ -1419,8 +1468,11 @@ export async function sstpConnect(proxy, targetHost, targetPort) {
 			targetIpPromise
 		]);
 
-		const tcp = createTcpOverPppSession(sstp, sourceIp, targetIp, targetPort);
+		const tcp = createTcpOverPppSession(sstp, sourceIp, targetIp, targetPort, receiveWindowScale);
 		await tcp.handshake();
+		const receive = createSstpReceiveQueue(tcp.acknowledgementNumber, 65535 * (2 ** receiveWindowScale));
+		receive.stats.window_scale_requested = receiveWindowScale;
+		receive.stats.window_scaling_negotiated = tcp.windowScalingNegotiated;
 
 		/** @type {ReadableStreamDefaultController<Uint8Array> | null} */
 		let streamController = null;
@@ -1457,17 +1509,13 @@ export async function sstpConnect(proxy, targetHost, targetPort) {
 
 					const incoming = tcp.matchIncomingIpPacket(ppp.ipPacket);
 					if (!incoming) continue;
+					if (incoming.flags & 0x04) throw Error('Peer reset SSTP TCP stream');
+					const accepted = receive.accept(incoming.sequence, ppp.ipPacket.subarray(incoming.payloadOffset,incoming.payloadEnd), Boolean(incoming.flags&0x01));
+					tcp.acknowledgementNumber = accepted.next;
+					for (const payload of accepted.chunks) { pendingChunks.push(payload); pendingLength += payload.byteLength; }
+					if (accepted.needsAck && !accepted.chunks.length) sstp.writer.write(tcp.buildTcpFrame(0x10)).catch(() => {});
 
-					if (incoming.payloadOffset < ppp.ipPacket.byteLength) {
-						const payload = ppp.ipPacket.subarray(incoming.payloadOffset);
-						if (payload.byteLength) {
-							tcp.acknowledgementNumber = (incoming.sequence + payload.byteLength) >>> 0;
-							pendingChunks.push(new Uint8Array(payload));
-							pendingLength += payload.byteLength;
-						}
-					}
-
-					if (incoming.flags & 0x01) {
+					if (accepted.finished) {
 						flush();
 						tcp.acknowledgementNumber = (tcp.acknowledgementNumber + 1) >>> 0;
 						sstp.writer.write(tcp.buildTcpFrame(0x11)).catch(() => { });
@@ -1513,7 +1561,7 @@ export async function sstpConnect(proxy, targetHost, targetPort) {
 			}
 		});
 
-		return { readable, writable, closed, close };
+		return { readable, writable, closed, close, diagnostics: receive.stats };
 	} catch (error) {
 		close();
 		throw error;

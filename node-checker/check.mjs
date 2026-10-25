@@ -35,7 +35,7 @@ export async function observeExit(proxy, observer) {
       req.on('error', reject); req.end();
     });
     if (!secure?.authorized || typeof body.ip !== 'string' || body.success === false) throw Error('Unverified exit observation');
-    return { observer, ip: body.ip, country_code: body.country_code, asn: body.connection?.asn, org: body.connection?.org, latency_ms: Date.now() - started, observed_at: new Date().toISOString(), certificate_verified: true };
+    return { observer, ip: body.ip, country_code: body.country_code, asn: body.connection?.asn, org: body.connection?.org, latency_ms: Date.now() - started, observed_at: new Date().toISOString(), certificate_verified: true, transport_diagnostics: { ...tunnel.diagnostics } };
   } finally { agent.destroy(); bridge.destroy(); tunnel.close(); }
 }
 

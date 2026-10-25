@@ -29,7 +29,7 @@ try {
   console.log(JSON.stringify({ health:report.health.http, configured:report.health.configured }));
   // A source outage must not block revalidation of previously measured successes.
   const feedUrl = 'https://www.vpngate.net/api/iphone/'; let freshFile;
-  try {
+  if(process.env.INCLUDE_FRESH_CANDIDATES === 'true') try {
     const response = await fetch(feedUrl, { signal:AbortSignal.timeout(15000), redirect:'error' });
     if (!response.ok) throw Error('Official feed HTTP '+response.status);
     const chunks=[]; let length=0;
@@ -37,6 +37,7 @@ try {
     const data=Buffer.concat(chunks); freshFile='dist/performance-official.csv'; await writeFile(freshFile,data);
     report.official_feed={url:feedUrl,http:response.status,sha256:createHash('sha256').update(data).digest('hex'),fetched_at:new Date().toISOString()};
   } catch(error) { report.official_feed={url:feedUrl,status:'unavailable',error:error.name}; }
+  else report.official_feed={url:feedUrl,status:'not_requested_historical_revalidation_only'};
   let selection=spawnSync('python',['performance_candidates.py',...(freshFile?[freshFile]:[])],{encoding:'utf8',timeout:10000});
   if(selection.status!==0 && freshFile) { report.official_feed.parse_status='invalid'; selection=spawnSync('python',['performance_candidates.py'],{encoding:'utf8',timeout:10000}); }
   if(selection.status!==0) throw Error('Historical candidate selection failed');

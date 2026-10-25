@@ -33,7 +33,7 @@ export function summarizePerformance(result) {
 }
 async function speedRound(proxy, expected) {
   const host = 'speed.cloudflare.com';
-  const tunnel = await sstpConnect(proxy, host, 443);
+  const tunnel = await sstpConnect(proxy, host, 443, { receiveWindowScale: 2 });
   tunnel.closed.catch(() => {});
   const bridge = Duplex.fromWeb({ readable: tunnel.readable, writable: tunnel.writable });
   bridge.on('error', () => {});
@@ -79,7 +79,7 @@ async function speedRound(proxy, expected) {
     const download = await get(`/__down?bytes=${DOWNLOAD_BYTES}`, DOWNLOAD_BYTES, false);
     return { ...download, mbps: throughputMbps(download.bytes, download.elapsed_ms), exit_ip: trace.ip,
       country_code: trace.country_code, colo: trace.colo, certificate_verified: secure.authorized,
-      same_tls_connection: connectionCount === 1, observed_at: new Date().toISOString() };
+      same_tls_connection: connectionCount === 1, transport_diagnostics: { ...tunnel.diagnostics }, observed_at: new Date().toISOString() };
   } finally { agent.destroy(); bridge.destroy(); tunnel.close(); }
 }
 export async function benchmarkNode(node) {
